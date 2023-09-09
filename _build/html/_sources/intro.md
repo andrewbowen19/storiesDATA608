@@ -1,11 +1,11 @@
-# Welcome to your Jupyter Book
+# DATA 608: Knowledge and Visual Analytics
+Andrew Bowen
+City University of New York
+Data Science Master's Program
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+This [Jupyter Book](https://jupyterbook.org/en/stable/intro.html) houses my collection of data visualization projects (stories) for DATA 608: Knowledge and Visual Analytics. Each story is available from the sidebar menu or the table of contents below.
 
-Check out the content pages bundled with this sample book to see more.
 
+## Stories
 ```{tableofcontents}
 ```

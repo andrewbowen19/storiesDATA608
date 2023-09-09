@@ -4,4 +4,5 @@
 format: jb-book
 root: intro
 chapters:
+- file: one-page-bio
 - file: story1
