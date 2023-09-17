@@ -8,13 +8,9 @@ output: pdf_document
 
 ```{r setup, include=FALSE}
 library(tidyverse)
-library(devtools)
-install_github("mikeasilva/blsAPI")
-```
-
-
-```{r}
-library(blsAPI)
+library(httr)
+library(jsonlite)
+library(glue)
 ```
 
 
@@ -27,10 +23,29 @@ The BLS API has an [R wrapper](https://www.bls.gov/developers/api_r.htm) that al
 
 
 ```{r}
+url <- "https://api.bls.gov/publicAPI/v2/timeseries/popular?survey=AP"
+response <- GET(url)
 
-response <- blsAPI('LAUCN040010000000005') 
-json <- fromJSON(response) 
+response_txt <- content(response, "text", encoding = "UTF-8")
+json <- fromJSON(response_txt)
+
+json
+```
+## Getting CPI time series data
+
+```{r get cpi-time-series}
+# Call CPI data from BLS
+registration_key <- Sys.getenv("BLS_API_KEY")
+series_id <- 'APU0000706111'
+series_url <- glue("https://api.bls.gov/publicAPI/v2/timeseries/data/{series_id}?registrationky={registration_key}&startyear=2013&endyear=2023")
+
+response <- GET(series_url)
 ```
 
+```{r}
+# Format CPI data
+response_txt <- content(response, "text", encoding = "UTF-8")
+json <- fromJSON(response_txt, flatten = TRUE)
 
-
+cpi <- as.data.frame(json[[4]])$series.data
+```
