@@ -1,0 +1,35 @@
+---
+title: "Story 2"
+author: "Andrew Bowen"
+date: "2023-09-16"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(devtools)
+install_github("mikeasilva/blsAPI")
+```
+
+
+```{r}
+library(blsAPI)
+```
+
+
+## Data Sources
+
+- [New York Fed API](https://markets.newyorkfed.org/static/docs/markets-api.html#/)
+- [BLS Data API](https://www.bls.gov/developers/api_signature_v2.htm#single) - used for unemployment data
+
+The BLS API has an [R wrapper](https://www.bls.gov/developers/api_r.htm) that allows for easy data pulls from the API.
+
+
+```{r}
+
+response <- blsAPI('LAUCN040010000000005') 
+json <- fromJSON(response) 
+```
+
+
+

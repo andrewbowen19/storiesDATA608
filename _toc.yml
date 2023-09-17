@@ -6,3 +6,4 @@ root: intro
 chapters:
 - file: one-page-bio
 - file: story1
+- file: story2
