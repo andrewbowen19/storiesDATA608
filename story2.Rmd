@@ -4,6 +4,7 @@ author: "Andrew Bowen"
 date: "2023-09-16"
 output: pdf_document
 ---
+# Story 2
 
 ```{r setup, include=FALSE}
 library(tidyverse)
