@@ -11,8 +11,11 @@ library(tidyverse)
 library(httr)
 library(jsonlite)
 library(glue)
+library(lubridate)
 ```
 
+## Introduction
+Inflation and its economic effects have been in the news recently. The Fed's goal has been to curb inflation and maintain low unemployment. [The Phillips Curve](https://socialsci.libretexts.org/Bookshelves/Economics/Economics_(Boundless)/23%3A_Inflation_and_Unemployment/23.1%3A_The_Relationship_Between_Inflation_and_Unemployment#:~:text=The%20Phillips%20curve%20shows%20the%20inverse%20trade%2Doff%20between%20rates,low%2C%20inflation%20will%20be%20high.) is an economic principle stating the general negative relationship between these two variables.
 
 ## Data Sources
 
@@ -36,16 +39,86 @@ json
 ```{r get cpi-time-series}
 # Call CPI data from BLS
 registration_key <- Sys.getenv("BLS_API_KEY")
-series_id <- 'APU0000706111'
-series_url <- glue("https://api.bls.gov/publicAPI/v2/timeseries/data/{series_id}?registrationky={registration_key}&startyear=2013&endyear=2023")
+series_id <- 'APU0000702111'
+series_url <- glue("https://api.bls.gov/publicAPI/v2/timeseries/data/{series_id}?registrationkey={registration_key}")
 
 response <- GET(series_url)
 ```
 
-```{r}
+```{r message=FALSE}
 # Format CPI data
 response_txt <- content(response, "text", encoding = "UTF-8")
 json <- fromJSON(response_txt, flatten = TRUE)
 
-cpi <- as.data.frame(json[[4]])$series.data
+cpi <- as.data.frame(json[[4]])$series.data[[1]]
+head(cpi)
+```
+
+We'll need to pull an additional 5 years of CPI data
+```{r}
+series_url <= glue("https://api.bls.gov/publicAPI/v2/timeseries/data/{series_id}?registrationkey={registration_key}&startyear=1998&endyear=2003")
+response <- GET(series_url)
+response_txt <- content(response, "text", encoding = "UTF-8")
+json <- fromJSON(response_txt, flatten = TRUE)
+
+cpi_older <- as.data.frame(json[[4]])$series.data[[1]]
+```
+
+
+```{r}
+# Combining our CPI data
+cpi_df <- rbind(cpi, cpi_older)
+
+# Converting dates from BLS format
+cpi_df$date <- str_c(cpi_df$periodName," ", cpi_df$year)
+cpi_df$date <- myd(cpi_df$date, truncated=1)
+
+# cast types
+cpi_df$cpi <- as.double(cpi$value)
+```
+
+
+Now let's make a simple plot of our CPI data over time
+```{r}
+ggplot(cpi_df, aes(x=date, y=cpi)) + geom_line() + 
+  labs(x="Month", y="Consumer Price Index (CPI)", title="Consumer Price Index over Time - All US", subtitle="The CPI has shown a steady increase over the past few years post-COVID")
+```
+
+## Grabbing Interest Rate Data
+
+Grbabing interest rate data from the [St Louis Fed API (FRED)](https://fred.stlouisfed.org/docs/api/fred/). The [endpoint I'm using](https://fred.stlouisfed.org/series/FEDFUNDS) contains information about the Federal Effective Funds rate, which is the [interest rate charged to banks borrowing overnight to meet their reserve requirements](https://www.investopedia.com/terms/f/federalfundsrate.asp)
+
+```{r}
+# Use an environement variable for API token
+fed_api_key <- Sys.getenv("FED_API_KEY")
+url <- glue("https://api.stlouisfed.org/fred/series/observations?series_id=EFFR&api_key={fed_api_key}&file_type=json&frequency=m&observation_start=1998-08-01")
+
+# Pull data from FRED API
+fed_response <- GET(url)
+```
+
+Let's do some basic data wrangling of our FRED API response to get it into a good format for plotting
+```{r}
+# Write Response data to R dataframe
+fed_response_txt <- content(fed_response, "text", encoding = "UTF-8")
+fed_json <- json <- fromJSON(fed_response_txt, flatten = TRUE)
+fed <- fed_json$observations
+```
+
+
+Let's clean up our federal funds rate data
+```{r}
+# Convert types
+fed$date <- as.Date(fed$date)
+fed$rate <- as.double(fed$value)
+head(fed)
+```
+
+
+
+
+```{r}
+# Plotting Federal Funds Rate over time
+ggplot(fed, aes(x=date, y=rate)) + 
+  geom_line() + labs(y="Federal Funds Rate", x="Month", title ="Effective Federal Funds Rate over Time")
 ```
