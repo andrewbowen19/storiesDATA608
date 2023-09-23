@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Data Sources &#8212; DATA 608 - Knowledge and Visual Analytics</title>
+    <title>Story 2 &#8212; DATA 608 - Knowledge and Visual Analytics</title>
   
   
   
@@ -152,7 +152,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="one-page-bio.html">One Page Bio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="story1.html">Story 1</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Sources</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Story 2</a></li>
 </ul>
 
     </div>
@@ -323,7 +323,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -334,11 +336,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data Sources</h1>
+    <h1>Story 2</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-cpi-time-series-data">Getting CPI time series data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grabbing-interest-rate-data">Grabbing Interest Rate Data</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -348,15 +361,14 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">blsAPI</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="story-2">
+<h1>Story 2<a class="headerlink" href="#story-2" title="Permalink to this headline">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<p>Inflation and its economic effects have been in the news recently. The Fed’s goal has been to curb inflation and maintain low unemployment. <a class="reference external" href="https://socialsci.libretexts.org/Bookshelves/Economics/Economics_(Boundless)/23%3A_Inflation_and_Unemployment/23.1%3A_The_Relationship_Between_Inflation_and_Unemployment#:~:text=The%20Phillips%20curve%20shows%20the%20inverse%20trade%2Doff%20between%20rates,low%2C%20inflation%20will%20be%20high.">The Phillips Curve</a> is an economic principle stating the general negative relationship between these two variables.</p>
+</section>
 <section id="data-sources">
-<h1>Data Sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">#</a></h1>
+<h2>Data Sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://markets.newyorkfed.org/static/docs/markets-api.html#/">New York Fed API</a></p></li>
 <li><p><a class="reference external" href="https://www.bls.gov/developers/api_signature_v2.htm#single">BLS Data API</a> - used for unemployment data</p></li>
@@ -364,12 +376,129 @@ document.write(`
 <p>The BLS API has an <a class="reference external" href="https://www.bls.gov/developers/api_r.htm">R wrapper</a> that allows for easy data pulls from the API.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">&lt;-</span> <span class="n">blsAPI</span><span class="p">(</span><span class="s1">&#39;LAUCN040010000000005&#39;</span><span class="p">)</span> 
-<span class="n">json</span> <span class="o">&lt;-</span> <span class="n">fromJSON</span><span class="p">(</span><span class="n">response</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">&lt;-</span> <span class="s2">&quot;https://api.bls.gov/publicAPI/v2/timeseries/popular?survey=AP&quot;</span>
+<span class="n">response</span> <span class="o">&lt;-</span> <span class="n">GET</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="n">response_txt</span> <span class="o">&lt;-</span> <span class="n">content</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span>
+<span class="n">json</span> <span class="o">&lt;-</span> <span class="n">fromJSON</span><span class="p">(</span><span class="n">response_txt</span><span class="p">)</span>
+
+<span class="n">json</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="getting-cpi-time-series-data">
+<h2>Getting CPI time series data<a class="headerlink" href="#getting-cpi-time-series-data" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Call CPI data from BLS</span>
+<span class="n">registration_key</span> <span class="o">&lt;-</span> <span class="n">Sys</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;BLS_API_KEY&quot;</span><span class="p">)</span>
+<span class="n">series_id</span> <span class="o">&lt;-</span> <span class="s1">&#39;APU0000702111&#39;</span>
+<span class="n">series_url</span> <span class="o">&lt;-</span> <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;https://api.bls.gov/publicAPI/v2/timeseries/data/</span><span class="si">{series_id}</span><span class="s2">?registrationkey=</span><span class="si">{registration_key}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">&lt;-</span> <span class="n">GET</span><span class="p">(</span><span class="n">series_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Format CPI data
+response_txt &lt;- content(response, &quot;text&quot;, encoding = &quot;UTF-8&quot;)
+json &lt;- fromJSON(response_txt, flatten = TRUE)
+
+cpi &lt;- as.data.frame(json[[4]])$series.data[[1]]
+head(cpi)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ll need to pull an additional 5 years of CPI data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>series_url &lt;= glue(&quot;https://api.bls.gov/publicAPI/v2/timeseries/data/{series_id}?registrationkey={registration_key}&amp;startyear=1998&amp;endyear=2003&quot;)
+response &lt;- GET(series_url)
+response_txt &lt;- content(response, &quot;text&quot;, encoding = &quot;UTF-8&quot;)
+json &lt;- fromJSON(response_txt, flatten = TRUE)
+
+cpi_older &lt;- as.data.frame(json[[4]])$series.data[[1]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Combining our CPI data
+cpi_df &lt;- rbind(cpi, cpi_older)
+
+# Converting dates from BLS format
+cpi_df$date &lt;- str_c(cpi_df$periodName,&quot; &quot;, cpi_df$year)
+cpi_df$date &lt;- myd(cpi_df$date, truncated=1)
+
+# cast types
+cpi_df$cpi &lt;- as.double(cpi$value)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s make a simple plot of our CPI data over time</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">cpi_df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">date</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">cpi</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">()</span> <span class="o">+</span> 
+  <span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Month&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Consumer Price Index (CPI)&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Consumer Price Index over Time - All US&quot;</span><span class="p">,</span> <span class="n">subtitle</span><span class="o">=</span><span class="s2">&quot;The CPI has shown a steady increase over the past few years post-COVID&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="grabbing-interest-rate-data">
+<h2>Grabbing Interest Rate Data<a class="headerlink" href="#grabbing-interest-rate-data" title="Permalink to this headline">#</a></h2>
+<p>Grbabing interest rate data from the <a class="reference external" href="https://fred.stlouisfed.org/docs/api/fred/">St Louis Fed API (FRED)</a>. The <a class="reference external" href="https://fred.stlouisfed.org/series/FEDFUNDS">endpoint I’m using</a> contains information about the Federal Effective Funds rate, which is the <a class="reference external" href="https://www.investopedia.com/terms/f/federalfundsrate.asp">interest rate charged to banks borrowing overnight to meet their reserve requirements</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use an environement variable for API token</span>
+<span class="n">fed_api_key</span> <span class="o">&lt;-</span> <span class="n">Sys</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;FED_API_KEY&quot;</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">&lt;-</span> <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;https://api.stlouisfed.org/fred/series/observations?series_id=EFFR&amp;api_key=</span><span class="si">{fed_api_key}</span><span class="s2">&amp;file_type=json&amp;frequency=m&amp;observation_start=1998-08-01&quot;</span><span class="p">)</span>
+
+<span class="c1"># Pull data from FRED API</span>
+<span class="n">fed_response</span> <span class="o">&lt;-</span> <span class="n">GET</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s do some basic data wrangling of our FRED API response to get it into a good format for plotting</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Write Response data to R dataframe
+fed_response_txt &lt;- content(fed_response, &quot;text&quot;, encoding = &quot;UTF-8&quot;)
+fed_json &lt;- json &lt;- fromJSON(fed_response_txt, flatten = TRUE)
+fed &lt;- fed_json$observations
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s clean up our federal funds rate data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Convert types
+fed$date &lt;- as.Date(fed$date)
+fed$rate &lt;- as.double(fed$value)
+head(fed)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting Federal Funds Rate over time</span>
+<span class="n">ggplot</span><span class="p">(</span><span class="n">fed</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">date</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">rate</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="n">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;Federal Funds Rate&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Month&quot;</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span><span class="s2">&quot;Effective Federal Funds Rate over Time&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -421,6 +550,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-cpi-time-series-data">Getting CPI time series data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grabbing-interest-rate-data">Grabbing Interest Rate Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
