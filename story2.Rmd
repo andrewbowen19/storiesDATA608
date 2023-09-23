@@ -25,19 +25,13 @@ Inflation and its economic effects have been in the news recently. The Fed's goa
 The BLS API has an [R wrapper](https://www.bls.gov/developers/api_r.htm) that allows for easy data pulls from the API.
 
 ```{r}
+# Setting ZFed and BLS API Keys
 registration_key = Sys.getenv("BLS_API_KEY")
+fed_api_key <- Sys.getenv("FED_API_KEY")
 ```
 
 
-```{r}
-url <- "https://api.bls.gov/publicAPI/v2/timeseries/popular?survey=AP"
-response <- GET(url)
 
-response_txt <- content(response, "text", encoding = "UTF-8")
-json <- fromJSON(response_txt)
-
-json
-```
 ## Getting CPI time series data
 
 ```{r get cpi-time-series}
@@ -94,7 +88,6 @@ Grbabing interest rate data from the [St Louis Fed API (FRED)](https://fred.stlo
 
 ```{r}
 # Use an environement variable for API token
-fed_api_key <- Sys.getenv("FED_API_KEY")
 url <- glue("https://api.stlouisfed.org/fred/series/observations?series_id=EFFR&api_key={fed_api_key}&file_type=json&frequency=m&observation_start=1998-08-01")
 
 # Pull data from FRED API
@@ -114,15 +107,35 @@ Let's clean up our federal funds rate data
 ```{r}
 # Convert types
 fed$date <- as.Date(fed$date)
-fed$rate <- as.double(fed$value)
+fed$fed_fundsrate <- as.double(fed$value)
 head(fed)
 ```
 
 
-
+Now let's plot a simple time series of our federal funds rate date
 
 ```{r}
 # Plotting Federal Funds Rate over time
-ggplot(fed, aes(x=date, y=rate)) + 
-  geom_line() + labs(y="Federal Funds Rate", x="Month", title ="Effective Federal Funds Rate over Time")
+ggplot(fed, aes(x=date, y=fed_fundsratee)) + 
+  geom_line() + labs(y="Federal Funds Rate", x="Month", title ="Effective Federal Funds Rate over Time", substitle="Recent federal interest rates")
 ```
+
+## Unemployment Data
+
+I found a CSV file containing [seasonally adjusted unemployment data from BLS here](https://beta.bls.gov/dataViewer/view/timeseries/LNS14000000)
+
+```{r}
+unemployment <- read.csv("data/unemployment-bls.csv")
+```
+
+Let's wrangle the unemployment API data a bit
+```{r}
+head(unemployment)
+```
+
+Now we can join together our datasets to overlay the data points in a single panel plot
+
+```{r}
+
+```
+

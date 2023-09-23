@@ -376,6 +376,13 @@ document.write(`
 <p>The BLS API has an <a class="reference external" href="https://www.bls.gov/developers/api_r.htm">R wrapper</a> that allows for easy data pulls from the API.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">registration_key</span> <span class="o">=</span> <span class="n">Sys</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;BLS_API_KEY&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">&lt;-</span> <span class="s2">&quot;https://api.bls.gov/publicAPI/v2/timeseries/popular?survey=AP&quot;</span>
 <span class="n">response</span> <span class="o">&lt;-</span> <span class="n">GET</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
@@ -395,7 +402,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Call CPI data from BLS</span>
 <span class="n">registration_key</span> <span class="o">&lt;-</span> <span class="n">Sys</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;BLS_API_KEY&quot;</span><span class="p">)</span>
 <span class="n">series_id</span> <span class="o">&lt;-</span> <span class="s1">&#39;APU0000702111&#39;</span>
-<span class="n">series_url</span> <span class="o">&lt;-</span> <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;https://api.bls.gov/publicAPI/v2/timeseries/data/</span><span class="si">{series_id}</span><span class="s2">?registrationkey=</span><span class="si">{registration_key}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">series_url</span> <span class="o">&lt;-</span> <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;https://api.bls.gov/publicAPI/v2/timeseries/data/</span><span class="si">{series_id}</span><span class="s2">?registrationkey=</span><span class="si">{registration_key}</span><span class="s2">&amp;startyear=2003&amp;endyear=2023&quot;</span><span class="p">)</span>
 
 <span class="n">response</span> <span class="o">&lt;-</span> <span class="n">GET</span><span class="p">(</span><span class="n">series_url</span><span class="p">)</span>
 </pre></div>

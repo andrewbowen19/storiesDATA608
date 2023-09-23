@@ -24,6 +24,10 @@ Inflation and its economic effects have been in the news recently. The Fed's goa
 
 The BLS API has an [R wrapper](https://www.bls.gov/developers/api_r.htm) that allows for easy data pulls from the API.
 
+```{r}
+registration_key = Sys.getenv("BLS_API_KEY")
+```
+
 
 ```{r}
 url <- "https://api.bls.gov/publicAPI/v2/timeseries/popular?survey=AP"
@@ -40,7 +44,7 @@ json
 # Call CPI data from BLS
 registration_key <- Sys.getenv("BLS_API_KEY")
 series_id <- 'APU0000702111'
-series_url <- glue("https://api.bls.gov/publicAPI/v2/timeseries/data/{series_id}?registrationkey={registration_key}")
+series_url <- glue("https://api.bls.gov/publicAPI/v2/timeseries/data/{series_id}?registrationkey={registration_key}&startyear=2003&endyear=2023")
 
 response <- GET(series_url)
 ```
