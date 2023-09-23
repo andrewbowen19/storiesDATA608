@@ -12,6 +12,8 @@ library(httr)
 library(jsonlite)
 library(glue)
 library(lubridate)
+library(gridExtra)
+library(cowplot)
 ```
 
 ## Introduction
@@ -78,8 +80,8 @@ cpi_df$cpi <- as.double(cpi$value)
 
 Now let's make a simple plot of our CPI data over time
 ```{r}
-ggplot(cpi_df, aes(x=date, y=cpi)) + geom_line() + 
-  labs(x="Month", y="Consumer Price Index (CPI)", title="Consumer Price Index over Time - All US", subtitle="The CPI has shown a steady increase over the past few years post-COVID")
+cpi_plot <- ggplot(cpi_df, aes(x=date, y=cpi)) + geom_line() + 
+  labs(x="Month", y="CPI", title="Consumer Price Index over Time - All US", subtitle="The CPI has shown a steady increase over the past few years post-COVID")
 ```
 
 ## Grabbing Interest Rate Data
@@ -107,7 +109,7 @@ Let's clean up our federal funds rate data
 ```{r}
 # Convert types
 fed$date <- as.Date(fed$date)
-fed$fed_fundsrate <- as.double(fed$value)
+fed$fed_funds_rate <- as.double(fed$value)
 head(fed)
 ```
 
@@ -116,8 +118,9 @@ Now let's plot a simple time series of our federal funds rate date
 
 ```{r}
 # Plotting Federal Funds Rate over time
-ggplot(fed, aes(x=date, y=fed_fundsratee)) + 
-  geom_line() + labs(y="Federal Funds Rate", x="Month", title ="Effective Federal Funds Rate over Time", substitle="Recent federal interest rates")
+fed_rate_plot <- ggplot(fed, aes(x=date, y=fed_funds_rate)) + 
+  geom_line() + labs(y="Fed Funds Rate", x="Month", title ="Effective Federal Funds Rate over Time", substitle="Recent federal interest rates")
+fed_rate_plot
 ```
 
 ## Unemployment Data
@@ -133,9 +136,57 @@ Let's wrangle the unemployment API data a bit
 head(unemployment)
 ```
 
+Clwaning up our unemployment data before plotting
+```{r}
+unemployment$date <- as.Date(parse_date_time(unemployment$Label, order = "Ym"))
+unemployment$unemployment_rate <- unemployment$Value
+head(unemployment)
+```
+
+
+Let's quickly plot the US unemployment rate over time (1998 - 2003)
+```{r}
+unemployment_plot <- ggplot(unemployment, aes(x=date, y=unemployment_rate)) + geom_line() + 
+  labs(x="Month", y="Unemployment",
+       title="US Unemployment Rate 1998 - 2023",
+       subtitle="The post-COVID spike in unemployment has come back to earth")
+
+
+unemployment_plot
+```
+
+
+## Combining our Datasets
+
 Now we can join together our datasets to overlay the data points in a single panel plot
+```{r}
+dat <- merge(unemployment, fed, by=c("date", "date"))
+
+df <- merge(dat, cpi_df, by=c("date", "date"))
+```
+
+
+Let's plot the time series three variables of interest:
+
+- Consumer Price Index (CPI)
+- Unemployment Rate (%)
+- Federal Funds Rate
 
 ```{r}
+# Create Panel plot of our 3 metrics
+labels_removed <- labs(x= NULL, title=NULL, subtitle=NULL)
+plot_grid(unemployment_plot + labels_removed,
+             fed_rate_plot + labels_removed,
+             cpi_plot + labels_removed + labs(x="Month"),
+             nrow=3, rel_heights = c(1, 1, 1))
+```
 
+One time period 
+
+```{r}
+covid <- df %>% filter(date > date("2019-12-31"))
+
+unemp_covid <- ggplot(covid, aes(date, unemployment_rate)) + geom_line()
+unemp_covid
 ```
 
