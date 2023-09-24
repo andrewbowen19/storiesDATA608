@@ -1,0 +1,240 @@
+---
+title: "Story 2"
+author: "Andrew Bowen"
+date: "2023-09-16"
+output: pdf_document
+---
+# Story 2
+
+```{r,echo=FALSE, message=FALSE,warning=FALSE}
+# Set so that long lines in R will be wrapped:
+knitr::opts_chunk$set(tidy.opts=list(width.cutoff=80), tidy=TRUE)
+```
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(httr)
+library(jsonlite)
+library(glue)
+library(lubridate)
+library(gridExtra)
+library(cowplot)
+```
+
+## Introduction
+Inflation and its economic effects have been in the news recently. The Fed's goal has been to curb inflation (the general rise in the price of goods and services) and maintain a [low unemployment rate](https://www.investopedia.com/terms/u/unemployment.asp) -- the number of active job-seekers out of work. [The Phillips Curve](https://socialsci.libretexts.org/Bookshelves/Economics/Economics_(Boundless)/23%3A_Inflation_and_Unemployment/23.1%3A_The_Relationship_Between_Inflation_and_Unemployment#:~:text=The%20Phillips%20curve%20shows%20the%20inverse%20trade%2Doff%20between%20rates,low%2C%20inflation%20will%20be%20high.) is an economic principle stating the general negative relationship between these two variables. Simply put, economies with higher inflation tend to have lower unemployment, and vice versa.
+
+The Federal Reserve (Fed) is central bank of the United States, and is tasked with leveraging monetary policy to curb both these factors. This means the Fed can face the difficult choice of *either* reducing inflation *or* curbing unemployment. The main way the Fed can do this is via monetary policy, or the control of interest rates, which in theory can impact the amount of spending & investingment in an economy. Jerome Powell, the Federal Reserve chairman, has stated a goal of accomplishing both these goals, something that the Phillips curve states is impossible.
+
+In this RMarkdown notebook we'll take a look at interest rate, unemployment, and inflation data to see if the Fed has accomplished these goals. 
+
+## Data Sources
+We'll be using the API from the St Louis Federal Reserve forinterest rate data
+- [FRED API](https://fredhelp.stlouisfed.org/fred/about/about-fred/what-is-fred/) - 
+- [BLS Data API](https://www.bls.gov/developers/api_signature_v2.htm#single) - used for unemployment data as well as consumer price idnex data
+
+
+To use the above APIs, one needs to register for requisite API keys. You can learn more about [registering for the FRED API here](https://fred.stlouisfed.org/docs/api/api_key.html) and the [BLS API here](https://data.bls.gov/registrationEngine/). To follow best practices, I'll be setting my API keys as R environment variables within my local environment, and pulling the values below for my API calls. You can set your token via the R `Sys.setenv` built-in function.
+
+```{r get-api-keys}
+# Retrieve FRED and BLS API Keys
+registration_key = Sys.getenv("BLS_API_KEY")
+fed_api_key <- Sys.getenv("FED_API_KEY")
+```
+
+
+
+## Getting CPI time series data
+First we'll pull data on the Consumer Price Index (CPI) from the BLS API. [CPI is a measure of the general prices for a basket of goods at a given point in time](https://www.bls.gov/cpi/). As such, it can serve as a good proxy measure for inflation (the general increase of price for gods and services) within an economy.
+
+```{r get-cpi-time-series}
+# Call CPI data from BLS
+registration_key <- Sys.getenv("BLS_API_KEY")
+series_id <- 'APU0000702111'
+series_url <- glue("https://api.bls.gov/publicAPI/v2/timeseries/data/{series_id}?registrationkey={registration_key}&startyear=2003&endyear=2023")
+
+response <- GET(series_url)
+```
+
+```{r cpi-wrangling, message=FALSE}
+# Format CPI data
+response_txt <- content(response, "text", encoding = "UTF-8")
+json <- fromJSON(response_txt, flatten = TRUE)
+
+cpi <- as.data.frame(json[[4]])$series.data[[1]]
+head(cpi)
+```
+
+We'll need to pull an additional 5 years of CPI data to 
+```{r}
+series_url <= glue("https://api.bls.gov/publicAPI/v2/timeseries/data/{series_id}?registrationkey={registration_key}&startyear=1998&endyear=2003")
+response <- GET(series_url)
+response_txt <- content(response, "text", encoding = "UTF-8")
+json <- fromJSON(response_txt, flatten = TRUE)
+
+cpi_older <- as.data.frame(json[[4]])$series.data[[1]]
+```
+
+
+```{r}
+# Combining our CPI data
+cpi_df <- rbind(cpi, cpi_older)
+
+# Converting dates from BLS format
+cpi_df$date <- str_c(cpi_df$periodName," ", cpi_df$year)
+cpi_df$date <- myd(cpi_df$date, truncated=1)
+
+# cast types
+cpi_df$cpi <- as.double(cpi$value)
+```
+
+
+Now let's make a simple plot of our CPI data over time. With this scaling we can see a steady increase of prices since the start of 2020. 
+
+```{r}
+cpi_plot <- ggplot(cpi_df, aes(x=date, y=cpi)) + geom_line() + 
+  labs(x="Month", y="CPI", title="Consumer Price Index over Time - All US", subtitle="The CPI has shown a steady increase over the past few years post-COVID")
+
+cpi_plot
+```
+
+## Grabbing Interest Rate Data
+
+Grbabing interest rate data from the [St Louis Fed API (FRED)](https://fred.stlouisfed.org/docs/api/fred/). The [endpoint I'm using](https://fred.stlouisfed.org/series/FEDFUNDS) contains information about the Federal Effective Funds rate, which is the [interest rate charged to banks borrowing overnight to meet their reserve requirements](https://www.investopedia.com/terms/f/federalfundsrate.asp). This is often an economic lever the [Federal Reserve (Fed) can pull](https://www.nytimes.com/2023/09/19/business/economy/fed-meeting-interest-rates-inflation.html?searchResultPosition=2) in order to curb inflation or encourage spending in the economy.
+
+```{r}
+url <- glue("https://api.stlouisfed.org/fred/series/observations?series_id=EFFR&api_key={fed_api_key}&file_type=json&frequency=m&observation_start=1998-08-01")
+
+# Pull data from FRED API
+fed_response <- GET(url)
+```
+
+Let's do some basic data wrangling of our FRED API response to get it into a good format for plotting (i.e., an R `data.frame`)
+```{r wrangle-fed-response}
+# Wrangle response data into an R dataframe
+fed_response_txt <- content(fed_response, "text", encoding = "UTF-8")
+fed_json <- json <- fromJSON(fed_response_txt, flatten = TRUE)
+fed <- fed_json$observations
+```
+
+
+Let's clean up our federal funds rate data, we'll eventually want to merge this data with our CPI and Unemployment data, so consistent data typing will be needed
+```{r clean-fed-response, warning=FALSE}
+# Convert types to align to other datasets
+fed$date <- as.Date(fed$date)
+fed$fed_funds_rate <- as.double(fed$value)
+
+fed <- fed[, c("date", "fed_funds_rate")]
+head(fed, 5)
+```
+
+
+Now let's plot a simple time series of our federal funds rate date
+
+```{r plot-fed-funds-rate, warning=FALSE}
+# Plotting Federal Funds Rate over time
+fed_rate_plot <- ggplot(fed, aes(x=date, y=fed_funds_rate)) + 
+  geom_line() + labs(y="Fed Funds Rate", x="Month", title ="Effective Federal Funds Rate over Time", substitle="Recent federal interest rates")
+fed_rate_plot
+```
+
+## Unemployment Data
+
+I found a CSV file containing [seasonally adjusted unemployment data from BLS here](https://beta.bls.gov/dataViewer/view/timeseries/LNS14000000)
+
+```{r read-unemployment-data}
+unemployment <- read.csv("https://raw.githubusercontent.com/andrewbowen19/storiesDATA608/main/data/unemployment-bls.csv")
+```
+
+As above, we'll need to do some basic cleaning of our unemployment data before merging & plotting.
+```{r clean-unemployment-data, warning=FALSE}
+unemployment$date <- as.Date(parse_date_time(unemployment$Label, order = "Ym"))
+unemployment$unemployment_rate <- unemployment$Value
+head(unemployment, 5)
+```
+
+
+Let's quickly plot the US unemployment rate over time (1998 - 2003)
+```{r plot-unemployment, warning=FALSE}
+unemployment_plot <- ggplot(unemployment, aes(x=date, y=unemployment_rate)) + geom_line() + 
+  labs(x="Month", y="Unemployment",
+       title="US Unemployment Rate 1998 - 2023",
+       subtitle="The post-COVID spike in unemployment has come back to earth")
+
+
+unemployment_plot
+```
+
+
+## Combining our Datasets
+
+Now we can join together our datasets to overlay the data points in a single panel plot
+```{r merge-economic-data}
+dat <- merge(unemployment, fed, by=c("date", "date"))
+df <- merge(dat, cpi_df, by=c("date", "date"))
+```
+
+
+Let's plot the time series three variables of interest:
+
+- *Consumer Price Index (CPI)*
+- *Unemployment Rate (%)*
+- *Federal Funds Rate (%)*
+
+```{r panel-plot-all-time, warning=FALSE}
+# Create Panel plot of our 3 metrics
+labels_removed <- labs(x= NULL, title=NULL, subtitle=NULL)
+
+# Unemployment
+p1 <- ggplot(df, aes(x=date, y=unemployment_rate)) + geom_line() + 
+  labs(x=NULL, y="Unemployment Rate",
+       title="US Unemployment Rate, Federal Funds Rate, and CPI 1998 - 2003",
+       subtitle="The Fed's control of interest rates has coincided with lower unemployment, but inflation remains an open question today.")
+
+# Fed Funds Rate Plot
+p2 <- ggplot(df, aes(x=date, y=fed_funds_rate)) + 
+  geom_line() + labs(x=NULL, y="Fed Funds Rate")
+
+p3 <- ggplot(df, aes(x=date, y=cpi)) + geom_line() + 
+  labs(x="Month", y="CPI")
+
+# Plot unemployment, fed funds rate, and CPI in single panel
+plot_grid(p1, p2, p3,
+          align="v",
+          nrow=3,
+          rel_heights = c(1, 1, 1))
+```
+
+Looking at the panel plot above, we see the period of "easy money" from 2008 - 2016. This came in the wake of the Great Recession, when the Fed was looking to tackle some of the highest levels of national unemployment since the Great Depression. The CPI stays relatively flat during this period, as near-zero interest rates were in place to maximize employment. In simpler terms, the economy had not "super-heated" as a result of low interest rates *yet*, so the Fed kept them low to tackle unemployment.
+
+The [natural rate of unemployment in the US is $~4.5\%$](https://sgp.fas.org/crs/misc/IF10443.pdf), which started to occur around 2016. By this point, inflationary pressures weren't occurring yet in the CPI panel above.
+
+### Economic Indicators During COVID
+One time period of interest is 2020-onwards, as the economic effects of COVID-19 are still impacting society today.
+
+```{rpanel-plot-covid-era, warning=FALSE}
+# Filter data to covid-era and create component plots
+covid <- df %>% filter(date > date("2019-12-31"))
+
+unemp_covid <- ggplot(covid, aes(date, unemployment_rate)) + geom_line() + labs(x=NULL, y="Unemployment")
+fed_covid <- ggplot(covid, aes(date, fed_funds_rate)) + geom_line() + labs(x=NULL, y="Fed Funds Rate")
+cpi_covid <- ggplot(covid, aes(date, cpi)) + geom_line() + labs(x="Month", y="CPI")
+
+# Plot covid-era unemployment, fed funds rate, and CPI in single panel
+plot_grid(unemp_covid,
+          fed_covid,
+          cpi_covid, align="v",
+             nrow=3, rel_heights = c(1, 1, 1))
+```
+
+From our zoomed-in plot above of economic activity during the COVID era, we see unemployment returning to low levels after an initial spike of layoffs at the beginning of the pandemic. Some of this was the result of [federal COVID economic aid](https://home.treasury.gov/policy-issues/coronavirus), which provided loans and funding to businesses to continue operating with public health measures impacting productivity. While this happened, an initial drop in the federal funds rate was made to encourage public credit and investment in the face of pandemic-induced uncertainty. 
+
+This rate increase did coincide with a sharp reduction in unemployment, but also saw a continuation of inflation, as the CPI chart ticked higher throughout the COVID era (even in the face of interest rate hikes beginning in 2022).
+
+
+## Conclusion
+Overall, the Fed has the (unenviable) task of keeping *both* low unempoyment rates and low inflation. In recent years, the Fed has been able to maintain low unemployment in the face of COVID-related economic impacts. However, inflation has continued to be the thorn in 
+
+
+
+
