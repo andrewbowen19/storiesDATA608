@@ -6,10 +6,6 @@ output: pdf_document
 ---
 # Story 2
 
-```{r,echo=FALSE, message=FALSE,warning=FALSE}
-# Set so that long lines in R will be wrapped:
-knitr::opts_chunk$set(tidy.opts=list(width.cutoff=80), tidy=TRUE)
-```
 
 ```{r setup, include=FALSE}
 library(tidyverse)
@@ -86,6 +82,7 @@ cpi_df$date <- myd(cpi_df$date, truncated=1)
 
 # cast types
 cpi_df$cpi <- as.double(cpi$value)
+cpi_df <- cpi_df[, c("date", "cpi")]
 ```
 
 
@@ -150,6 +147,8 @@ As above, we'll need to do some basic cleaning of our unemployment data before m
 ```{r clean-unemployment-data, warning=FALSE}
 unemployment$date <- as.Date(parse_date_time(unemployment$Label, order = "Ym"))
 unemployment$unemployment_rate <- unemployment$Value
+
+unemployment <- unemployment[, c("date", "unemployment_rate")]
 head(unemployment, 5)
 ```
 

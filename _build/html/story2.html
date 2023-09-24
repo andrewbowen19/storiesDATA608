@@ -371,16 +371,6 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="story-2">
 <h1>Story 2<a class="headerlink" href="#story-2" title="Permalink to this headline">#</a></h1>
-<div class="cell tag_remove_input docutils container">
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  File &quot;/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_27456/3284842845.py&quot;, line 2
-    knitr::opts_chunk$set(tidy.opts=list(width.cutoff=80), tidy=TRUE)
-          ^
-SyntaxError: invalid syntax
-</pre></div>
-</div>
-</div>
-</div>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <p>Inflation and its economic effects have been in the news recently. The Fed’s goal has been to curb inflation (the general rise in the price of goods and services) and maintain a <a class="reference external" href="https://www.investopedia.com/terms/u/unemployment.asp">low unemployment rate</a> – the number of active job-seekers out of work. <a class="reference external" href="https://socialsci.libretexts.org/Bookshelves/Economics/Economics_(Boundless)/23%3A_Inflation_and_Unemployment/23.1%3A_The_Relationship_Between_Inflation_and_Unemployment#:~:text=The%20Phillips%20curve%20shows%20the%20inverse%20trade%2Doff%20between%20rates,low%2C%20inflation%20will%20be%20high.">The Phillips Curve</a> is an economic principle stating the general negative relationship between these two variables. Simply put, economies with higher inflation tend to have lower unemployment, and vice versa.</p>
@@ -456,6 +446,7 @@ cpi_df$date &lt;- myd(cpi_df$date, truncated=1)
 
 # cast types
 cpi_df$cpi &lt;- as.double(cpi$value)
+cpi_df &lt;- cpi_df[, c(&quot;date&quot;, &quot;cpi&quot;)]
 </pre></div>
 </div>
 </div>
@@ -536,6 +527,8 @@ head(fed, 5)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>unemployment$date &lt;- as.Date(parse_date_time(unemployment$Label, order = &quot;Ym&quot;))
 unemployment$unemployment_rate &lt;- unemployment$Value
+
+unemployment &lt;- unemployment[, c(&quot;date&quot;, &quot;unemployment_rate&quot;)]
 head(unemployment, 5)
 </pre></div>
 </div>
