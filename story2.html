@@ -350,9 +350,12 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-cpi-time-series-data">Getting CPI time series data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grabbing-interest-rate-data">Grabbing Interest Rate Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unemployment-data">Unemployment Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-collection">Data Collection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consumer-price-index">Consumer Price Index</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#federal-funds-rate">Federal Funds Rate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unemployment-rate">Unemployment Rate</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-our-datasets">Combining our Datasets</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#economic-indicators-during-covid">Economic Indicators During COVID</a></li>
 </ul>
@@ -395,8 +398,10 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="getting-cpi-time-series-data">
-<h2>Getting CPI time series data<a class="headerlink" href="#getting-cpi-time-series-data" title="Permalink to this headline">#</a></h2>
+<section id="data-collection">
+<h2>Data Collection<a class="headerlink" href="#data-collection" title="Permalink to this headline">#</a></h2>
+<section id="consumer-price-index">
+<h3>Consumer Price Index<a class="headerlink" href="#consumer-price-index" title="Permalink to this headline">#</a></h3>
 <p>First we’ll pull data on the Consumer Price Index (CPI) from the BLS API. <a class="reference external" href="https://www.bls.gov/cpi/">CPI is a measure of the general prices for a basket of goods at a given point in time</a>. As such, it can serve as a good proxy measure for inflation (the general increase of price for gods and services) within an economy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -463,15 +468,15 @@ cpi_df &lt;- cpi_df[, c(&quot;date&quot;, &quot;cpi&quot;)]
 </div>
 </div>
 </section>
-<section id="grabbing-interest-rate-data">
-<h2>Grabbing Interest Rate Data<a class="headerlink" href="#grabbing-interest-rate-data" title="Permalink to this headline">#</a></h2>
+<section id="federal-funds-rate">
+<h3>Federal Funds Rate<a class="headerlink" href="#federal-funds-rate" title="Permalink to this headline">#</a></h3>
 <p>Grbabing interest rate data from the <a class="reference external" href="https://fred.stlouisfed.org/docs/api/fred/">St Louis Fed API (FRED)</a>. The <a class="reference external" href="https://fred.stlouisfed.org/series/FEDFUNDS">endpoint I’m using</a> contains information about the Federal Effective Funds rate, which is the <a class="reference external" href="https://www.investopedia.com/terms/f/federalfundsrate.asp">interest rate charged to banks borrowing overnight to meet their reserve requirements</a>. This is often an economic lever the <a class="reference external" href="https://www.nytimes.com/2023/09/19/business/economy/fed-meeting-interest-rates-inflation.html?searchResultPosition=2">Federal Reserve (Fed) can pull</a> in order to curb inflation or encourage spending in the economy.</p>
+<div class="cell tag_remove_input docutils container">
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">&lt;-</span> <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;https://api.stlouisfed.org/fred/series/observations?series_id=EFFR&amp;api_key=</span><span class="si">{fed_api_key}</span><span class="s2">&amp;file_type=json&amp;frequency=m&amp;observation_start=1998-08-01&quot;</span><span class="p">)</span>
-
-<span class="c1"># Pull data from FRED API</span>
-<span class="n">fed_response</span> <span class="o">&lt;-</span> <span class="n">GET</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pull data from FRED API</span>
+<span class="n">fed_response</span> <span class="o">&lt;-</span> <span class="n">GET</span><span class="p">(</span><span class="n">fred_url</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -512,15 +517,10 @@ head(fed, 5)
 </div>
 </div>
 </section>
-<section id="unemployment-data">
-<h2>Unemployment Data<a class="headerlink" href="#unemployment-data" title="Permalink to this headline">#</a></h2>
-<p>I found a CSV file containing <a class="reference external" href="https://beta.bls.gov/dataViewer/view/timeseries/LNS14000000">seasonally adjusted unemployment data from BLS here</a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unemployment</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/andrewbowen19/storiesDATA608/main/data/unemployment-bls.csv&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<section id="unemployment-rate">
+<h3>Unemployment Rate<a class="headerlink" href="#unemployment-rate" title="Permalink to this headline">#</a></h3>
+<p>I found a CSV file containing <a class="reference external" href="https://beta.bls.gov/dataViewer/view/timeseries/LNS14000000">seasonally adjusted unemployment data from BLS here</a>. I’ve uploaded that to <a class="reference external" href="https://github.com/andrewbowen19/storiesDATA608/blob/main/data/unemployment-bls.csv">my GitHub here</a> and will be pulling from that URL</p>
+<div class="cell tag_remove_input docutils container">
 </div>
 <p>As above, we’ll need to do some basic cleaning of our unemployment data before merging &amp; plotting.</p>
 <div class="cell docutils container">
@@ -548,6 +548,7 @@ head(unemployment, 5)
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="combining-our-datasets">
 <h2>Combining our Datasets<a class="headerlink" href="#combining-our-datasets" title="Permalink to this headline">#</a></h2>
@@ -585,10 +586,9 @@ head(unemployment, 5)
   <span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Month&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;CPI&quot;</span><span class="p">)</span>
 
 <span class="c1"># Plot unemployment, fed funds rate, and CPI in single panel</span>
-<span class="n">plot_grid</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span>
-          <span class="n">align</span><span class="o">=</span><span class="s2">&quot;v&quot;</span><span class="p">,</span>
-          <span class="n">nrow</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-          <span class="n">rel_heights</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">economy_plot</span> <span class="o">&lt;-</span> <span class="n">plot_grid</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span>
+                          <span class="n">align</span><span class="o">=</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="n">nrow</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                          <span class="n">rel_heights</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -622,7 +622,8 @@ head(unemployment, 5)
 </section>
 <section id="conclusion">
 <h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
-<p>Overall, the Fed has the (unenviable) task of keeping <em>both</em> low unempoyment rates and low inflation. In recent years, the Fed has been able to maintain low unemployment in the face of COVID-related economic impacts. However, inflation has continued to be the thorn in</p>
+<p>Overall, the Fed has the (unenviable) task of keeping <em>both</em> low unempoyment rates and low inflation. In recent years, the Fed has been able to maintain low unemployment in the face of COVID-related economic impacts. However, inflation has continued to be the thorn in the side of the federal reserve after the pandemic.</p>
+<p>In short, the Federal reserve was able to keep inflation and unemployment low for stretches, but external economic factors have made that a tougher job recently. It remains to be seen whether the central bank can keep prices down in the next few business cycles.</p>
 </section>
 </section>
 
@@ -686,9 +687,12 @@ head(unemployment, 5)
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-cpi-time-series-data">Getting CPI time series data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grabbing-interest-rate-data">Grabbing Interest Rate Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unemployment-data">Unemployment Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-collection">Data Collection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consumer-price-index">Consumer Price Index</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#federal-funds-rate">Federal Funds Rate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unemployment-rate">Unemployment Rate</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-our-datasets">Combining our Datasets</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#economic-indicators-during-covid">Economic Indicators During COVID</a></li>
 </ul>
