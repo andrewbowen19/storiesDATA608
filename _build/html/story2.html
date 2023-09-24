@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'story2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -350,6 +352,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-cpi-time-series-data">Getting CPI time series data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grabbing-interest-rate-data">Grabbing Interest Rate Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unemployment-data">Unemployment Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-our-datasets">Combining our Datasets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#economic-indicators-during-covid">Economic Indicators During COVID</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
             </nav>
         </div>
@@ -363,33 +371,35 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="story-2">
 <h1>Story 2<a class="headerlink" href="#story-2" title="Permalink to this headline">#</a></h1>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
-<p>Inflation and its economic effects have been in the news recently. The Fed’s goal has been to curb inflation and maintain low unemployment. <a class="reference external" href="https://socialsci.libretexts.org/Bookshelves/Economics/Economics_(Boundless)/23%3A_Inflation_and_Unemployment/23.1%3A_The_Relationship_Between_Inflation_and_Unemployment#:~:text=The%20Phillips%20curve%20shows%20the%20inverse%20trade%2Doff%20between%20rates,low%2C%20inflation%20will%20be%20high.">The Phillips Curve</a> is an economic principle stating the general negative relationship between these two variables.</p>
-</section>
-<section id="data-sources">
-<h2>Data Sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://markets.newyorkfed.org/static/docs/markets-api.html#/">New York Fed API</a></p></li>
-<li><p><a class="reference external" href="https://www.bls.gov/developers/api_signature_v2.htm#single">BLS Data API</a> - used for unemployment data</p></li>
-</ul>
-<p>The BLS API has an <a class="reference external" href="https://www.bls.gov/developers/api_r.htm">R wrapper</a> that allows for easy data pulls from the API.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">registration_key</span> <span class="o">=</span> <span class="n">Sys</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;BLS_API_KEY&quot;</span><span class="p">)</span>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  File &quot;/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_27456/3284842845.py&quot;, line 2
+    knitr::opts_chunk$set(tidy.opts=list(width.cutoff=80), tidy=TRUE)
+          ^
+SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
 </div>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<p>Inflation and its economic effects have been in the news recently. The Fed’s goal has been to curb inflation (the general rise in the price of goods and services) and maintain a <a class="reference external" href="https://www.investopedia.com/terms/u/unemployment.asp">low unemployment rate</a> – the number of active job-seekers out of work. <a class="reference external" href="https://socialsci.libretexts.org/Bookshelves/Economics/Economics_(Boundless)/23%3A_Inflation_and_Unemployment/23.1%3A_The_Relationship_Between_Inflation_and_Unemployment#:~:text=The%20Phillips%20curve%20shows%20the%20inverse%20trade%2Doff%20between%20rates,low%2C%20inflation%20will%20be%20high.">The Phillips Curve</a> is an economic principle stating the general negative relationship between these two variables. Simply put, economies with higher inflation tend to have lower unemployment, and vice versa.</p>
+<p>The Federal Reserve (Fed) is central bank of the United States, and is tasked with leveraging monetary policy to curb both these factors. This means the Fed can face the difficult choice of <em>either</em> reducing inflation <em>or</em> curbing unemployment. The main way the Fed can do this is via monetary policy, or the control of interest rates, which in theory can impact the amount of spending &amp; investingment in an economy. Jerome Powell, the Federal Reserve chairman, has stated a goal of accomplishing both these goals, something that the Phillips curve states is impossible.</p>
+<p>In this RMarkdown notebook we’ll take a look at interest rate, unemployment, and inflation data to see if the Fed has accomplished these goals.</p>
+</section>
+<section id="data-sources">
+<h2>Data Sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">#</a></h2>
+<p>We’ll be using the API from the St Louis Federal Reserve forinterest rate data</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://fredhelp.stlouisfed.org/fred/about/about-fred/what-is-fred/">FRED API</a> -</p></li>
+<li><p><a class="reference external" href="https://www.bls.gov/developers/api_signature_v2.htm#single">BLS Data API</a> - used for unemployment data as well as consumer price idnex data</p></li>
+</ul>
+<p>To use the above APIs, one needs to register for requisite API keys. You can learn more about <a class="reference external" href="https://fred.stlouisfed.org/docs/api/api_key.html">registering for the FRED API here</a> and the <a class="reference external" href="https://data.bls.gov/registrationEngine/">BLS API here</a>. To follow best practices, I’ll be setting my API keys as R environment variables within my local environment, and pulling the values below for my API calls. You can set your token via the R <code class="docutils literal notranslate"><span class="pre">Sys.setenv</span></code> built-in function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">&lt;-</span> <span class="s2">&quot;https://api.bls.gov/publicAPI/v2/timeseries/popular?survey=AP&quot;</span>
-<span class="n">response</span> <span class="o">&lt;-</span> <span class="n">GET</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-
-<span class="n">response_txt</span> <span class="o">&lt;-</span> <span class="n">content</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span>
-<span class="n">json</span> <span class="o">&lt;-</span> <span class="n">fromJSON</span><span class="p">(</span><span class="n">response_txt</span><span class="p">)</span>
-
-<span class="n">json</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve FRED and BLS API Keys</span>
+<span class="n">registration_key</span> <span class="o">=</span> <span class="n">Sys</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;BLS_API_KEY&quot;</span><span class="p">)</span>
+<span class="n">fed_api_key</span> <span class="o">&lt;-</span> <span class="n">Sys</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;FED_API_KEY&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -397,6 +407,7 @@ document.write(`
 </section>
 <section id="getting-cpi-time-series-data">
 <h2>Getting CPI time series data<a class="headerlink" href="#getting-cpi-time-series-data" title="Permalink to this headline">#</a></h2>
+<p>First we’ll pull data on the Consumer Price Index (CPI) from the BLS API. <a class="reference external" href="https://www.bls.gov/cpi/">CPI is a measure of the general prices for a basket of goods at a given point in time</a>. As such, it can serve as a good proxy measure for inflation (the general increase of price for gods and services) within an economy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Call CPI data from BLS</span>
@@ -421,7 +432,7 @@ head(cpi)
 </div>
 </div>
 </div>
-<p>We’ll need to pull an additional 5 years of CPI data</p>
+<p>We’ll need to pull an additional 5 years of CPI data to</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>series_url &lt;= glue(&quot;https://api.bls.gov/publicAPI/v2/timeseries/data/{series_id}?registrationkey={registration_key}&amp;startyear=1998&amp;endyear=2003&quot;)
@@ -449,11 +460,13 @@ cpi_df$cpi &lt;- as.double(cpi$value)
 </div>
 </div>
 </div>
-<p>Now let’s make a simple plot of our CPI data over time</p>
+<p>Now let’s make a simple plot of our CPI data over time. With this scaling we can see a steady increase of prices since the start of 2020.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">cpi_df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">date</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">cpi</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">()</span> <span class="o">+</span> 
-  <span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Month&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Consumer Price Index (CPI)&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Consumer Price Index over Time - All US&quot;</span><span class="p">,</span> <span class="n">subtitle</span><span class="o">=</span><span class="s2">&quot;The CPI has shown a steady increase over the past few years post-COVID&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cpi_plot</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">cpi_df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">date</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">cpi</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">()</span> <span class="o">+</span> 
+  <span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Month&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;CPI&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Consumer Price Index over Time - All US&quot;</span><span class="p">,</span> <span class="n">subtitle</span><span class="o">=</span><span class="s2">&quot;The CPI has shown a steady increase over the past few years post-COVID&quot;</span><span class="p">)</span>
+
+<span class="n">cpi_plot</span>
 </pre></div>
 </div>
 </div>
@@ -461,12 +474,10 @@ cpi_df$cpi &lt;- as.double(cpi$value)
 </section>
 <section id="grabbing-interest-rate-data">
 <h2>Grabbing Interest Rate Data<a class="headerlink" href="#grabbing-interest-rate-data" title="Permalink to this headline">#</a></h2>
-<p>Grbabing interest rate data from the <a class="reference external" href="https://fred.stlouisfed.org/docs/api/fred/">St Louis Fed API (FRED)</a>. The <a class="reference external" href="https://fred.stlouisfed.org/series/FEDFUNDS">endpoint I’m using</a> contains information about the Federal Effective Funds rate, which is the <a class="reference external" href="https://www.investopedia.com/terms/f/federalfundsrate.asp">interest rate charged to banks borrowing overnight to meet their reserve requirements</a></p>
+<p>Grbabing interest rate data from the <a class="reference external" href="https://fred.stlouisfed.org/docs/api/fred/">St Louis Fed API (FRED)</a>. The <a class="reference external" href="https://fred.stlouisfed.org/series/FEDFUNDS">endpoint I’m using</a> contains information about the Federal Effective Funds rate, which is the <a class="reference external" href="https://www.investopedia.com/terms/f/federalfundsrate.asp">interest rate charged to banks borrowing overnight to meet their reserve requirements</a>. This is often an economic lever the <a class="reference external" href="https://www.nytimes.com/2023/09/19/business/economy/fed-meeting-interest-rates-inflation.html?searchResultPosition=2">Federal Reserve (Fed) can pull</a> in order to curb inflation or encourage spending in the economy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use an environement variable for API token</span>
-<span class="n">fed_api_key</span> <span class="o">&lt;-</span> <span class="n">Sys</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;FED_API_KEY&quot;</span><span class="p">)</span>
-<span class="n">url</span> <span class="o">&lt;-</span> <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;https://api.stlouisfed.org/fred/series/observations?series_id=EFFR&amp;api_key=</span><span class="si">{fed_api_key}</span><span class="s2">&amp;file_type=json&amp;frequency=m&amp;observation_start=1998-08-01&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">&lt;-</span> <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;https://api.stlouisfed.org/fred/series/observations?series_id=EFFR&amp;api_key=</span><span class="si">{fed_api_key}</span><span class="s2">&amp;file_type=json&amp;frequency=m&amp;observation_start=1998-08-01&quot;</span><span class="p">)</span>
 
 <span class="c1"># Pull data from FRED API</span>
 <span class="n">fed_response</span> <span class="o">&lt;-</span> <span class="n">GET</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -474,10 +485,10 @@ cpi_df$cpi &lt;- as.double(cpi$value)
 </div>
 </div>
 </div>
-<p>Let’s do some basic data wrangling of our FRED API response to get it into a good format for plotting</p>
+<p>Let’s do some basic data wrangling of our FRED API response to get it into a good format for plotting (i.e., an R <code class="docutils literal notranslate"><span class="pre">data.frame</span></code>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Write Response data to R dataframe
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Wrangle response data into an R dataframe
 fed_response_txt &lt;- content(fed_response, &quot;text&quot;, encoding = &quot;UTF-8&quot;)
 fed_json &lt;- json &lt;- fromJSON(fed_response_txt, flatten = TRUE)
 fed &lt;- fed_json$observations
@@ -485,26 +496,140 @@ fed &lt;- fed_json$observations
 </div>
 </div>
 </div>
-<p>Let’s clean up our federal funds rate data</p>
+<p>Let’s clean up our federal funds rate data, we’ll eventually want to merge this data with our CPI and Unemployment data, so consistent data typing will be needed</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Convert types
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Convert types to align to other datasets
 fed$date &lt;- as.Date(fed$date)
-fed$rate &lt;- as.double(fed$value)
-head(fed)
+fed$fed_funds_rate &lt;- as.double(fed$value)
+
+fed &lt;- fed[, c(&quot;date&quot;, &quot;fed_funds_rate&quot;)]
+head(fed, 5)
 </pre></div>
 </div>
 </div>
 </div>
+<p>Now let’s plot a simple time series of our federal funds rate date</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting Federal Funds Rate over time</span>
-<span class="n">ggplot</span><span class="p">(</span><span class="n">fed</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">date</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">rate</span><span class="p">))</span> <span class="o">+</span> 
-  <span class="n">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;Federal Funds Rate&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Month&quot;</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span><span class="s2">&quot;Effective Federal Funds Rate over Time&quot;</span><span class="p">)</span>
+<span class="n">fed_rate_plot</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">fed</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">date</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">fed_funds_rate</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="n">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;Fed Funds Rate&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Month&quot;</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span><span class="s2">&quot;Effective Federal Funds Rate over Time&quot;</span><span class="p">,</span> <span class="n">substitle</span><span class="o">=</span><span class="s2">&quot;Recent federal interest rates&quot;</span><span class="p">)</span>
+<span class="n">fed_rate_plot</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="unemployment-data">
+<h2>Unemployment Data<a class="headerlink" href="#unemployment-data" title="Permalink to this headline">#</a></h2>
+<p>I found a CSV file containing <a class="reference external" href="https://beta.bls.gov/dataViewer/view/timeseries/LNS14000000">seasonally adjusted unemployment data from BLS here</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unemployment</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/andrewbowen19/storiesDATA608/main/data/unemployment-bls.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As above, we’ll need to do some basic cleaning of our unemployment data before merging &amp; plotting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>unemployment$date &lt;- as.Date(parse_date_time(unemployment$Label, order = &quot;Ym&quot;))
+unemployment$unemployment_rate &lt;- unemployment$Value
+head(unemployment, 5)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s quickly plot the US unemployment rate over time (1998 - 2003)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unemployment_plot</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">unemployment</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">date</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">unemployment_rate</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">()</span> <span class="o">+</span> 
+  <span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Month&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Unemployment&quot;</span><span class="p">,</span>
+       <span class="n">title</span><span class="o">=</span><span class="s2">&quot;US Unemployment Rate 1998 - 2023&quot;</span><span class="p">,</span>
+       <span class="n">subtitle</span><span class="o">=</span><span class="s2">&quot;The post-COVID spike in unemployment has come back to earth&quot;</span><span class="p">)</span>
+
+
+<span class="n">unemployment_plot</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="combining-our-datasets">
+<h2>Combining our Datasets<a class="headerlink" href="#combining-our-datasets" title="Permalink to this headline">#</a></h2>
+<p>Now we can join together our datasets to overlay the data points in a single panel plot</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span> <span class="o">&lt;-</span> <span class="n">merge</span><span class="p">(</span><span class="n">unemployment</span><span class="p">,</span> <span class="n">fed</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">))</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="n">merge</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">cpi_df</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s plot the time series three variables of interest:</p>
+<ul class="simple">
+<li><p><em>Consumer Price Index (CPI)</em></p></li>
+<li><p><em>Unemployment Rate (%)</em></p></li>
+<li><p><em>Federal Funds Rate (%)</em></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create Panel plot of our 3 metrics</span>
+<span class="n">labels_removed</span> <span class="o">&lt;-</span> <span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">NULL</span><span class="p">,</span> <span class="n">subtitle</span><span class="o">=</span><span class="n">NULL</span><span class="p">)</span>
+
+<span class="c1"># Unemployment</span>
+<span class="n">p1</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">date</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">unemployment_rate</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">()</span> <span class="o">+</span> 
+  <span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">NULL</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Unemployment Rate&quot;</span><span class="p">,</span>
+       <span class="n">title</span><span class="o">=</span><span class="s2">&quot;US Unemployment Rate, Federal Funds Rate, and CPI 1998 - 2003&quot;</span><span class="p">,</span>
+       <span class="n">subtitle</span><span class="o">=</span><span class="s2">&quot;The Fed&#39;s control of interest rates has coincided with lower unemployment, but inflation remains an open question today.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Fed Funds Rate Plot</span>
+<span class="n">p2</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">date</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">fed_funds_rate</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="n">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">NULL</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Fed Funds Rate&quot;</span><span class="p">)</span>
+
+<span class="n">p3</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">date</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">cpi</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">()</span> <span class="o">+</span> 
+  <span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Month&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;CPI&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot unemployment, fed funds rate, and CPI in single panel</span>
+<span class="n">plot_grid</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span>
+          <span class="n">align</span><span class="o">=</span><span class="s2">&quot;v&quot;</span><span class="p">,</span>
+          <span class="n">nrow</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+          <span class="n">rel_heights</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looking at the panel plot above, we see the period of “easy money” from 2008 - 2016. This came in the wake of the Great Recession, when the Fed was looking to tackle some of the highest levels of national unemployment since the Great Depression. The CPI stays relatively flat during this period, as near-zero interest rates were in place to maximize employment. In simpler terms, the economy had not “super-heated” as a result of low interest rates <em>yet</em>, so the Fed kept them low to tackle unemployment.</p>
+<p>The <a class="reference external" href="https://sgp.fas.org/crs/misc/IF10443.pdf">natural rate of unemployment in the US is <span class="math notranslate nohighlight">\(~4.5\%\)</span></a>, which started to occur around 2016. By this point, inflationary pressures weren’t occurring yet in the CPI panel above.</p>
+<section id="economic-indicators-during-covid">
+<h3>Economic Indicators During COVID<a class="headerlink" href="#economic-indicators-during-covid" title="Permalink to this headline">#</a></h3>
+<p>One time period of interest is 2020-onwards, as the economic effects of COVID-19 are still impacting society today.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter data to covid-era and create component plots</span>
+<span class="n">covid</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span> <span class="nb">filter</span><span class="p">(</span><span class="n">date</span> <span class="o">&gt;</span> <span class="n">date</span><span class="p">(</span><span class="s2">&quot;2019-12-31&quot;</span><span class="p">))</span>
+
+<span class="n">unemp_covid</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">covid</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">unemployment_rate</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">NULL</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Unemployment&quot;</span><span class="p">)</span>
+<span class="n">fed_covid</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">covid</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">fed_funds_rate</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">NULL</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Fed Funds Rate&quot;</span><span class="p">)</span>
+<span class="n">cpi_covid</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">covid</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">cpi</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Month&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;CPI&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot covid-era unemployment, fed funds rate, and CPI in single panel</span>
+<span class="n">plot_grid</span><span class="p">(</span><span class="n">unemp_covid</span><span class="p">,</span>
+          <span class="n">fed_covid</span><span class="p">,</span>
+          <span class="n">cpi_covid</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;v&quot;</span><span class="p">,</span>
+             <span class="n">nrow</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">rel_heights</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>From our zoomed-in plot above of economic activity during the COVID era, we see unemployment returning to low levels after an initial spike of layoffs at the beginning of the pandemic. Some of this was the result of <a class="reference external" href="https://home.treasury.gov/policy-issues/coronavirus">federal COVID economic aid</a>, which provided loans and funding to businesses to continue operating with public health measures impacting productivity. While this happened, an initial drop in the federal funds rate was made to encourage public credit and investment in the face of pandemic-induced uncertainty.</p>
+<p>This rate increase did coincide with a sharp reduction in unemployment, but also saw a continuation of inflation, as the CPI chart ticked higher throughout the COVID era (even in the face of interest rate hikes beginning in 2022).</p>
+</section>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
+<p>Overall, the Fed has the (unenviable) task of keeping <em>both</em> low unempoyment rates and low inflation. In recent years, the Fed has been able to maintain low unemployment in the face of COVID-related economic impacts. However, inflation has continued to be the thorn in</p>
 </section>
 </section>
 
@@ -570,6 +695,12 @@ head(fed)
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-cpi-time-series-data">Getting CPI time series data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grabbing-interest-rate-data">Grabbing Interest Rate Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unemployment-data">Unemployment Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-our-datasets">Combining our Datasets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#economic-indicators-during-covid">Economic Indicators During COVID</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
   </nav></div>
 
