@@ -40,3 +40,5 @@ sphinx:
         .Rmd:
             - jupytext.reads
             - fmt: Rmd
+    rediraffe_redirects: 
+      content-types/jupytext.md: file-types/jupytext.Rmd

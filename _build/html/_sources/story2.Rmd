@@ -38,9 +38,9 @@ registration_key = Sys.getenv("BLS_API_KEY")
 fed_api_key <- Sys.getenv("FED_API_KEY")
 ```
 
+## Data Collection
 
-
-## Getting CPI time series data
+### Consumer Price Index
 First we'll pull data on the Consumer Price Index (CPI) from the BLS API. [CPI is a measure of the general prices for a basket of goods at a given point in time](https://www.bls.gov/cpi/). As such, it can serve as a good proxy measure for inflation (the general increase of price for gods and services) within an economy.
 
 ```{r get-cpi-time-series}
@@ -95,15 +95,17 @@ cpi_plot <- ggplot(cpi_df, aes(x=date, y=cpi)) + geom_line() +
 cpi_plot
 ```
 
-## Grabbing Interest Rate Data
+### Federal Funds Rate
 
 Grbabing interest rate data from the [St Louis Fed API (FRED)](https://fred.stlouisfed.org/docs/api/fred/). The [endpoint I'm using](https://fred.stlouisfed.org/series/FEDFUNDS) contains information about the Federal Effective Funds rate, which is the [interest rate charged to banks borrowing overnight to meet their reserve requirements](https://www.investopedia.com/terms/f/federalfundsrate.asp). This is often an economic lever the [Federal Reserve (Fed) can pull](https://www.nytimes.com/2023/09/19/business/economy/fed-meeting-interest-rates-inflation.html?searchResultPosition=2) in order to curb inflation or encourage spending in the economy.
 
-```{r}
-url <- glue("https://api.stlouisfed.org/fred/series/observations?series_id=EFFR&api_key={fed_api_key}&file_type=json&frequency=m&observation_start=1998-08-01")
+```{r fred-url, echo=FALSE, message=FALSE}
+fred_url <- glue("https://api.stlouisfed.org/fred/series/observations?series_id=EFFR&api_key={fed_api_key}&file_type=json&frequency=m&observation_start=1998-08-01")
+```
 
+```{r fred-api-call}
 # Pull data from FRED API
-fed_response <- GET(url)
+fed_response <- GET(fred_url)
 ```
 
 Let's do some basic data wrangling of our FRED API response to get it into a good format for plotting (i.e., an R `data.frame`)
@@ -135,11 +137,11 @@ fed_rate_plot <- ggplot(fed, aes(x=date, y=fed_funds_rate)) +
 fed_rate_plot
 ```
 
-## Unemployment Data
+### Unemployment Rate
 
-I found a CSV file containing [seasonally adjusted unemployment data from BLS here](https://beta.bls.gov/dataViewer/view/timeseries/LNS14000000)
+I found a CSV file containing [seasonally adjusted unemployment data from BLS here](https://beta.bls.gov/dataViewer/view/timeseries/LNS14000000). I've uploaded that to [my GitHub here](https://github.com/andrewbowen19/storiesDATA608/blob/main/data/unemployment-bls.csv) and will be pulling from that URL
 
-```{r read-unemployment-data}
+```{r read-unemployment-data, echo=FALSE, message=FALSE}
 unemployment <- read.csv("https://raw.githubusercontent.com/andrewbowen19/storiesDATA608/main/data/unemployment-bls.csv")
 ```
 
@@ -198,10 +200,11 @@ p3 <- ggplot(df, aes(x=date, y=cpi)) + geom_line() +
   labs(x="Month", y="CPI")
 
 # Plot unemployment, fed funds rate, and CPI in single panel
-plot_grid(p1, p2, p3,
-          align="v",
-          nrow=3,
-          rel_heights = c(1, 1, 1))
+economy_plot <- plot_grid(p1, p2, p3,
+                          align="v", nrow=3,
+                          rel_heights = c(1, 1, 1), labels=)
+
+
 ```
 
 Looking at the panel plot above, we see the period of "easy money" from 2008 - 2016. This came in the wake of the Great Recession, when the Fed was looking to tackle some of the highest levels of national unemployment since the Great Depression. The CPI stays relatively flat during this period, as near-zero interest rates were in place to maximize employment. In simpler terms, the economy had not "super-heated" as a result of low interest rates *yet*, so the Fed kept them low to tackle unemployment.
@@ -232,7 +235,9 @@ This rate increase did coincide with a sharp reduction in unemployment, but also
 
 
 ## Conclusion
-Overall, the Fed has the (unenviable) task of keeping *both* low unempoyment rates and low inflation. In recent years, the Fed has been able to maintain low unemployment in the face of COVID-related economic impacts. However, inflation has continued to be the thorn in 
+Overall, the Fed has the (unenviable) task of keeping *both* low unempoyment rates and low inflation. In recent years, the Fed has been able to maintain low unemployment in the face of COVID-related economic impacts. However, inflation has continued to be the thorn in the side of the federal reserve after the pandemic.
+
+In short, the Federal reserve was able to keep inflation and unemployment low for stretches, but external economic factors have made that a tougher job recently. It remains to be seen whether the central bank can keep prices down in the next few business cycles.
 
 
 
