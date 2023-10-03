@@ -20,7 +20,12 @@ mtcars$is_japanese <- ifelse((mtcars$make == "Mazda") | (mtcars$make == "Honda")
                              TRUE, FALSE)
 
 # Plot highlighting jkapanese cars
-p4 <- ggplot(mtcars, aes(x=wt, y=mpg, color=is_japanese)) + geom_point() + plot_labels
+p4 <- ggplot(mtcars, aes(x=wt, y=mpg, color=is_japanese)) + geom_point() + 
+  labs(x="Car Weight (thousands lbs)",
+       y="Miles per Gallon",
+       title="MTCars: Fuel Efficiency vs Car Weight",
+       subtitle="Consumers should be aware of the tradeoff between a car's weight and fuel efficiency",
+       color="Japanese Manufacturer?")
 p4
 
 
