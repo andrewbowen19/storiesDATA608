@@ -14,9 +14,7 @@ p2 <- p1 + plot_labels
 p2
 
 # Flagging japanese branded cars for later plotting
-getFirst <- function(l){
-  l[[1]]
-}
+getFirst <- function(l){l[[1]]}
 mtcars$make <- lapply(str_split(rownames(mtcars), " "), getFirst)
 mtcars$is_japanese <- ifelse((mtcars$make == "Mazda") | (mtcars$make == "Honda") | (mtcars$make == "Toyota"),
                              TRUE, FALSE)
