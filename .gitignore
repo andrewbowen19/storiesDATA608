@@ -3,3 +3,5 @@ reports
 
 .metals
 ./data/bls-state-wage-data-May2022.xlsx
+data/storm-details.csv
+
