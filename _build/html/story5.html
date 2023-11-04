@@ -566,6 +566,163 @@ temperature anomaly since 1990 (posted on <span class="xref myst">GitHub here</s
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">gaierror</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">~/opt/anaconda3/lib/python3.9/urllib/request.py</span> in <span class="ni">do_open</span><span class="nt">(self, http_class, req, **http_conn_args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1345</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1346</span>                 <span class="n">h</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">get_method</span><span class="p">(),</span> <span class="n">req</span><span class="o">.</span><span class="n">selector</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1347</span>                           <span class="n">encode_chunked</span><span class="o">=</span><span class="n">req</span><span class="o">.</span><span class="n">has_header</span><span class="p">(</span><span class="s1">&#39;Transfer-encoding&#39;</span><span class="p">))</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/http/client.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, body, headers, encode_chunked)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1278</span>         <span class="sd">&quot;&quot;&quot;Send a complete request to the server.&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1279</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_send_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">encode_chunked</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1280</span> 
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/http/client.py</span> in <span class="ni">_send_request</span><span class="nt">(self, method, url, body, headers, encode_chunked)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1324</span>             <span class="n">body</span> <span class="o">=</span> <span class="n">_encode</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1325</span>         <span class="bp">self</span><span class="o">.</span><span class="n">endheaders</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">encode_chunked</span><span class="o">=</span><span class="n">encode_chunked</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1326</span> 
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/http/client.py</span> in <span class="ni">endheaders</span><span class="nt">(self, message_body, encode_chunked)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1273</span>             <span class="k">raise</span> <span class="n">CannotSendHeader</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">1274</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_send_output</span><span class="p">(</span><span class="n">message_body</span><span class="p">,</span> <span class="n">encode_chunked</span><span class="o">=</span><span class="n">encode_chunked</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1275</span> 
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/http/client.py</span> in <span class="ni">_send_output</span><span class="nt">(self, message_body, encode_chunked)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1033</span>         <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="p">[:]</span>
+<span class="ne">-&gt; </span><span class="mi">1034</span>         <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1035</span> 
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/http/client.py</span> in <span class="ni">send</span><span class="nt">(self, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">973</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_open</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">974</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">975</span>             <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/http/client.py</span> in <span class="ni">connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1440</span> 
+<span class="ne">-&gt; </span><span class="mi">1441</span>             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1442</span> 
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/http/client.py</span> in <span class="ni">connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">944</span>         <span class="sd">&quot;&quot;&quot;Connect to the host and port specified in __init__.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">945</span>         <span class="bp">self</span><span class="o">.</span><span class="n">sock</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_connection</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">946</span>             <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_address</span><span class="p">)</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/socket.py</span> in <span class="ni">create_connection</span><span class="nt">(address, timeout, source_address)</span>
+<span class="g g-Whitespace">    </span><span class="mi">822</span>     <span class="n">err</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">--&gt; </span><span class="mi">823</span>     <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">getaddrinfo</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">824</span>         <span class="n">af</span><span class="p">,</span> <span class="n">socktype</span><span class="p">,</span> <span class="n">proto</span><span class="p">,</span> <span class="n">canonname</span><span class="p">,</span> <span class="n">sa</span> <span class="o">=</span> <span class="n">res</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/socket.py</span> in <span class="ni">getaddrinfo</span><span class="nt">(host, port, family, type, proto, flags)</span>
+<span class="g g-Whitespace">    </span><span class="mi">953</span>     <span class="n">addrlist</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="ne">--&gt; </span><span class="mi">954</span>     <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">_socket</span><span class="o">.</span><span class="n">getaddrinfo</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">family</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">proto</span><span class="p">,</span> <span class="n">flags</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">955</span>         <span class="n">af</span><span class="p">,</span> <span class="n">socktype</span><span class="p">,</span> <span class="n">proto</span><span class="p">,</span> <span class="n">canonname</span><span class="p">,</span> <span class="n">sa</span> <span class="o">=</span> <span class="n">res</span>
+
+<span class="ne">gaierror</span>: [Errno 8] nodename nor servname provided, or not known
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">URLError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">60</span><span class="o">/</span><span class="n">nwdftyjj6cg3ysz_pf9stwtc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_31224</span><span class="o">/</span><span class="mf">542841035.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">file_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="s2">&quot;https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">file_index</span> <span class="o">=</span> <span class="n">file_index</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">204</span><span class="p">]</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>                     <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>                 <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">311</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">312</span> 
+<span class="g g-Whitespace">    </span><span class="mi">313</span>         <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/html.py</span> in <span class="ni">read_html</span><span class="nt">(io, match, flavor, header, index_col, skiprows, attrs, parse_dates, thousands, encoding, decimal, converters, na_values, keep_default_na, displayed_only)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1096</span>     <span class="n">io</span> <span class="o">=</span> <span class="n">stringify_path</span><span class="p">(</span><span class="n">io</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1097</span> 
+<span class="ne">-&gt; </span><span class="mi">1098</span>     <span class="k">return</span> <span class="n">_parse</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1099</span>         <span class="n">flavor</span><span class="o">=</span><span class="n">flavor</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1100</span>         <span class="n">io</span><span class="o">=</span><span class="n">io</span><span class="p">,</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/html.py</span> in <span class="ni">_parse</span><span class="nt">(flavor, io, match, attrs, encoding, displayed_only, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">904</span> 
+<span class="g g-Whitespace">    </span><span class="mi">905</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">906</span>             <span class="n">tables</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">parse_tables</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">907</span>         <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">caught</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">908</span>             <span class="c1"># if `io` is an io-like object, check if it&#39;s seekable</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/html.py</span> in <span class="ni">parse_tables</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>         <span class="nb">list</span> <span class="n">of</span> <span class="n">parsed</span> <span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">footer</span><span class="p">)</span> <span class="n">tuples</span> <span class="kn">from</span> <span class="nn">tables.</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">222</span><span class="s2">         tables = self._parse_tables(self._build_doc(), self.match, self.attrs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span><span class="s2">         return (self._parse_thead_tbody_tfoot(table) for table in tables)</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span><span class="s2"> </span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/html.py</span> in <span class="ni">_build_doc</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">743</span><span class="s2">                     pass</span>
+<span class="g g-Whitespace">    </span><span class="mi">744</span><span class="s2">             else:</span>
+<span class="ne">--&gt; </span><span class="mi">745</span><span class="s2">                 raise e</span>
+<span class="g g-Whitespace">    </span><span class="mi">746</span><span class="s2">         else:</span>
+<span class="g g-Whitespace">    </span><span class="mi">747</span><span class="s2">             if not hasattr(r, &quot;text_content&quot;):</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/html.py</span> in <span class="ni">_build_doc</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">    </span><span class="mi">725</span><span class="s2">             if is_url(self.io):</span>
+<span class="ne">--&gt; </span><span class="mi">726</span><span class="s2">                 with urlopen(self.io) as f:</span>
+<span class="g g-Whitespace">    </span><span class="mi">727</span><span class="s2">                     r = parse(f, parser=parser)</span>
+<span class="g g-Whitespace">    </span><span class="mi">728</span><span class="s2">             else:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/common.py</span> in <span class="ni">urlopen</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span><span class="s2">     import urllib.request</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">212</span><span class="s2">     return urllib.request.urlopen(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span><span class="s2"> </span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/urllib/request.py</span> in <span class="ni">urlopen</span><span class="nt">(url, data, timeout, cafile, capath, cadefault, context)</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span><span class="s2">     else:</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span><span class="s2">         opener = _opener</span>
+<span class="ne">--&gt; </span><span class="mi">214</span><span class="s2">     return opener.open(url, data, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span><span class="s2"> def install_opener(opener):</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/urllib/request.py</span> in <span class="ni">open</span><span class="nt">(self, fullurl, data, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">515</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">516</span><span class="s2">         sys.audit(&#39;urllib.Request&#39;, req.full_url, req.data, req.headers, req.get_method())</span>
+<span class="ne">--&gt; </span><span class="mi">517</span><span class="s2">         response = self._open(req, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">518</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">519</span><span class="s2">         # post-process response</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/urllib/request.py</span> in <span class="ni">_open</span><span class="nt">(self, req, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">532</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">533</span><span class="s2">         protocol = req.type</span>
+<span class="ne">--&gt; </span><span class="mi">534</span><span class="s2">         result = self._call_chain(self.handle_open, protocol, protocol +</span>
+<span class="g g-Whitespace">    </span><span class="mi">535</span><span class="s2">                                   &#39;_open&#39;, req)</span>
+<span class="g g-Whitespace">    </span><span class="mi">536</span><span class="s2">         if result:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/urllib/request.py</span> in <span class="ni">_call_chain</span><span class="nt">(self, chain, kind, meth_name, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">492</span><span class="s2">         for handler in handlers:</span>
+<span class="g g-Whitespace">    </span><span class="mi">493</span><span class="s2">             func = getattr(handler, meth_name)</span>
+<span class="ne">--&gt; </span><span class="mi">494</span><span class="s2">             result = func(*args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span><span class="s2">             if result is not None:</span>
+<span class="g g-Whitespace">    </span><span class="mi">496</span><span class="s2">                 return result</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/urllib/request.py</span> in <span class="ni">https_open</span><span class="nt">(self, req)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1387</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1388</span><span class="s2">         def https_open(self, req):</span>
+<span class="ne">-&gt; </span><span class="mi">1389</span><span class="s2">             return self.do_open(http.client.HTTPSConnection, req,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1390</span><span class="s2">                 context=self._context, check_hostname=self._check_hostname)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1391</span><span class="s2"> </span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/urllib/request.py</span> in <span class="ni">do_open</span><span class="nt">(self, http_class, req, **http_conn_args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1347</span><span class="s2">                           encode_chunked=req.has_header(&#39;Transfer-encoding&#39;))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1348</span><span class="s2">             except OSError as err: # timeout error</span>
+<span class="ne">-&gt; </span><span class="mi">1349</span><span class="s2">                 raise URLError(err)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1350</span><span class="s2">             r = h.getresponse()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1351</span><span class="s2">         except:</span>
+
+<span class="ne">URLError</span>: &lt;urlopen error [Errno 8] nodename nor servname provided, or not known&gt;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -710,30 +867,10 @@ temperature anomaly since 1990 (posted on <span class="xref myst">GitHub here</s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_14261/3806064280.py:6: DtypeWarning: Columns (28) have mixed types.Specify dtype option on import or set low_memory=False.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_913/3806064280.py:6: DtypeWarning: Columns (28) have mixed types.Specify dtype option on import or set low_memory=False.
   dat = get_storm_data(filepath)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_14261/3806064280.py:6: DtypeWarning: Columns (29,34,35,37) have mixed types.Specify dtype option on import or set low_memory=False.
+/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_913/3806064280.py:6: DtypeWarning: Columns (29,34,35,37) have mixed types.Specify dtype option on import or set low_memory=False.
   dat = get_storm_data(filepath)
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">60</span><span class="o">/</span><span class="n">nwdftyjj6cg3ysz_pf9stwtc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_14261</span><span class="o">/</span><span class="mf">3806064280.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">detail_files</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">filepath</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span>
-<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="n">dat</span> <span class="o">=</span> <span class="n">get_storm_data</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">detail_dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
-
-<span class="nn">/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_14261/1608609549.py</span> in <span class="ni">get_storm_data</span><span class="nt">(path)</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_like_object</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>         <span class="n">content</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">23</span>         <span class="n">dat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">()))</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> 
-<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="k">return</span> <span class="n">dat</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -823,9 +960,9 @@ Name: category_roman, dtype: int64
 
 
 <span class="c1"># Let&#39;s look at just Category 4 or 5 storms</span>
-<span class="n">strong_storms</span> <span class="o">=</span> <span class="n">details</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">details</span><span class="p">[</span><span class="s1">&#39;category_roman&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;III&quot;</span><span class="p">)</span> <span class="o">|</span>
-                            <span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s1">&#39;category_roman&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;IV&quot;</span><span class="p">)</span> <span class="o">|</span>
-                            <span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s1">&#39;category_roman&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;V&quot;</span><span class="p">)]</span>
+<span class="n">strong_storms</span> <span class="o">=</span> <span class="n">details</span><span class="c1">#.loc[(details[&#39;category_roman&#39;] == &quot;III&quot;) |</span>
+                        <span class="c1">#    (details[&#39;category_roman&#39;] == &quot;IV&quot;) |</span>
+                        <span class="c1">#    (details[&#39;category_roman&#39;] == &quot;V&quot;)]</span>
 
 
 <span class="n">strong_storms</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -876,124 +1013,124 @@ Name: category_roman, dtype: int64
   </thead>
   <tbody>
     <tr>
-      <th>52160</th>
-      <td>200909</td>
-      <td>15</td>
-      <td>100</td>
-      <td>200909</td>
-      <td>16</td>
-      <td>1300</td>
-      <td>34184</td>
-      <td>197872</td>
-      <td>GUAM</td>
-      <td>98.0</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Tropical Depression 15W developed from a distu...</td>
-      <td>NaN</td>
-      <td>CSV</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>IV</td>
-    </tr>
-    <tr>
-      <th>30020</th>
-      <td>201212</td>
-      <td>2</td>
+      <th>0</th>
+      <td>199811</td>
+      <td>10</td>
       <td>1600</td>
-      <td>201212</td>
-      <td>3</td>
-      <td>1000</td>
-      <td>70984</td>
-      <td>426987</td>
-      <td>GUAM</td>
-      <td>98.0</td>
+      <td>199811</td>
+      <td>10</td>
+      <td>1610</td>
+      <td>2150762</td>
+      <td>5670481</td>
+      <td>OHIO</td>
+      <td>39.0</td>
       <td>...</td>
+      <td>40.40</td>
+      <td>-82.95</td>
+      <td>40.40</td>
+      <td>-82.95</td>
+      <td>A deep low pressure system across the western ...</td>
+      <td>Trees knocked down.</td>
+      <td>PDC</td>
+      <td>nan</td>
+      <td>nan</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>After passing Chuuk on 28 November, Tropical S...</td>
-      <td>NaN</td>
-      <td>CSV</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>V</td>
     </tr>
     <tr>
-      <th>12884</th>
-      <td>201311</td>
-      <td>3</td>
-      <td>1900</td>
-      <td>201311</td>
-      <td>7</td>
-      <td>1900</td>
-      <td>81102</td>
-      <td>486009</td>
-      <td>GUAM</td>
-      <td>98.0</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Haiyan crossed Micronesia from November 3rd to...</td>
-      <td>On the afternoon of November 1st scatterometer...</td>
-      <td>CSV</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>V</td>
-    </tr>
-    <tr>
-      <th>9756</th>
-      <td>201503</td>
-      <td>26</td>
-      <td>0</td>
-      <td>201503</td>
+      <th>1</th>
+      <td>199812</td>
       <td>31</td>
-      <td>2359</td>
-      <td>96339</td>
-      <td>579262</td>
-      <td>GUAM</td>
-      <td>98.0</td>
+      <td>2358</td>
+      <td>199812</td>
+      <td>31</td>
+      <td>2358</td>
+      <td>2151390</td>
+      <td>5673776</td>
+      <td>NEW JERSEY</td>
+      <td>34.0</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>Between the 26th and 31st of March, Typhoon Ma...</td>
-      <td>On the night of the 26th of March, a tropical ...</td>
-      <td>CSV</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>V</td>
+      <td>As dry as July through November were, for most...</td>
+      <td>NaN</td>
+      <td>PDC</td>
+      <td>nan</td>
+      <td>nan</td>
+      <td>NaN</td>
     </tr>
     <tr>
-      <th>11205</th>
-      <td>201504</td>
-      <td>1</td>
-      <td>0</td>
-      <td>201504</td>
-      <td>2</td>
-      <td>0</td>
-      <td>99324</td>
-      <td>596410</td>
-      <td>GUAM</td>
-      <td>98.0</td>
+      <th>2</th>
+      <td>199812</td>
+      <td>23</td>
+      <td>800</td>
+      <td>199812</td>
+      <td>24</td>
+      <td>1000</td>
+      <td>2151636</td>
+      <td>5673835</td>
+      <td>VIRGINIA</td>
+      <td>51.0</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>Typhoon Maysak had ravaged parts of Micronesia...</td>
-      <td>Typhoon Maysak formed over eastern Micronesia ...</td>
-      <td>CSV</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>V</td>
+      <td>Sleet and freezing rain developed during the m...</td>
+      <td>NaN</td>
+      <td>PDC</td>
+      <td>nan</td>
+      <td>nan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>199810</td>
+      <td>1</td>
+      <td>1620</td>
+      <td>199810</td>
+      <td>1</td>
+      <td>1626</td>
+      <td>2149688</td>
+      <td>5667315</td>
+      <td>NEW MEXICO</td>
+      <td>35.0</td>
+      <td>...</td>
+      <td>36.93</td>
+      <td>-107.00</td>
+      <td>36.93</td>
+      <td>-107.00</td>
+      <td>NaN</td>
+      <td>Quarter size hail covered the ground.</td>
+      <td>PDC</td>
+      <td>nan</td>
+      <td>nan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>199809</td>
+      <td>29</td>
+      <td>1625</td>
+      <td>199809</td>
+      <td>29</td>
+      <td>1625</td>
+      <td>2149120</td>
+      <td>5664635</td>
+      <td>GEORGIA</td>
+      <td>13.0</td>
+      <td>...</td>
+      <td>32.37</td>
+      <td>-84.23</td>
+      <td>32.37</td>
+      <td>-84.23</td>
+      <td>NaN</td>
+      <td>Reports from the Macon county sheriff's office...</td>
+      <td>PDC</td>
+      <td>nan</td>
+      <td>nan</td>
+      <td>NaN</td>
     </tr>
   </tbody>
 </table>
@@ -1009,7 +1146,7 @@ Name: category_roman, dtype: int64
 
 
 <span class="n">strong_storms_per_year</span> <span class="o">=</span> <span class="n">strong_storms_per_year</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;category_roman&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">strong_storms_per_year</span><span class="c1">#.pivot_table([&quot;YEAR&quot;, &quot;CATEGORY&quot;], &quot;storm_count&quot;)</span>
+<span class="n">strong_storms_per_year</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1040,99 +1177,120 @@ Name: category_roman, dtype: int64
   <tbody>
     <tr>
       <th>0</th>
+      <td>2007</td>
+      <td>I</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2008</td>
+      <td>I</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2008</td>
+      <td>II</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>3</th>
       <td>2009</td>
       <td>IV</td>
       <td>1</td>
     </tr>
     <tr>
+      <th>4</th>
+      <td>2010</td>
+      <td>I</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We’ll need to pivot this data in order to plot this in a stacked bar chart. We’ll want to see the number of category III, IV, and V hurricanes per year for those years in which we have data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pivot category counts into wider format</span>
+<span class="n">categories_per_year</span> <span class="o">=</span> <span class="n">strong_storms_per_year</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="s1">&#39;storm_count&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;YEAR&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;category_roman&#39;</span><span class="p">)</span>
+<span class="n">categories_per_year</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">categories_per_year</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">categories_per_year</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>category_roman</th>
+      <th>YEAR</th>
+      <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>IV</th>
+      <th>V</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2007</td>
+      <td>49.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
       <th>1</th>
-      <td>2012</td>
-      <td>V</td>
-      <td>1</td>
+      <td>2008</td>
+      <td>64.0</td>
+      <td>8.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2013</td>
-      <td>V</td>
-      <td>1</td>
+      <td>2009</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2015</td>
-      <td>IV</td>
-      <td>1</td>
+      <td>2010</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2015</td>
-      <td>V</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>2017</td>
-      <td>III</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>2017</td>
-      <td>IV</td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>2018</td>
-      <td>III</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>2018</td>
-      <td>IV</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>2018</td>
-      <td>V</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>2020</td>
-      <td>III</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>2020</td>
-      <td>IV</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>2021</td>
-      <td>III</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>2021</td>
-      <td>IV</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>2022</td>
-      <td>IV</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>2023</td>
-      <td>IV</td>
-      <td>3</td>
+      <td>2011</td>
+      <td>16.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
   </tbody>
 </table>
@@ -1140,11 +1298,12 @@ Name: category_roman, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot stacked bar chart of hurricane categories III - V</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">strong_storms_per_year</span><span class="o">.</span><span class="n">YEAR</span><span class="p">,</span>
-        <span class="n">strong_storms_per_year</span><span class="o">.</span><span class="n">storm_count</span><span class="p">),</span>
-        <span class="c1"># label=strong_storms_per_year.category_roman)#, label=strong_storms_per_year.CATEGORY)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">categories_per_year</span><span class="o">.</span><span class="n">YEAR</span><span class="p">,</span> <span class="n">categories_per_year</span><span class="o">.</span><span class="n">III</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Category III&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">categories_per_year</span><span class="o">.</span><span class="n">YEAR</span><span class="p">,</span> <span class="n">categories_per_year</span><span class="o">.</span><span class="n">IV</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="n">categories_per_year</span><span class="o">.</span><span class="n">III</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Category IV&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">categories_per_year</span><span class="o">.</span><span class="n">YEAR</span><span class="p">,</span> <span class="n">categories_per_year</span><span class="o">.</span><span class="n">V</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="n">categories_per_year</span><span class="o">.</span><span class="n">IV</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Category V&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">)</span>
@@ -1156,13 +1315,97 @@ Name: category_roman, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No handles with labels found to put in legend.
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Strong Hurricanes by year, USA&#39;)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Hurricane Categories by year, USA&#39;)
+<img alt="_images/c487fa3fe1029a6050f17763200a11c8039a053cc608c505c28a21c289b8d73c.png" src="_images/c487fa3fe1029a6050f17763200a11c8039a053cc608c505c28a21c289b8d73c.png" />
+</div>
+</div>
+<p>Now let’s show our temperature data in the same plot (in a different panel to our hurricane data)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get recent year temperature data</span>
+<span class="n">recent_temps</span> <span class="o">=</span> <span class="n">temps</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">temps</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2007</span><span class="p">]</span>
 </pre></div>
 </div>
-<img alt="_images/b4cf6561d4c21089b92c518930a9d64c4405e28fe677319cd879a7d795c54ae5.png" src="_images/b4cf6561d4c21089b92c518930a9d64c4405e28fe677319cd879a7d795c54ae5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Plot Hurricanes per year</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">categories_per_year</span><span class="o">.</span><span class="n">YEAR</span><span class="p">,</span> <span class="n">categories_per_year</span><span class="o">.</span><span class="n">III</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Category III&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">categories_per_year</span><span class="o">.</span><span class="n">YEAR</span><span class="p">,</span> <span class="n">categories_per_year</span><span class="o">.</span><span class="n">IV</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="n">categories_per_year</span><span class="o">.</span><span class="n">III</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Category IV&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">categories_per_year</span><span class="o">.</span><span class="n">YEAR</span><span class="p">,</span> <span class="n">categories_per_year</span><span class="o">.</span><span class="n">V</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="n">categories_per_year</span><span class="o">.</span><span class="n">IV</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Category V&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Hurricanes&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Plot recent time series of temperature anomaly</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">recent_temps</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">recent_temps</span><span class="p">[</span><span class="s1">&#39;anomaly&#39;</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Temperature Anomaly ($\degree C$)&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Recent upticks in hurricanes category III - V, with 2017 being one of the strongest years on record&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Strong Hurricanes by year, USA&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Strong Hurricanes by year, USA&#39;)
+</pre></div>
+</div>
+<img alt="_images/7ba0114bf952d379b5e2b0f951cba900e9022cb43456b9acb95c3bca864d8e6b.png" src="_images/7ba0114bf952d379b5e2b0f951cba900e9022cb43456b9acb95c3bca864d8e6b.png" />
+</div>
+</div>
+<p>We see that the higher temperature anomaly over the years has coincided with higher numbers of strong hurricanes (category III - V.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fatalities</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;FAT_YEARMONTH&#39;, &#39;FAT_DAY&#39;, &#39;FAT_TIME&#39;, &#39;FATALITY_ID&#39;, &#39;EVENT_ID&#39;,
+       &#39;FATALITY_TYPE&#39;, &#39;FATALITY_DATE&#39;, &#39;FATALITY_AGE&#39;, &#39;FATALITY_SEX&#39;,
+       &#39;FATALITY_LOCATION&#39;, &#39;EVENT_YEARMONTH&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fatalities</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fatalities</span><span class="o">.</span><span class="n">FAT_YEARMONTH</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="n">deaths_per_year</span> <span class="o">=</span> <span class="n">fatalities</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">)[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot fatalities per year</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">deaths_per_year</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">deaths_per_year</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">deaths_per_year</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Fatalities&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Fatalities per year due to hurricanes: USA 1998 - 2023&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Fatalities haven&#39;t tracked alongside temperature anomaly as closely&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_913/1760059408.py:5: UserWarning: FixedFormatter should only be used together with FixedLocator
+  ax.set_xticklabels(deaths_per_year.index, rotation=45)
+</pre></div>
+</div>
+<img alt="_images/32c701c326441082ea1840824f06d4361eabeab29d22991d9dc22f60b6415de5.png" src="_images/32c701c326441082ea1840824f06d4361eabeab29d22991d9dc22f60b6415de5.png" />
 </div>
 </div>
 </section>
