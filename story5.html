@@ -1,0 +1,1284 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Story 5 &#8212; DATA 608 - Knowledge and Visual Analytics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'story5';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Story 4" href="story4.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DATA 608 - Knowledge and Visual Analytics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    DATA 608: Knowledge and Visual Analytics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="one-page-bio.html">One Page Bio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story1.html">Story 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story2.html">Story 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story3.html">Story 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story4.html">Story 4</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Story 5</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/andrewbowen19/storiesDATA608" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/andrewbowen19/storiesDATA608/issues/new?title=Issue%20on%20page%20%2Fstory5.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/story5.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Story 5</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wrangling">Data Wrangling</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="story-5">
+<h1>Story 5<a class="headerlink" href="#story-5" title="Permalink to this headline">#</a></h1>
+<p>Andrew Bowen<br />
+DATA 608<br />
+CUNY Data Science</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span><span class="p">,</span> <span class="n">BytesIO</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="data-sources">
+<h2>Data Sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/global/time-series/globe/land_ocean/1/9/1990-2023">National Oceanic and Atmospheric Administration</a> - global time series data for
+temperature anomaly since 1990 (posted on <span class="xref myst">GitHub here</span>)</p></li>
+<li><p><a class="reference external" href="https://www.ncdc.noaa.gov/cdo-web/webservices/v2#gettingStarted">NOAA API</a></p></li>
+<li><p><a class="reference external" href="https://www.ncdc.noaa.gov/stormevents/ftp.jsp">National Centers for Environmental Information Storm Event Database</a> - data since 1950 no different storm events</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in Temperature anomaly data</span>
+<span class="n">temps</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/global-temps.csv&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">temps</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Anomaly</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1990</td>
+      <td>0.30</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1991</td>
+      <td>0.39</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1992</td>
+      <td>0.06</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1993</td>
+      <td>0.21</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1994</td>
+      <td>0.27</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="data-wrangling">
+<h2>Data Wrangling<a class="headerlink" href="#data-wrangling" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clean up temperature Data</span>
+<span class="n">temps</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">temps</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+
+<span class="n">temps</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temps</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">temps</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>anomaly</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1990</td>
+      <td>0.30</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1991</td>
+      <td>0.39</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1992</td>
+      <td>0.06</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1993</td>
+      <td>0.21</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1994</td>
+      <td>0.27</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>A <em>temperature anomaly</em> in short means a deviation from the average value. In this case, our dataset about shows how much each year <em>deviated</em> from the average temperature over the period 1900 - 2000. A postivie value indicates a temperature <em>above</em> the average. Enough italics, let’s quickly plot our temperature anomalies over time</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot temperature anomalies</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temps</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">temps</span><span class="p">[</span><span class="s1">&#39;anomaly&#39;</span><span class="p">])</span>
+
+<span class="c1"># Add labels and title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Temperature Anonaly ($\degree C$)&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Annual Global Temperature Anomalies: 1990 - 2023 ($\degree C$)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Annual average temperature has been getting further and further above the </span><span class="se">\n</span><span class="s2">average temperature value over the same period. In short, the earth is warming up!&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/aae7f84a6d8d825a18c6c0432cf3c92615efd82c18b3c3a67225e496b8d51e39.png" src="_images/aae7f84a6d8d825a18c6c0432cf3c92615efd82c18b3c3a67225e496b8d51e39.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">token</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;NOAA_TOKEN&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="s2">&quot;https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">file_index</span> <span class="o">=</span> <span class="n">file_index</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">204</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clean up file index data a bit</span>
+<span class="n">file_index</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">file_index</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s2">&quot;d(\d</span><span class="si">{4}</span><span class="s2">)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="c1"># We only care about the past 25 years, so let&#39;s filter a bit</span>
+<span class="n">file_index</span> <span class="o">=</span> <span class="n">file_index</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">file_index</span><span class="o">.</span><span class="n">year</span> <span class="o">&gt;=</span> <span class="mi">1998</span><span class="p">]</span>
+
+<span class="n">file_index</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Last modified</th>
+      <th>Size</th>
+      <th>Description</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>52</th>
+      <td>StormEvents_details-ftp_v1.0_d1998_c20220425.c...</td>
+      <td>2022-04-25 15:06</td>
+      <td>9.8M</td>
+      <td>NaN</td>
+      <td>1998</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>StormEvents_details-ftp_v1.0_d1999_c20220425.c...</td>
+      <td>2022-04-25 15:06</td>
+      <td>9.9M</td>
+      <td>NaN</td>
+      <td>1999</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>StormEvents_details-ftp_v1.0_d2000_c20220425.c...</td>
+      <td>2022-04-25 15:06</td>
+      <td>7.5M</td>
+      <td>NaN</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>StormEvents_details-ftp_v1.0_d2001_c20220425.c...</td>
+      <td>2022-04-25 15:06</td>
+      <td>6.6M</td>
+      <td>NaN</td>
+      <td>2001</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>StormEvents_details-ftp_v1.0_d2002_c20220425.c...</td>
+      <td>2022-04-25 15:06</td>
+      <td>6.9M</td>
+      <td>NaN</td>
+      <td>2002</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_storm_data</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Grab file from NCEI Storm Database</span>
+<span class="sd">    Grabs compressed CSV file, decodes it and dumps to pandas dataframe</span>
+<span class="sd">        - https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/</span>
+
+<span class="sd">    params:</span>
+<span class="sd">        path (str): Filename or path in the NCEI database</span>
+<span class="sd">            (e.g., `StormEvents_details-ftp_v1.0_d1950_c20210803.csv.gz`)</span>
+<span class="sd">    returns:</span>
+<span class="sd">        dat: (pd.DataFrame) dataframe for a single file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Get file content</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">file_like_object</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+    
+    <span class="c1"># Open and decode file content</span>
+    <span class="n">dat</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_like_object</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">dat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">()))</span>
+
+    <span class="k">return</span> <span class="n">dat</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get detail files from TOC</span>
+<span class="n">detail_indices</span> <span class="o">=</span> <span class="n">file_index</span><span class="o">.</span><span class="n">Name</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;details&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="n">detail_indices</span>
+
+<span class="n">detail_files</span> <span class="o">=</span> <span class="n">file_index</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">detail_indices</span><span class="p">]</span>
+
+<span class="c1"># Now for fatalities</span>
+<span class="n">fatality_indices</span> <span class="o">=</span> <span class="n">file_index</span><span class="o">.</span><span class="n">Name</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;fatalities&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="n">fatality_indices</span>
+<span class="n">fatality_files</span> <span class="o">=</span> <span class="n">file_index</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">fatality_indices</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get detail files first</span>
+<span class="n">detail_dfs</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">detail_files</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span>
+    <span class="n">dat</span> <span class="o">=</span> <span class="n">get_storm_data</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+    <span class="n">detail_dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_14261/3806064280.py:6: DtypeWarning: Columns (28) have mixed types.Specify dtype option on import or set low_memory=False.
+  dat = get_storm_data(filepath)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_14261/3806064280.py:6: DtypeWarning: Columns (29,34,35,37) have mixed types.Specify dtype option on import or set low_memory=False.
+  dat = get_storm_data(filepath)
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">60</span><span class="o">/</span><span class="n">nwdftyjj6cg3ysz_pf9stwtc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_14261</span><span class="o">/</span><span class="mf">3806064280.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">detail_files</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">filepath</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="n">dat</span> <span class="o">=</span> <span class="n">get_storm_data</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">detail_dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
+
+<span class="nn">/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_14261/1608609549.py</span> in <span class="ni">get_storm_data</span><span class="nt">(path)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_like_object</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>         <span class="n">content</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">23</span>         <span class="n">dat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">()))</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> 
+<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="k">return</span> <span class="n">dat</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">details</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">detail_dfs</span><span class="p">)</span>
+
+<span class="c1"># Uncomment if you want this file written locally</span>
+<span class="c1"># details.to_csv(&quot;data/storm-details.csv&quot;, index=False)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get fatality files next</span>
+<span class="n">fatality_dfs</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">fatality_files</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span>
+    <span class="n">dat</span> <span class="o">=</span> <span class="n">get_storm_data</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+    <span class="n">fatality_dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fatalities</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">fatality_dfs</span><span class="p">)</span>
+
+<span class="c1"># Uncomment if you want this file written locally</span>
+<span class="c1"># fatalities.to_csv(&quot;data/storm-fatalities.csv&quot;, index=False)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s</span>
+<span class="n">category_mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;1.0&quot;</span><span class="p">:</span> <span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;2.0&quot;</span><span class="p">:</span> <span class="s2">&quot;II&quot;</span><span class="p">,</span> <span class="s2">&quot;3.0&quot;</span><span class="p">:</span> <span class="s2">&quot;III&quot;</span><span class="p">,</span> <span class="s2">&quot;4.0&quot;</span><span class="p">:</span> <span class="s2">&quot;IV&quot;</span><span class="p">,</span> <span class="s2">&quot;5.0&quot;</span><span class="p">:</span> <span class="s2">&quot;V&quot;</span><span class="p">}</span>
+<span class="n">details</span><span class="p">[</span><span class="s1">&#39;category_roman&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s1">&#39;CATEGORY&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">category_mapping</span><span class="p">)</span>
+
+<span class="n">categories</span> <span class="o">=</span> <span class="n">details</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;category_roman&quot;</span><span class="p">)[</span><span class="s1">&#39;category_roman&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">categories</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>category_roman
+I      342
+II      53
+III     26
+IV      42
+V        8
+Name: category_roman, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">categories</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">categories</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Hurricane Category&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Hurricanes&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Most storms end up lower strength, despite more media coverage for category IV and V&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Hurricane Categories: 1998-2022, USA&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Hurricane Categories: 1998-2022, USA&#39;)
+</pre></div>
+</div>
+<img alt="_images/a9f154b7fcb945efc620eba0b67c1bdc73a73354e0a5177de791b424f1bdd5ae.png" src="_images/a9f154b7fcb945efc620eba0b67c1bdc73a73354e0a5177de791b424f1bdd5ae.png" />
+</div>
+</div>
+<p>This graph shows our distribution of categories of hurricanes well (how many hurricaness were in each category <em>in total</em>), but we’re mostly interested in <em>change over time</em>. Primarily, <strong>has the number of hurricanes in category IV and V <em>increased</em> over the past 25 years alongside rising temperatures?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s get detail years </span>
+<span class="n">details</span><span class="p">[</span><span class="s1">&#39;YEAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s1">&#39;YEAR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+
+
+
+<span class="c1"># Let&#39;s look at just Category 4 or 5 storms</span>
+<span class="n">strong_storms</span> <span class="o">=</span> <span class="n">details</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">details</span><span class="p">[</span><span class="s1">&#39;category_roman&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;III&quot;</span><span class="p">)</span> <span class="o">|</span>
+                            <span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s1">&#39;category_roman&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;IV&quot;</span><span class="p">)</span> <span class="o">|</span>
+                            <span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s1">&#39;category_roman&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;V&quot;</span><span class="p">)]</span>
+
+
+<span class="n">strong_storms</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>BEGIN_YEARMONTH</th>
+      <th>BEGIN_DAY</th>
+      <th>BEGIN_TIME</th>
+      <th>END_YEARMONTH</th>
+      <th>END_DAY</th>
+      <th>END_TIME</th>
+      <th>EPISODE_ID</th>
+      <th>EVENT_ID</th>
+      <th>STATE</th>
+      <th>STATE_FIPS</th>
+      <th>...</th>
+      <th>BEGIN_LAT</th>
+      <th>BEGIN_LON</th>
+      <th>END_LAT</th>
+      <th>END_LON</th>
+      <th>EPISODE_NARRATIVE</th>
+      <th>EVENT_NARRATIVE</th>
+      <th>DATA_SOURCE</th>
+      <th>CETAGORY</th>
+      <th>cetgory_roman</th>
+      <th>category_roman</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>52160</th>
+      <td>200909</td>
+      <td>15</td>
+      <td>100</td>
+      <td>200909</td>
+      <td>16</td>
+      <td>1300</td>
+      <td>34184</td>
+      <td>197872</td>
+      <td>GUAM</td>
+      <td>98.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Tropical Depression 15W developed from a distu...</td>
+      <td>NaN</td>
+      <td>CSV</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>IV</td>
+    </tr>
+    <tr>
+      <th>30020</th>
+      <td>201212</td>
+      <td>2</td>
+      <td>1600</td>
+      <td>201212</td>
+      <td>3</td>
+      <td>1000</td>
+      <td>70984</td>
+      <td>426987</td>
+      <td>GUAM</td>
+      <td>98.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>After passing Chuuk on 28 November, Tropical S...</td>
+      <td>NaN</td>
+      <td>CSV</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>V</td>
+    </tr>
+    <tr>
+      <th>12884</th>
+      <td>201311</td>
+      <td>3</td>
+      <td>1900</td>
+      <td>201311</td>
+      <td>7</td>
+      <td>1900</td>
+      <td>81102</td>
+      <td>486009</td>
+      <td>GUAM</td>
+      <td>98.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Haiyan crossed Micronesia from November 3rd to...</td>
+      <td>On the afternoon of November 1st scatterometer...</td>
+      <td>CSV</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>V</td>
+    </tr>
+    <tr>
+      <th>9756</th>
+      <td>201503</td>
+      <td>26</td>
+      <td>0</td>
+      <td>201503</td>
+      <td>31</td>
+      <td>2359</td>
+      <td>96339</td>
+      <td>579262</td>
+      <td>GUAM</td>
+      <td>98.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Between the 26th and 31st of March, Typhoon Ma...</td>
+      <td>On the night of the 26th of March, a tropical ...</td>
+      <td>CSV</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>V</td>
+    </tr>
+    <tr>
+      <th>11205</th>
+      <td>201504</td>
+      <td>1</td>
+      <td>0</td>
+      <td>201504</td>
+      <td>2</td>
+      <td>0</td>
+      <td>99324</td>
+      <td>596410</td>
+      <td>GUAM</td>
+      <td>98.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Typhoon Maysak had ravaged parts of Micronesia...</td>
+      <td>Typhoon Maysak formed over eastern Micronesia ...</td>
+      <td>CSV</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>V</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 54 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now let&#39;s plot the number of </span>
+<span class="n">strong_storms_per_year</span> <span class="o">=</span> <span class="n">strong_storms</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;YEAR&quot;</span><span class="p">,</span> <span class="s2">&quot;category_roman&quot;</span><span class="p">])[</span><span class="s1">&#39;category_roman&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">strong_storms_per_year</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">strong_storms_per_year</span><span class="p">)</span>
+<span class="n">strong_storms_per_year</span><span class="p">[</span><span class="s1">&#39;storm_count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">strong_storms_per_year</span><span class="p">[</span><span class="s1">&#39;category_roman&#39;</span><span class="p">]</span>
+
+
+<span class="n">strong_storms_per_year</span> <span class="o">=</span> <span class="n">strong_storms_per_year</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;category_roman&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">strong_storms_per_year</span><span class="c1">#.pivot_table([&quot;YEAR&quot;, &quot;CATEGORY&quot;], &quot;storm_count&quot;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEAR</th>
+      <th>category_roman</th>
+      <th>storm_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2009</td>
+      <td>IV</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2012</td>
+      <td>V</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2013</td>
+      <td>V</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2015</td>
+      <td>IV</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2015</td>
+      <td>V</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2017</td>
+      <td>III</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2017</td>
+      <td>IV</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2018</td>
+      <td>III</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2018</td>
+      <td>IV</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2018</td>
+      <td>V</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2020</td>
+      <td>III</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2020</td>
+      <td>IV</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>2021</td>
+      <td>III</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2021</td>
+      <td>IV</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2022</td>
+      <td>IV</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2023</td>
+      <td>IV</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">strong_storms_per_year</span><span class="o">.</span><span class="n">YEAR</span><span class="p">,</span>
+        <span class="n">strong_storms_per_year</span><span class="o">.</span><span class="n">storm_count</span><span class="p">),</span>
+        <span class="c1"># label=strong_storms_per_year.category_roman)#, label=strong_storms_per_year.CATEGORY)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Hurricanes Category III, IV, V&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Recent upticks in hurricanes category III - V, with 2017 being one of the strongest years on record&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Strong Hurricanes by year, USA&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No handles with labels found to put in legend.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Hurricane Categories by year, USA&#39;)
+</pre></div>
+</div>
+<img alt="_images/b4cf6561d4c21089b92c518930a9d64c4405e28fe677319cd879a7d795c54ae5.png" src="_images/b4cf6561d4c21089b92c518930a9d64c4405e28fe677319cd879a7d795c54ae5.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="story4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Story 4</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wrangling">Data Wrangling</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Andrew Bowen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
