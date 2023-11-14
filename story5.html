@@ -700,91 +700,42 @@ temperature anomaly since 1990 (posted on <span class="xref myst">GitHub here</s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_5864/3806064280.py:6: DtypeWarning: Columns (28) have mixed types.Specify dtype option on import or set low_memory=False.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_6685/3806064280.py:6: DtypeWarning: Columns (28) have mixed types.Specify dtype option on import or set low_memory=False.
   dat = get_storm_data(filepath)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_5864/3806064280.py:6: DtypeWarning: Columns (29,34,35,37) have mixed types.Specify dtype option on import or set low_memory=False.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_6685/3806064280.py:6: DtypeWarning: Columns (29,34,35,37) have mixed types.Specify dtype option on import or set low_memory=False.
   dat = get_storm_data(filepath)
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">60</span><span class="o">/</span><span class="n">nwdftyjj6cg3ysz_pf9stwtc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_5864</span><span class="o">/</span><span class="mf">3806064280.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">60</span><span class="o">/</span><span class="n">nwdftyjj6cg3ysz_pf9stwtc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_6685</span><span class="o">/</span><span class="mf">3806064280.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">detail_files</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">filepath</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span>
 <span class="ne">----&gt; </span><span class="mi">6</span>     <span class="n">dat</span> <span class="o">=</span> <span class="n">get_storm_data</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">detail_dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
 
-<span class="nn">/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_5864/1608609549.py</span> in <span class="ni">get_storm_data</span><span class="nt">(path)</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">17</span>     <span class="n">file_like_object</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> 
-<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="c1"># Open and decode file content</span>
+<span class="nn">/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_6685/1608609549.py</span> in <span class="ni">get_storm_data</span><span class="nt">(path)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="n">dat</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_like_object</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">22</span>         <span class="n">content</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>         <span class="n">dat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">()))</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> 
 
-<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/requests/models.py</span> in <span class="ni">content</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">834</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_content</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">835</span>             <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">836</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_content</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">CONTENT_CHUNK_SIZE</span><span class="p">))</span> <span class="ow">or</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span>
-<span class="g g-Whitespace">    </span><span class="mi">837</span> 
-<span class="g g-Whitespace">    </span><span class="mi">838</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_content_consumed</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="nn">~/opt/anaconda3/lib/python3.9/gzip.py</span> in <span class="ni">read</span><span class="nt">(self, size)</span>
+<span class="g g-Whitespace">    </span><span class="mi">298</span>             <span class="kn">import</span> <span class="nn">errno</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>             <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="n">errno</span><span class="o">.</span><span class="n">EBADF</span><span class="p">,</span> <span class="s2">&quot;read() on write-only GzipFile object&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">300</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span> 
+<span class="g g-Whitespace">    </span><span class="mi">302</span>     <span class="k">def</span> <span class="nf">read1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
 
-<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/requests/models.py</span> in <span class="ni">generate</span><span class="nt">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">756</span>             <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">,</span> <span class="s1">&#39;stream&#39;</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">757</span>                 <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">758</span>                     <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">,</span> <span class="n">decode_content</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">759</span>                         <span class="k">yield</span> <span class="n">chunk</span>
-<span class="g g-Whitespace">    </span><span class="mi">760</span>                 <span class="k">except</span> <span class="n">ProtocolError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-
-<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/urllib3/response.py</span> in <span class="ni">stream</span><span class="nt">(self, amt, decode_content)</span>
-<span class="g g-Whitespace">    </span><span class="mi">574</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">575</span>             <span class="k">while</span> <span class="ow">not</span> <span class="n">is_fp_closed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fp</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">576</span>                 <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">amt</span><span class="o">=</span><span class="n">amt</span><span class="p">,</span> <span class="n">decode_content</span><span class="o">=</span><span class="n">decode_content</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">577</span> 
-<span class="g g-Whitespace">    </span><span class="mi">578</span>                 <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
-
-<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/urllib3/response.py</span> in <span class="ni">read</span><span class="nt">(self, amt, decode_content, cache_content)</span>
-<span class="g g-Whitespace">    </span><span class="mi">517</span>             <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">518</span>                 <span class="n">cache_content</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="ne">--&gt; </span><span class="mi">519</span>                 <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">fp_closed</span> <span class="k">else</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">520</span>                 <span class="k">if</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">521</span>                     <span class="n">amt</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">data</span>
-
-<span class="nn">~/opt/anaconda3/lib/python3.9/http/client.py</span> in <span class="ni">read</span><span class="nt">(self, amt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">460</span>             <span class="c1"># Amount is given, implement using readinto</span>
-<span class="g g-Whitespace">    </span><span class="mi">461</span>             <span class="n">b</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">462</span>             <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">readinto</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">463</span>             <span class="k">return</span> <span class="nb">memoryview</span><span class="p">(</span><span class="n">b</span><span class="p">)[:</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">464</span>         <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">~/opt/anaconda3/lib/python3.9/http/client.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">504</span>         <span class="c1"># connection, and the user is reading more bytes than will be provided</span>
-<span class="g g-Whitespace">    </span><span class="mi">505</span>         <span class="c1"># (for example, reading in 1k chunks)</span>
-<span class="ne">--&gt; </span><span class="mi">506</span>         <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readinto</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">507</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">508</span>             <span class="c1"># Ideally, we would raise IncompleteRead if the content-length</span>
-
-<span class="nn">~/opt/anaconda3/lib/python3.9/socket.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">702</span>         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">703</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">704</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sock</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span>             <span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_timeout_occurred</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="nn">~/opt/anaconda3/lib/python3.9/ssl.py</span> in <span class="ni">recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1239</span>                   <span class="s2">&quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
-<span class="g g-Whitespace">   </span><span class="mi">1240</span>                   <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1241</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nbytes</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1242</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1243</span>             <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
-
-<span class="nn">~/opt/anaconda3/lib/python3.9/ssl.py</span> in <span class="ni">read</span><span class="nt">(self, len, buffer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1097</span>         <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1098</span>             <span class="k">if</span> <span class="n">buffer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1099</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1100</span>             <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1101</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
+<span class="nn">~/opt/anaconda3/lib/python3.9/gzip.py</span> in <span class="ni">read</span><span class="nt">(self, size)</span>
+<span class="g g-Whitespace">    </span><span class="mi">494</span> 
+<span class="g g-Whitespace">    </span><span class="mi">495</span>             <span class="n">uncompress</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">496</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">unconsumed_tail</span> <span class="o">!=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">497</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_fp</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">unconsumed_tail</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">498</span>             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">unused_data</span> <span class="o">!=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">:</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -873,13 +824,8 @@ Name: category_roman, dtype: int64
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s get detail years </span>
 <span class="n">details</span><span class="p">[</span><span class="s1">&#39;YEAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s1">&#39;YEAR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 
-
-
 <span class="c1"># Let&#39;s look at just Category 4 or 5 storms</span>
-<span class="n">strong_storms</span> <span class="o">=</span> <span class="n">details</span><span class="c1">#.loc[(details[&#39;category_roman&#39;] == &quot;III&quot;) |</span>
-                        <span class="c1">#    (details[&#39;category_roman&#39;] == &quot;IV&quot;) |</span>
-                        <span class="c1">#    (details[&#39;category_roman&#39;] == &quot;V&quot;)]</span>
-
+<span class="n">strong_storms</span> <span class="o">=</span> <span class="n">details</span>
 
 <span class="n">strong_storms</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
