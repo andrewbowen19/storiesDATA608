@@ -1,0 +1,1541 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Story 6 &#8212; DATA 608 - Knowledge and Visual Analytics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'story6';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DATA 608 - Knowledge and Visual Analytics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    DATA 608: Knowledge and Visual Analytics
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="one-page-bio.html">One Page Bio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story1.html">Story 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story2.html">Story 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story3.html">Story 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story4.html">Story 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story5.html">Story 5</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/andrewbowen19/storiesDATA608" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/andrewbowen19/storiesDATA608/issues/new?title=Issue%20on%20page%20%2Fstory6.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/story6.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Story 6</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wrangling">Data Wrangling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization">Data Visualization</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="story-6">
+<h1>Story 6<a class="headerlink" href="#story-6" title="Permalink to this headline">#</a></h1>
+<p>Andrew Bowen
+DATA 621
+CUNY Data Science Masters</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+<span class="kn">import</span> <span class="nn">plotly.figure_factory</span> <span class="k">as</span> <span class="nn">ff</span>
+
+
+<span class="kn">import</span> <span class="nn">shapely</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">shapely.errors</span> <span class="kn">import</span> <span class="n">ShapelyDeprecationWarning</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">ShapelyDeprecationWarning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="data-sources">
+<h2>Data Sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">#</a></h2>
+<p>I found US Food Security data <a class="reference external" href="https://www.census.gov/data/datasets/time-series/demo/cps/cps-supp_cps-repwgt/cps-food-security.html">published by the US Census Bureau here</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ers.usda.gov/data-products/">US Dept of Agriculture Data Sources</a></p></li>
+<li><p><a class="reference external" href="https://www.ers.usda.gov/data-products/food-access-research-atlas/download-the-data/">USDA Food Location Mapping Data</a></p></li>
+<li><p><a class="reference external" href="https://gisportal.ers.usda.gov/server/rest/services/FEA/Access_and_Proximity_to_Grocery_Stores/MapServer">USDA GIS Portal</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://www2.census.gov/programs-surveys/cps/datasets/2022/supp/dec22pub.csv&quot;</span><span class="p">)</span>
+
+<span class="n">dat</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>HRHHID</th>
+      <th>HRMONTH</th>
+      <th>HRYEAR4</th>
+      <th>HURESPLI</th>
+      <th>HUFINAL</th>
+      <th>FILLER</th>
+      <th>HETENURE</th>
+      <th>HEHOUSUT</th>
+      <th>HETELHHD</th>
+      <th>HETELAVL</th>
+      <th>...</th>
+      <th>HRFS30D1</th>
+      <th>HRFS30D2</th>
+      <th>HRFS30D3</th>
+      <th>HRFS30D4</th>
+      <th>HRFS30D5</th>
+      <th>HRFS30D6</th>
+      <th>HRFS30D7</th>
+      <th>HRFS30D8</th>
+      <th>HRFS30D9</th>
+      <th>HRFS30DE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>351819007700950</td>
+      <td>12</td>
+      <td>2022</td>
+      <td>-1</td>
+      <td>225</td>
+      <td>NaN</td>
+      <td>-1</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>...</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>143200010045972</td>
+      <td>12</td>
+      <td>2022</td>
+      <td>-1</td>
+      <td>226</td>
+      <td>NaN</td>
+      <td>-1</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>...</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>201348501120003</td>
+      <td>12</td>
+      <td>2022</td>
+      <td>-1</td>
+      <td>225</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>5</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>...</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>610009070389621</td>
+      <td>12</td>
+      <td>2022</td>
+      <td>-1</td>
+      <td>226</td>
+      <td>NaN</td>
+      <td>-1</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>...</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>110862907936</td>
+      <td>12</td>
+      <td>2022</td>
+      <td>-1</td>
+      <td>226</td>
+      <td>NaN</td>
+      <td>-1</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>...</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 507 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="data-wrangling">
+<h2>Data Wrangling<a class="headerlink" href="#data-wrangling" title="Permalink to this headline">#</a></h2>
+<p>We’ll need to do a significant amount of column renaming. Using <a class="reference external" href="https://www.ers.usda.gov/webdocs/DataFiles/50764/techdoc2022.pdf?v=1957.8">this data dictionary</a></p>
+<p><em>Children’s Food Security Scale variables are coded as “Not in Universe” (-1) if there were no children in the household.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rename dataframe columns</span>
+<span class="n">column_renames</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;HRHHID&quot;</span><span class="p">:</span> <span class="s2">&quot;household_id&quot;</span><span class="p">,</span>
+    <span class="c1">#&quot;HRHHID2&quot;: &quot;household_id2&quot;,</span>
+    <span class="s2">&quot;PESEX&quot;</span><span class="p">:</span> <span class="s2">&quot;sex&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;HRFS12M1&quot;</span><span class="p">:</span> <span class="s2">&quot;food_security_level&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;HRFS12M6&quot;</span><span class="p">:</span> <span class="s2">&quot;raw_child_food_security_score&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;HRFS12MC&quot;</span><span class="p">:</span> <span class="s2">&quot;child_food_security_level&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;HRFS12M8&quot;</span><span class="p">:</span> <span class="s2">&quot;adult_food_security_level&quot;</span>
+    <span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">column_renames</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">column_renames</span><span class="o">.</span><span class="n">values</span><span class="p">())]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>household_id</th>
+      <th>sex</th>
+      <th>food_security_level</th>
+      <th>raw_child_food_security_score</th>
+      <th>child_food_security_level</th>
+      <th>adult_food_security_level</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>351819007700950</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>143200010045972</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>201348501120003</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>610009070389621</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>110862907936</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+      <td>-1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">child_food_security_level</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1,  1,  2,  3, -9])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">child_level_map</span> <span class="o">=</span>  <span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;Food Secure&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Low Food Security&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Very Low Food Security&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">:</span> <span class="s2">&quot;Not in Universe&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;No Response&quot;</span><span class="p">}</span>
+
+<span class="n">adult_level_map</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;High&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;Marginal&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Low&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Very Low&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">:</span> <span class="s2">&quot;Not in Universe&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;No Response&quot;</span><span class="p">}</span>
+
+<span class="c1"># Map values</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;child_food_security_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">child_food_security_level</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">child_level_map</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;adult_food_security_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">adult_food_security_level</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">adult_level_map</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-visualization">
+<h2>Data Visualization<a class="headerlink" href="#data-visualization" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">child_food_security</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">child_food_security_level</span><span class="o">!=</span><span class="s2">&quot;No Response&quot;</span><span class="p">)</span> <span class="o">&amp;</span>
+                             <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">child_food_security_level</span><span class="o">!=</span><span class="s2">&quot;Not in Universe&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;child_food_security_level&#39;</span><span class="p">)[</span><span class="s1">&#39;child_food_security_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">child_food_security</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>child_food_security_level
+Food Secure                 335
+Low Food Security          2503
+Very Low Food Security    30527
+Name: child_food_security_level, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot child food security levels</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">child_food_security</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">child_food_security</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Food Security Level - USDA&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Children&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;The majority of survey respondents with children did not meet the USDA&#39;s definition of food security&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Childhood Food Security - USDA 2022&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Childhood Food Security - USDA 2022&#39;)
+</pre></div>
+</div>
+<img alt="_images/c1498b94e2cdbe4f0b031764b1d2bf9796ea1e54828b0ad062b4f878c94bb9bc.png" src="_images/c1498b94e2cdbe4f0b031764b1d2bf9796ea1e54828b0ad062b4f878c94bb9bc.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adult_food_security</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">adult_food_security_level</span><span class="o">!=</span><span class="s2">&quot;No Response&quot;</span><span class="p">)</span> <span class="o">&amp;</span>
+                             <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">adult_food_security_level</span><span class="o">!=</span><span class="s2">&quot;Not in Universe&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;adult_food_security_level&#39;</span><span class="p">)[</span><span class="s1">&#39;adult_food_security_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">adult_food_security</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>adult_food_security_level
+High         3474
+Low          6845
+Marginal     5217
+Very Low    59280
+Name: adult_food_security_level, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot adult food security levels</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">adult_food_security</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">adult_food_security</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Food Security Level - USDA&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Adults&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;The majority of adult survey respondents did not meet the USDA&#39;s definition of food security&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Adult Food Security - USDA 2022&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Adult Food Security - USDA 2022&#39;)
+</pre></div>
+</div>
+<img alt="_images/fd26dd2e52d4bbb9fb1a38df07692299f81a43367e563f57556eb2c7ec0af59d.png" src="_images/fd26dd2e52d4bbb9fb1a38df07692299f81a43367e563f57556eb2c7ec0af59d.png" />
+</div>
+</div>
+<p>The excel file included is posted on <a class="reference external" href="https://www.ers.usda.gov/data-products/food-access-research-atlas/download-the-data/">the US Department of Agriculture website here</a>. I’ve converted the file to parquet for easier read-in times.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initial read in, converting to parquet format for easier storage</span>
+<span class="c1"># Uncomment the block below and move the excel file linked into your local data folder</span>
+
+<span class="c1"># food_locs = pd.read_excel(&quot;data/FoodAccessResearchAtlasData2019.xlsx&quot;, sheet_name=&quot;Food Access Research Atlas&quot;)</span>
+<span class="n">food_locs</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s2">&quot;./data/food_access.parquet&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># food_locs.head()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">60</span><span class="o">/</span><span class="n">nwdftyjj6cg3ysz_pf9stwtc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_38982</span><span class="o">/</span><span class="mf">3650492379.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># food_locs = pd.read_excel(&quot;data/FoodAccessResearchAtlasData2019.xlsx&quot;, sheet_name=&quot;Food Access Research Atlas&quot;)</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">food_locs</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s2">&quot;./data/food_access.parquet&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># food_locs.head()</span>
+
+<span class="ne">NameError</span>: name &#39;food_locs&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">food_locs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="s2">&quot;./data/food_access.parquet&quot;</span><span class="p">)</span>
+<span class="n">food_locs</span><span class="p">[</span><span class="s1">&#39;CensusTract&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">food_locs</span><span class="p">[</span><span class="s1">&#39;CensusTract&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+
+<span class="n">food_locs</span><span class="p">[</span><span class="s1">&#39;FIPS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">food_locs</span><span class="p">[</span><span class="s1">&#39;CensusTract&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">food_locs</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CensusTract</th>
+      <th>County</th>
+      <th>Urban</th>
+      <th>Pop2010</th>
+      <th>OHU2010</th>
+      <th>GroupQuartersFlag</th>
+      <th>NUMGQTRS</th>
+      <th>PCTGQTRS</th>
+      <th>LILATracts_1And10</th>
+      <th>LILATracts_halfAnd10</th>
+      <th>...</th>
+      <th>TractAsian</th>
+      <th>TractNHOPI</th>
+      <th>TractAIAN</th>
+      <th>TractOMultir</th>
+      <th>TractHispanic</th>
+      <th>TractHUNV</th>
+      <th>TractSNAP</th>
+      <th>State</th>
+      <th>FIPS</th>
+      <th>county</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>01001020100</td>
+      <td>Autauga County</td>
+      <td>1</td>
+      <td>1912</td>
+      <td>693</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>14.0</td>
+      <td>0.0</td>
+      <td>14.0</td>
+      <td>45.0</td>
+      <td>44.0</td>
+      <td>6.0</td>
+      <td>102.0</td>
+      <td>Alabama</td>
+      <td>01001</td>
+      <td>Autauga</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>01001020200</td>
+      <td>Autauga County</td>
+      <td>1</td>
+      <td>2170</td>
+      <td>743</td>
+      <td>0</td>
+      <td>181.0</td>
+      <td>8.341014</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>5.0</td>
+      <td>55.0</td>
+      <td>75.0</td>
+      <td>89.0</td>
+      <td>156.0</td>
+      <td>Alabama</td>
+      <td>01001</td>
+      <td>Autauga</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>01001020300</td>
+      <td>Autauga County</td>
+      <td>1</td>
+      <td>3373</td>
+      <td>1256</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>17.0</td>
+      <td>5.0</td>
+      <td>11.0</td>
+      <td>117.0</td>
+      <td>87.0</td>
+      <td>99.0</td>
+      <td>172.0</td>
+      <td>Alabama</td>
+      <td>01001</td>
+      <td>Autauga</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>01001020400</td>
+      <td>Autauga County</td>
+      <td>1</td>
+      <td>4386</td>
+      <td>1722</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>18.0</td>
+      <td>4.0</td>
+      <td>11.0</td>
+      <td>74.0</td>
+      <td>85.0</td>
+      <td>21.0</td>
+      <td>98.0</td>
+      <td>Alabama</td>
+      <td>01001</td>
+      <td>Autauga</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>01001020500</td>
+      <td>Autauga County</td>
+      <td>1</td>
+      <td>10766</td>
+      <td>4082</td>
+      <td>0</td>
+      <td>181.0</td>
+      <td>1.681219</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>296.0</td>
+      <td>9.0</td>
+      <td>48.0</td>
+      <td>310.0</td>
+      <td>355.0</td>
+      <td>230.0</td>
+      <td>339.0</td>
+      <td>Alabama</td>
+      <td>01001</td>
+      <td>Autauga</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 149 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">food_locs</span><span class="p">[</span><span class="s1">&#39;county&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">food_locs</span><span class="p">[</span><span class="s1">&#39;County&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; County&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">low_access_kids</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">food_locs</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;county&quot;</span><span class="p">,</span> <span class="s2">&quot;FIPS&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">low_access_kids</span> <span class="o">=</span> <span class="n">low_access_kids</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">low_access_kids</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>county</th>
+      <th>FIPS</th>
+      <th>Urban</th>
+      <th>Pop2010</th>
+      <th>OHU2010</th>
+      <th>GroupQuartersFlag</th>
+      <th>NUMGQTRS</th>
+      <th>PCTGQTRS</th>
+      <th>LILATracts_1And10</th>
+      <th>LILATracts_halfAnd10</th>
+      <th>...</th>
+      <th>TractSeniors</th>
+      <th>TractWhite</th>
+      <th>TractBlack</th>
+      <th>TractAsian</th>
+      <th>TractNHOPI</th>
+      <th>TractAIAN</th>
+      <th>TractOMultir</th>
+      <th>TractHispanic</th>
+      <th>TractHUNV</th>
+      <th>TractSNAP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Abbeville</td>
+      <td>45001</td>
+      <td>0.166667</td>
+      <td>4236.166667</td>
+      <td>1665.000000</td>
+      <td>0.000000</td>
+      <td>150.166667</td>
+      <td>3.392506</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>...</td>
+      <td>700.500000</td>
+      <td>2948.500000</td>
+      <td>1197.833333</td>
+      <td>12.500000</td>
+      <td>0.833333</td>
+      <td>10.000000</td>
+      <td>66.500000</td>
+      <td>42.500000</td>
+      <td>169.000000</td>
+      <td>325.833333</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Acadia Parish</td>
+      <td>22001</td>
+      <td>0.500000</td>
+      <td>5147.750000</td>
+      <td>1903.416667</td>
+      <td>0.000000</td>
+      <td>87.500000</td>
+      <td>1.651573</td>
+      <td>0.250000</td>
+      <td>0.500000</td>
+      <td>...</td>
+      <td>657.166667</td>
+      <td>4093.916667</td>
+      <td>931.250000</td>
+      <td>11.416667</td>
+      <td>0.500000</td>
+      <td>13.583333</td>
+      <td>97.083333</td>
+      <td>88.333333</td>
+      <td>153.750000</td>
+      <td>363.250000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Accomack</td>
+      <td>51001</td>
+      <td>0.000000</td>
+      <td>3684.888889</td>
+      <td>1533.111111</td>
+      <td>0.000000</td>
+      <td>47.555556</td>
+      <td>0.923669</td>
+      <td>0.111111</td>
+      <td>0.111111</td>
+      <td>...</td>
+      <td>704.000000</td>
+      <td>2406.888889</td>
+      <td>1033.666667</td>
+      <td>20.333333</td>
+      <td>4.444444</td>
+      <td>15.000000</td>
+      <td>204.555556</td>
+      <td>316.666667</td>
+      <td>150.222222</td>
+      <td>213.333333</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Ada</td>
+      <td>16001</td>
+      <td>0.932203</td>
+      <td>6650.254237</td>
+      <td>2516.016949</td>
+      <td>0.016949</td>
+      <td>164.644068</td>
+      <td>2.747349</td>
+      <td>0.016949</td>
+      <td>0.186441</td>
+      <td>...</td>
+      <td>695.728814</td>
+      <td>6005.881356</td>
+      <td>75.271186</td>
+      <td>159.440678</td>
+      <td>14.593220</td>
+      <td>44.237288</td>
+      <td>350.830508</td>
+      <td>472.966102</td>
+      <td>109.000000</td>
+      <td>214.220339</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adair</td>
+      <td>19001</td>
+      <td>0.000000</td>
+      <td>2560.666667</td>
+      <td>1097.333333</td>
+      <td>0.000000</td>
+      <td>50.333333</td>
+      <td>1.737189</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>548.000000</td>
+      <td>2519.333333</td>
+      <td>3.666667</td>
+      <td>7.333333</td>
+      <td>0.333333</td>
+      <td>1.333333</td>
+      <td>28.666667</td>
+      <td>33.666667</td>
+      <td>40.666667</td>
+      <td>123.666667</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3137</th>
+      <td>Yuma</td>
+      <td>04027</td>
+      <td>0.792453</td>
+      <td>3693.415094</td>
+      <td>1222.018868</td>
+      <td>0.018868</td>
+      <td>111.716981</td>
+      <td>4.158672</td>
+      <td>0.245283</td>
+      <td>0.547170</td>
+      <td>...</td>
+      <td>578.226415</td>
+      <td>2601.528302</td>
+      <td>74.169811</td>
+      <td>43.849057</td>
+      <td>5.773585</td>
+      <td>57.660377</td>
+      <td>910.433962</td>
+      <td>2205.886792</td>
+      <td>81.660377</td>
+      <td>259.264151</td>
+    </tr>
+    <tr>
+      <th>3138</th>
+      <td>Yuma</td>
+      <td>08125</td>
+      <td>0.000000</td>
+      <td>5021.500000</td>
+      <td>1976.000000</td>
+      <td>0.000000</td>
+      <td>98.000000</td>
+      <td>2.044066</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>811.500000</td>
+      <td>4430.500000</td>
+      <td>9.000000</td>
+      <td>11.500000</td>
+      <td>1.500000</td>
+      <td>25.000000</td>
+      <td>544.000000</td>
+      <td>1044.000000</td>
+      <td>90.500000</td>
+      <td>185.500000</td>
+    </tr>
+    <tr>
+      <th>3139</th>
+      <td>Zapata</td>
+      <td>48505</td>
+      <td>0.666667</td>
+      <td>4672.666667</td>
+      <td>1432.333333</td>
+      <td>0.000000</td>
+      <td>10.000000</td>
+      <td>0.248509</td>
+      <td>0.666667</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>486.666667</td>
+      <td>4374.000000</td>
+      <td>6.333333</td>
+      <td>10.666667</td>
+      <td>0.000000</td>
+      <td>14.000000</td>
+      <td>267.666667</td>
+      <td>4361.333333</td>
+      <td>116.000000</td>
+      <td>490.000000</td>
+    </tr>
+    <tr>
+      <th>3140</th>
+      <td>Zavala</td>
+      <td>48507</td>
+      <td>0.250000</td>
+      <td>2919.250000</td>
+      <td>893.250000</td>
+      <td>0.000000</td>
+      <td>102.250000</td>
+      <td>4.101446</td>
+      <td>0.750000</td>
+      <td>0.750000</td>
+      <td>...</td>
+      <td>352.000000</td>
+      <td>2575.250000</td>
+      <td>22.250000</td>
+      <td>1.000000</td>
+      <td>4.000000</td>
+      <td>10.250000</td>
+      <td>306.500000</td>
+      <td>2740.250000</td>
+      <td>126.500000</td>
+      <td>320.000000</td>
+    </tr>
+    <tr>
+      <th>3141</th>
+      <td>Ziebach</td>
+      <td>46137</td>
+      <td>0.000000</td>
+      <td>2801.000000</td>
+      <td>836.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>195.000000</td>
+      <td>610.000000</td>
+      <td>6.000000</td>
+      <td>2.000000</td>
+      <td>0.000000</td>
+      <td>2097.000000</td>
+      <td>86.000000</td>
+      <td>87.000000</td>
+      <td>91.000000</td>
+      <td>243.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>3142 rows × 146 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">low_access_kids</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">low_access_kids</span><span class="p">[</span><span class="s1">&#39;county&#39;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;Camden&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>county</th>
+      <th>FIPS</th>
+      <th>lakids10share</th>
+      <th>lakids1share</th>
+      <th>lapop20share</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>365</th>
+      <td>Camden</td>
+      <td>13039</td>
+      <td>4.634964</td>
+      <td>19.406200</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>366</th>
+      <td>Camden</td>
+      <td>29029</td>
+      <td>4.515987</td>
+      <td>14.998236</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>367</th>
+      <td>Camden</td>
+      <td>34007</td>
+      <td>0.000000</td>
+      <td>7.902727</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>368</th>
+      <td>Camden</td>
+      <td>37029</td>
+      <td>0.793706</td>
+      <td>25.539403</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>County GeoJSON can be found <a class="reference external" href="https://gist.github.com/sdwfrost/d1c73f91dd9d175998ed166eb216994a">here</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+    <span class="n">counties</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://plotly.com/python/choropleth-maps/</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">choropleth</span><span class="p">(</span><span class="n">low_access_kids</span><span class="p">,</span> <span class="n">geojson</span><span class="o">=</span><span class="n">counties</span><span class="p">,</span> <span class="n">locations</span><span class="o">=</span><span class="s1">&#39;FIPS&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lakids10share&#39;</span><span class="p">,</span>
+                           <span class="n">color_continuous_scale</span><span class="o">=</span><span class="s2">&quot;Inferno&quot;</span><span class="p">,</span>
+                           <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&lt;b&gt;USDA 2019:&lt;/b&gt; Percent of children living beyond 10 miles from supermarket&lt;br&gt;&lt;sup&gt;</span><span class="se">\</span>
+<span class="s2">                                Some US Counties have up to 35</span><span class="si">% o</span><span class="s2">f children who live more than 10 miles away from a supermarket&lt;/sup&gt;&quot;</span><span class="p">,</span>
+                           <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;lakids10share&quot;</span><span class="p">:</span> <span class="s2">&quot;% Children&quot;</span><span class="p">},</span>
+                           <span class="n">scope</span><span class="o">=</span><span class="s2">&quot;usa&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">marker_line_width</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Population more than 20 miles away from supermarket</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">choropleth</span><span class="p">(</span><span class="n">low_access_kids</span><span class="p">,</span> <span class="n">geojson</span><span class="o">=</span><span class="n">counties</span><span class="p">,</span> <span class="n">locations</span><span class="o">=</span><span class="s1">&#39;FIPS&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lapop20share&#39;</span><span class="p">,</span>
+                           <span class="n">color_continuous_scale</span><span class="o">=</span><span class="s2">&quot;Inferno&quot;</span><span class="p">,</span>
+                           <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&lt;b&gt;USDA 2019:&lt;/b&gt; Percent of population living further than 20 miles from supermarket&lt;br&gt;&lt;sup&gt;</span><span class="se">\</span>
+<span class="s2">                                Rural Americans, especially in the western US, are more likely to havedifficulty in finding food access&lt;/sup&gt;&quot;</span><span class="p">,</span>
+                           <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;lakids10share&quot;</span><span class="p">:</span> <span class="s2">&quot;% Children&quot;</span><span class="p">},</span>
+                           <span class="n">scope</span><span class="o">=</span><span class="s2">&quot;usa&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">marker_line_width</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wrangling">Data Wrangling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization">Data Visualization</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Andrew Bowen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
