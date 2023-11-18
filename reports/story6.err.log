@@ -1,4 +1,15 @@
 Traceback (most recent call last):
+  File "/Users/andrewbowen/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 622, in _async_poll_for_reply
+    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
+  File "/Users/andrewbowen/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 85, in ensure_async
+    result = await obj
+  File "/Users/andrewbowen/opt/anaconda3/lib/python3.9/site-packages/jupyter_client/asynchronous/channels.py", line 48, in get_msg
+    raise Empty
+_queue.Empty
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
   File "/Users/andrewbowen/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
   File "/Users/andrewbowen/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1112, in execute
@@ -11,28 +22,18 @@ Traceback (most recent call last):
     return future.result()
   File "/Users/andrewbowen/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 553, in async_execute
     await self.async_execute_cell(
-  File "/Users/andrewbowen/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 857, in async_execute_cell
-    self._check_raise_for_error(cell, exec_reply)
-  File "/Users/andrewbowen/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
-    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
-nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
-------------------
-# Initial read in, converting to parquet format for easier storage
-# Uncomment the block below and move the excel file linked into your local data folder
+  File "/Users/andrewbowen/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 841, in async_execute_cell
+    exec_reply = await self.task_poll_for_reply
+  File "/Users/andrewbowen/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 646, in _async_poll_for_reply
+    await self._async_handle_timeout(timeout, cell)
+  File "/Users/andrewbowen/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 696, in _async_handle_timeout
+    raise CellTimeoutError.error_from_timeout_and_cell(
+nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
+The message was: Cell execution timed out.
+Here is a preview of the cell contents:
+-------------------
+dat = pd.read_csv("https://www2.census.gov/programs-surveys/cps/datasets/2022/supp/dec22pub.csv")
 
-# food_locs = pd.read_excel("data/FoodAccessResearchAtlasData2019.xlsx", sheet_name="Food Access Research Atlas")
-food_locs.to_parquet("./data/food_access.parquet", index=False)
-# food_locs.head()
-------------------
-
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_38982/3650492379.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      3[0m [0;34m[0m[0m
-[1;32m      4[0m [0;31m# food_locs = pd.read_excel("data/FoodAccessResearchAtlasData2019.xlsx", sheet_name="Food Access Research Atlas")[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 5[0;31m [0mfood_locs[0m[0;34m.[0m[0mto_parquet[0m[0;34m([0m[0;34m"./data/food_access.parquet"[0m[0;34m,[0m [0mindex[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      6[0m [0;31m# food_locs.head()[0m[0;34m[0m[0;34m[0m[0m
-
-[0;31mNameError[0m: name 'food_locs' is not defined
-NameError: name 'food_locs' is not defined
+dat.head()
+-------------------
 
