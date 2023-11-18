@@ -407,7 +407,7 @@ CUNY Data Science Masters</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">60</span><span class="o">/</span><span class="n">nwdftyjj6cg3ysz_pf9stwtc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_22358</span><span class="o">/</span><span class="mf">2515933731.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">60</span><span class="o">/</span><span class="n">nwdftyjj6cg3ysz_pf9stwtc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_25905</span><span class="o">/</span><span class="mf">2515933731.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://www2.census.gov/programs-surveys/cps/datasets/2022/supp/dec22pub.csv&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">dat</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -483,18 +483,25 @@ CUNY Data Science Masters</p>
 <span class="g g-Whitespace">    </span><span class="mi">471</span><span class="s2">             if self.length is None:</span>
 
 <span class="nn">~/opt/anaconda3/lib/python3.9/http/client.py</span> in <span class="ni">_readall_chunked</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">    </span><span class="mi">575</span><span class="s2">             while True:</span>
+<span class="ne">--&gt; </span><span class="mi">576</span><span class="s2">                 chunk_left = self._get_chunk_left()</span>
 <span class="g g-Whitespace">    </span><span class="mi">577</span><span class="s2">                 if chunk_left is None:</span>
 <span class="g g-Whitespace">    </span><span class="mi">578</span><span class="s2">                     break</span>
-<span class="ne">--&gt; </span><span class="mi">579</span><span class="s2">                 value.append(self._safe_read(chunk_left))</span>
-<span class="g g-Whitespace">    </span><span class="mi">580</span><span class="s2">                 self.chunk_left = 0</span>
-<span class="g g-Whitespace">    </span><span class="mi">581</span><span class="s2">             return b&#39;&#39;.join(value)</span>
 
-<span class="nn">~/opt/anaconda3/lib/python3.9/http/client.py</span> in <span class="ni">_safe_read</span><span class="nt">(self, amt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">623</span><span class="s2">         s = []</span>
-<span class="g g-Whitespace">    </span><span class="mi">624</span><span class="s2">         while amt &gt; 0:</span>
-<span class="ne">--&gt; </span><span class="mi">625</span><span class="s2">             chunk = self.fp.read(min(amt, MAXAMOUNT))</span>
-<span class="g g-Whitespace">    </span><span class="mi">626</span><span class="s2">             if not chunk:</span>
-<span class="g g-Whitespace">    </span><span class="mi">627</span><span class="s2">                 raise IncompleteRead(b&#39;&#39;.join(s), amt)</span>
+<span class="nn">~/opt/anaconda3/lib/python3.9/http/client.py</span> in <span class="ni">_get_chunk_left</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">557</span><span class="s2">                 self._safe_read(2)  # toss the CRLF at the end of the chunk</span>
+<span class="g g-Whitespace">    </span><span class="mi">558</span><span class="s2">             try:</span>
+<span class="ne">--&gt; </span><span class="mi">559</span><span class="s2">                 chunk_left = self._read_next_chunk_size()</span>
+<span class="g g-Whitespace">    </span><span class="mi">560</span><span class="s2">             except ValueError:</span>
+<span class="g g-Whitespace">    </span><span class="mi">561</span><span class="s2">                 raise IncompleteRead(b&#39;&#39;)</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/http/client.py</span> in <span class="ni">_read_next_chunk_size</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">517</span><span class="s2">     def _read_next_chunk_size(self):</span>
+<span class="g g-Whitespace">    </span><span class="mi">518</span><span class="s2">         # Read the next chunk size from the file</span>
+<span class="ne">--&gt; </span><span class="mi">519</span><span class="s2">         line = self.fp.readline(_MAXLINE + 1)</span>
+<span class="g g-Whitespace">    </span><span class="mi">520</span><span class="s2">         if len(line) &gt; _MAXLINE:</span>
+<span class="g g-Whitespace">    </span><span class="mi">521</span><span class="s2">             raise LineTooLong(&quot;chunk size&quot;)</span>
 
 <span class="nn">~/opt/anaconda3/lib/python3.9/socket.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
 <span class="g g-Whitespace">    </span><span class="mi">702</span><span class="s2">         while True:</span>
@@ -758,6 +765,16 @@ Name: adult_food_security_level, dtype: int64
 </pre></div>
 </div>
 </div>
+</div>
+<p>I uploaded the dataset above as parquet files to <a class="reference external" href="https://github.com/andrewbowen19/storiesDATA608/blob/main/data/food_access.parquet">my GitHub here</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in food location data</span>
+<span class="n">food_data_url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/andrewbowen19/storiesDATA608/blob/main/data/food_access.parquet?raw=true&quot;</span>
+<span class="n">food_locs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">food_data_url</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -788,8 +805,6 @@ Name: adult_food_security_level, dtype: int64
       <th>PCTGQTRS</th>
       <th>LILATracts_1And10</th>
       <th>...</th>
-      <th>TractSeniors</th>
-      <th>TractWhite</th>
       <th>TractBlack</th>
       <th>TractAsian</th>
       <th>TractNHOPI</th>
@@ -798,12 +813,14 @@ Name: adult_food_security_level, dtype: int64
       <th>TractHispanic</th>
       <th>TractHUNV</th>
       <th>TractSNAP</th>
+      <th>FIPS</th>
+      <th>county</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>1001020100</td>
+      <td>01001020100</td>
       <td>Alabama</td>
       <td>Autauga County</td>
       <td>1</td>
@@ -814,8 +831,6 @@ Name: adult_food_security_level, dtype: int64
       <td>0.000000</td>
       <td>0</td>
       <td>...</td>
-      <td>221.0</td>
-      <td>1622.0</td>
       <td>217.0</td>
       <td>14.0</td>
       <td>0.0</td>
@@ -824,10 +839,12 @@ Name: adult_food_security_level, dtype: int64
       <td>44.0</td>
       <td>6.0</td>
       <td>102.0</td>
+      <td>01001</td>
+      <td>Autauga</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1001020200</td>
+      <td>01001020200</td>
       <td>Alabama</td>
       <td>Autauga County</td>
       <td>1</td>
@@ -838,8 +855,6 @@ Name: adult_food_security_level, dtype: int64
       <td>8.341014</td>
       <td>1</td>
       <td>...</td>
-      <td>214.0</td>
-      <td>888.0</td>
       <td>1217.0</td>
       <td>5.0</td>
       <td>0.0</td>
@@ -848,10 +863,12 @@ Name: adult_food_security_level, dtype: int64
       <td>75.0</td>
       <td>89.0</td>
       <td>156.0</td>
+      <td>01001</td>
+      <td>Autauga</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1001020300</td>
+      <td>01001020300</td>
       <td>Alabama</td>
       <td>Autauga County</td>
       <td>1</td>
@@ -862,8 +879,6 @@ Name: adult_food_security_level, dtype: int64
       <td>0.000000</td>
       <td>0</td>
       <td>...</td>
-      <td>439.0</td>
-      <td>2576.0</td>
       <td>647.0</td>
       <td>17.0</td>
       <td>5.0</td>
@@ -872,10 +887,12 @@ Name: adult_food_security_level, dtype: int64
       <td>87.0</td>
       <td>99.0</td>
       <td>172.0</td>
+      <td>01001</td>
+      <td>Autauga</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1001020400</td>
+      <td>01001020400</td>
       <td>Alabama</td>
       <td>Autauga County</td>
       <td>1</td>
@@ -886,8 +903,6 @@ Name: adult_food_security_level, dtype: int64
       <td>0.000000</td>
       <td>0</td>
       <td>...</td>
-      <td>904.0</td>
-      <td>4086.0</td>
       <td>193.0</td>
       <td>18.0</td>
       <td>4.0</td>
@@ -896,10 +911,12 @@ Name: adult_food_security_level, dtype: int64
       <td>85.0</td>
       <td>21.0</td>
       <td>98.0</td>
+      <td>01001</td>
+      <td>Autauga</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1001020500</td>
+      <td>01001020500</td>
       <td>Alabama</td>
       <td>Autauga County</td>
       <td>1</td>
@@ -910,8 +927,6 @@ Name: adult_food_security_level, dtype: int64
       <td>1.681219</td>
       <td>0</td>
       <td>...</td>
-      <td>1126.0</td>
-      <td>8666.0</td>
       <td>1437.0</td>
       <td>296.0</td>
       <td>9.0</td>
@@ -920,15 +935,19 @@ Name: adult_food_security_level, dtype: int64
       <td>355.0</td>
       <td>230.0</td>
       <td>339.0</td>
+      <td>01001</td>
+      <td>Autauga</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 147 columns</p>
+<p>5 rows × 149 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">food_locs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="s2">&quot;./data/food_access.parquet&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cleaning up food location data</span>
+
+<span class="c1"># Prepend Census tracts with digits if needed ot match Census Labels</span>
 <span class="n">food_locs</span><span class="p">[</span><span class="s1">&#39;CensusTract&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">food_locs</span><span class="p">[</span><span class="s1">&#39;CensusTract&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
 
 <span class="n">food_locs</span><span class="p">[</span><span class="s1">&#39;FIPS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">food_locs</span><span class="p">[</span><span class="s1">&#39;CensusTract&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
@@ -1300,7 +1319,7 @@ Name: adult_food_security_level, dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://plotly.com/python/choropleth-maps/</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">choropleth</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">geojson</span><span class="o">=</span><span class="n">counties</span><span class="p">,</span> <span class="n">locations</span><span class="o">=</span><span class="s1">&#39;FIPS&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lakids1share&#39;</span><span class="p">,</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">choropleth</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">geojson</span><span class="o">=</span><span class="n">counties</span><span class="p">,</span> <span class="n">locations</span><span class="o">=</span><span class="s1">&#39;FIPS&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lakids10share&#39;</span><span class="p">,</span>
                            <span class="n">color_continuous_scale</span><span class="o">=</span><span class="s2">&quot;Inferno&quot;</span><span class="p">,</span>
                            <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&lt;b&gt;USDA 2019:&lt;/b&gt; Percent of children living beyond 10 miles from supermarket&lt;br&gt;&lt;sup&gt;</span><span class="se">\</span>
 <span class="s2">                                Some US Counties have up to 35</span><span class="si">% o</span><span class="s2">f children who live more than 10 miles away from a supermarket&lt;/sup&gt;&quot;</span><span class="p">,</span>
@@ -1333,7 +1352,7 @@ Name: adult_food_security_level, dtype: int64
 <div class="cell_output docutils container">
 </div>
 </div>
-<p>I downloaded budget data from the <a class="reference external" href="https://www.whitehouse.gov/omb/budget/historical-tables/">US White House website</a></p>
+<p>I downloaded budget data from the <a class="reference external" href="https://www.whitehouse.gov/omb/budget/historical-tables/">US White House website</a>. We can use this to see how the breakdown of Federal spending allocates resources to programs like SNAP which work to help feed food insecure individuals in America.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Original read-in</span>
@@ -1341,177 +1360,9 @@ Name: adult_food_security_level, dtype: int64
 
 <span class="n">budget_path</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/andrewbowen19/storiesDATA608/main/data/us-budget.csv&quot;</span>
 <span class="n">budget</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">budget_path</span><span class="p">)</span>
-<span class="n">budget</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>department</th>
-      <th>Department or other unit</th>
-      <th>1962</th>
-      <th>1963</th>
-      <th>1964</th>
-      <th>1965</th>
-      <th>1966</th>
-      <th>1967</th>
-      <th>1968</th>
-      <th>1969</th>
-      <th>...</th>
-      <th>2019</th>
-      <th>2020</th>
-      <th>2021</th>
-      <th>2022</th>
-      <th>2023 estimate</th>
-      <th>2024 estimate</th>
-      <th>2025 estimate</th>
-      <th>2026 estimate</th>
-      <th>2027 estimate</th>
-      <th>2028 estimate</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Legislative Branch</td>
-      <td>Legislative Branch</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>...</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Judicial Branch</td>
-      <td>Judicial Branch</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>...</td>
-      <td>0.2</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-      <td>0.1</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Department of Agriculture</td>
-      <td>Department of Agriculture</td>
-      <td>6.0</td>
-      <td>6.7</td>
-      <td>6.4</td>
-      <td>5.9</td>
-      <td>4.2</td>
-      <td>3.8</td>
-      <td>4.2</td>
-      <td>4.6</td>
-      <td>...</td>
-      <td>3.4</td>
-      <td>2.8</td>
-      <td>3.4</td>
-      <td>3.9</td>
-      <td>4.1</td>
-      <td>3.3</td>
-      <td>3.2</td>
-      <td>3.2</td>
-      <td>3.2</td>
-      <td>3.1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Department of Commerce</td>
-      <td>Department of Commerce</td>
-      <td>0.2</td>
-      <td>0.3</td>
-      <td>0.6</td>
-      <td>0.6</td>
-      <td>0.4</td>
-      <td>0.3</td>
-      <td>0.3</td>
-      <td>0.3</td>
-      <td>...</td>
-      <td>0.3</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.3</td>
-      <td>0.5</td>
-      <td>0.6</td>
-      <td>0.6</td>
-      <td>0.3</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Department of Defense--Military Programs</td>
-      <td>Department of Defense--Military Programs</td>
-      <td>46.9</td>
-      <td>45.9</td>
-      <td>44.4</td>
-      <td>41.3</td>
-      <td>42.1</td>
-      <td>44.5</td>
-      <td>45.1</td>
-      <td>44.0</td>
-      <td>...</td>
-      <td>14.7</td>
-      <td>10.5</td>
-      <td>10.5</td>
-      <td>11.6</td>
-      <td>12.1</td>
-      <td>12.5</td>
-      <td>12.5</td>
-      <td>12.1</td>
-      <td>11.8</td>
-      <td>11.4</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 70 columns</p>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
