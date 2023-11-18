@@ -64,6 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'story6';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Story 5" href="story5.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -148,13 +149,14 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="one-page-bio.html">One Page Bio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="story1.html">Story 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="story2.html">Story 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="story3.html">Story 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="story4.html">Story 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="story5.html">Story 5</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Story 6</a></li>
 </ul>
 
     </div>
@@ -403,172 +405,122 @@ CUNY Data Science Masters</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">60</span><span class="o">/</span><span class="n">nwdftyjj6cg3ysz_pf9stwtc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1822</span><span class="o">/</span><span class="mf">2515933731.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://www2.census.gov/programs-surveys/cps/datasets/2022/supp/dec22pub.csv&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">dat</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>                     <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>                 <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">311</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">312</span> 
+<span class="g g-Whitespace">    </span><span class="mi">313</span>         <span class="k">return</span> <span class="n">wrapper</span>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>HRHHID</th>
-      <th>HRMONTH</th>
-      <th>HRYEAR4</th>
-      <th>HURESPLI</th>
-      <th>HUFINAL</th>
-      <th>FILLER</th>
-      <th>HETENURE</th>
-      <th>HEHOUSUT</th>
-      <th>HETELHHD</th>
-      <th>HETELAVL</th>
-      <th>...</th>
-      <th>HRFS30D1</th>
-      <th>HRFS30D2</th>
-      <th>HRFS30D3</th>
-      <th>HRFS30D4</th>
-      <th>HRFS30D5</th>
-      <th>HRFS30D6</th>
-      <th>HRFS30D7</th>
-      <th>HRFS30D8</th>
-      <th>HRFS30D9</th>
-      <th>HRFS30DE</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>351819007700950</td>
-      <td>12</td>
-      <td>2022</td>
-      <td>-1</td>
-      <td>225</td>
-      <td>NaN</td>
-      <td>-1</td>
-      <td>1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>...</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>143200010045972</td>
-      <td>12</td>
-      <td>2022</td>
-      <td>-1</td>
-      <td>226</td>
-      <td>NaN</td>
-      <td>-1</td>
-      <td>1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>...</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>201348501120003</td>
-      <td>12</td>
-      <td>2022</td>
-      <td>-1</td>
-      <td>225</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>5</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>...</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>610009070389621</td>
-      <td>12</td>
-      <td>2022</td>
-      <td>-1</td>
-      <td>226</td>
-      <td>NaN</td>
-      <td>-1</td>
-      <td>1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>...</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>110862907936</td>
-      <td>12</td>
-      <td>2022</td>
-      <td>-1</td>
-      <td>226</td>
-      <td>NaN</td>
-      <td>-1</td>
-      <td>1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>...</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 507 columns</p>
-</div></div></div>
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">584</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">585</span> 
+<span class="ne">--&gt; </span><span class="mi">586</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span> 
+<span class="g g-Whitespace">    </span><span class="mi">588</span> 
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">480</span> 
+<span class="g g-Whitespace">    </span><span class="mi">481</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">482</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">483</span> 
+<span class="g g-Whitespace">    </span><span class="mi">484</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">809</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">810</span> 
+<span class="ne">--&gt; </span><span class="mi">811</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">812</span> 
+<span class="g g-Whitespace">    </span><span class="mi">813</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1038</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1039</span>         <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1040</span>         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1041</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1042</span>     <span class="k">def</span> <span class="nf">_failover_to_python</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/parsers/c_parser_wrapper.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span> 
+<span class="g g-Whitespace">     </span><span class="mi">50</span>         <span class="c1"># open handles</span>
+<span class="ne">---&gt; </span><span class="mi">51</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span>         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span> 
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/parsers/base_parser.py</span> in <span class="ni">_open_handles</span><span class="nt">(self, src, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>         <span class="n">Let</span> <span class="n">the</span> <span class="n">readers</span> <span class="nb">open</span> <span class="n">IOHandles</span> <span class="n">after</span> <span class="n">they</span> <span class="n">are</span> <span class="n">done</span> <span class="k">with</span> <span class="n">their</span> <span class="n">potential</span> <span class="n">raises</span><span class="o">.</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">222</span><span class="s2">         self.handles = get_handle(</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span><span class="s2">             src,</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span><span class="s2">             &quot;r&quot;,</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">607</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">608</span><span class="s2">     # open URLs</span>
+<span class="ne">--&gt; </span><span class="mi">609</span><span class="s2">     ioargs = _get_filepath_or_buffer(</span>
+<span class="g g-Whitespace">    </span><span class="mi">610</span><span class="s2">         path_or_buf,</span>
+<span class="g g-Whitespace">    </span><span class="mi">611</span><span class="s2">         encoding=encoding,</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/common.py</span> in <span class="ni">_get_filepath_or_buffer</span><span class="nt">(filepath_or_buffer, encoding, compression, mode, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">315</span><span class="s2">                 # Override compression based on Content-Encoding header</span>
+<span class="g g-Whitespace">    </span><span class="mi">316</span><span class="s2">                 compression = {&quot;method&quot;: &quot;gzip&quot;}</span>
+<span class="ne">--&gt; </span><span class="mi">317</span><span class="s2">             reader = BytesIO(req.read())</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span><span class="s2">         return IOArgs(</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span><span class="s2">             filepath_or_buffer=reader,</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/http/client.py</span> in <span class="ni">read</span><span class="nt">(self, amt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">467</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">468</span><span class="s2">             if self.chunked:</span>
+<span class="ne">--&gt; </span><span class="mi">469</span><span class="s2">                 return self._readall_chunked()</span>
+<span class="g g-Whitespace">    </span><span class="mi">470</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">471</span><span class="s2">             if self.length is None:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/http/client.py</span> in <span class="ni">_readall_chunked</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">577</span><span class="s2">                 if chunk_left is None:</span>
+<span class="g g-Whitespace">    </span><span class="mi">578</span><span class="s2">                     break</span>
+<span class="ne">--&gt; </span><span class="mi">579</span><span class="s2">                 value.append(self._safe_read(chunk_left))</span>
+<span class="g g-Whitespace">    </span><span class="mi">580</span><span class="s2">                 self.chunk_left = 0</span>
+<span class="g g-Whitespace">    </span><span class="mi">581</span><span class="s2">             return b&#39;&#39;.join(value)</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/http/client.py</span> in <span class="ni">_safe_read</span><span class="nt">(self, amt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">623</span><span class="s2">         s = []</span>
+<span class="g g-Whitespace">    </span><span class="mi">624</span><span class="s2">         while amt &gt; 0:</span>
+<span class="ne">--&gt; </span><span class="mi">625</span><span class="s2">             chunk = self.fp.read(min(amt, MAXAMOUNT))</span>
+<span class="g g-Whitespace">    </span><span class="mi">626</span><span class="s2">             if not chunk:</span>
+<span class="g g-Whitespace">    </span><span class="mi">627</span><span class="s2">                 raise IncompleteRead(b&#39;&#39;.join(s), amt)</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/socket.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span><span class="s2">         while True:</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span><span class="s2">             try:</span>
+<span class="ne">--&gt; </span><span class="mi">704</span><span class="s2">                 return self._sock.recv_into(b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="s2">             except timeout:</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span><span class="s2">                 self._timeout_occurred = True</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/ssl.py</span> in <span class="ni">recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1239</span><span class="s2">                   &quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot; %</span>
+<span class="g g-Whitespace">   </span><span class="mi">1240</span><span class="s2">                   self.__class__)</span>
+<span class="ne">-&gt; </span><span class="mi">1241</span><span class="s2">             return self.read(nbytes, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1242</span><span class="s2">         else:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1243</span><span class="s2">             return super().recv_into(buffer, nbytes, flags)</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/ssl.py</span> in <span class="ni">read</span><span class="nt">(self, len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1097</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1098</span><span class="s2">             if buffer is not None:</span>
+<span class="ne">-&gt; </span><span class="mi">1099</span><span class="s2">                 return self._sslobj.read(len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1100</span><span class="s2">             else:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1101</span><span class="s2">                 return self._sslobj.read(len)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="data-wrangling">
@@ -793,19 +745,6 @@ Name: adult_food_security_level, dtype: int64
 <span class="c1"># food_locs = pd.read_excel(&quot;data/FoodAccessResearchAtlasData2019.xlsx&quot;, sheet_name=&quot;Food Access Research Atlas&quot;)</span>
 <span class="n">food_locs</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s2">&quot;./data/food_access.parquet&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="c1"># food_locs.head()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">60</span><span class="o">/</span><span class="n">nwdftyjj6cg3ysz_pf9stwtc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_38982</span><span class="o">/</span><span class="mf">3650492379.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># food_locs = pd.read_excel(&quot;data/FoodAccessResearchAtlasData2019.xlsx&quot;, sheet_name=&quot;Food Access Research Atlas&quot;)</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">food_locs</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s2">&quot;./data/food_access.parquet&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># food_locs.head()</span>
-
-<span class="ne">NameError</span>: name &#39;food_locs&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1464,6 +1403,15 @@ Name: adult_food_security_level, dtype: int64
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="story5.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Story 5</p>
+      </div>
+    </a>
 </div></div>
   
 </div>
