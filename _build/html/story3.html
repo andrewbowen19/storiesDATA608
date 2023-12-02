@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Story 3 &#8212; DATA 608 - Knowledge and Visual Analytics</title>
   
@@ -44,6 +44,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -67,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Story 4" href="story4.html" />
     <link rel="prev" title="Story 2" href="story2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -156,6 +157,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="story2.html">Story 2</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Story 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="story4.html">Story 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story5.html">Story 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story6.html">Story 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story7.html">Story 7</a></li>
 </ul>
 
     </div>
@@ -369,7 +373,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="story-3">
-<h1>Story 3<a class="headerlink" href="#story-3" title="Permalink to this headline">#</a></h1>
+<h1>Story 3<a class="headerlink" href="#story-3" title="Permalink to this heading">#</a></h1>
 <p><em>Do stricter gun laws reduce firearm gun deaths?</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -387,7 +391,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">60</span><span class="o">/</span><span class="n">nwdftyjj6cg3ysz_pf9stwtc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_95434</span><span class="o">/</span><span class="mf">1842638263.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 <span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">folium</span>
@@ -398,7 +402,7 @@ document.write(`
 </div>
 </div>
 <section id="datasources">
-<h2>Datasources<a class="headerlink" href="#datasources" title="Permalink to this headline">#</a></h2>
+<h2>Datasources<a class="headerlink" href="#datasources" title="Permalink to this heading">#</a></h2>
 <p>We can use the below NCHS API endpoint to see cause of death rates per state <em>per quarter</em> in the US. This will be a good starting point as we look to visualize per state</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://dev.socrata.com/foundry/data.cdc.gov/bi63-dtpu">NCHS Leading Cause of Deathe API Endpoint</a></p></li>
@@ -589,7 +593,7 @@ document.write(`
 </div>
 </section>
 <section id="data-wrangling">
-<h2>Data Wrangling<a class="headerlink" href="#data-wrangling" title="Permalink to this headline">#</a></h2>
+<h2>Data Wrangling<a class="headerlink" href="#data-wrangling" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pulling out only firearm deaths that are age-adjusted</span>
@@ -1016,7 +1020,7 @@ document.write(`
 </div>
 </section>
 <section id="data-visualization">
-<h2>Data Visualization<a class="headerlink" href="#data-visualization" title="Permalink to this headline">#</a></h2>
+<h2>Data Visualization<a class="headerlink" href="#data-visualization" title="Permalink to this heading">#</a></h2>
 <p>Let’s first plot the rate of firearm related homo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1040,7 +1044,7 @@ document.write(`
 </div>
 </section>
 <section id="geometry-data-for-later-choropleths">
-<h2>Geometry Data for Later Choropleths<a class="headerlink" href="#geometry-data-for-later-choropleths" title="Permalink to this headline">#</a></h2>
+<h2>Geometry Data for Later Choropleths<a class="headerlink" href="#geometry-data-for-later-choropleths" title="Permalink to this heading">#</a></h2>
 <p>Grabbed this GeoJSON from <a class="reference external" href="https://github.com/plotly/datasets">plotly datasets</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1913,7 +1917,7 @@ document.write(`
 </div>
 <p>We can see states with higher rankings (lighter shades such as California, New York, etc.) on the above choropleth also tend to have lower death rates from firearms. So there is some weight to the theory of stricter gun laws can have a positive impact on lowering firearm-related deaths</p>
 <section id="likert-scale">
-<h3>Likert Scale<a class="headerlink" href="#likert-scale" title="Permalink to this headline">#</a></h3>
+<h3>Likert Scale<a class="headerlink" href="#likert-scale" title="Permalink to this heading">#</a></h3>
 <p>We can create a <a class="reference external" href="https://www.simplypsychology.org/likert-scale.html">5-point Likert Scale</a> in order to</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1961,7 +1965,7 @@ Name: grade, dtype: int64
 </section>
 </section>
 <section id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
 <p>Unfortunately, our likert scale based on Gifford ratings shows many US States as having a “failing” record on implementing proper gun laws. We can see the longer-tail effects of these policies in the firearm death rate choropleth above, as states with looser gun laws tend to see more firearm realted injury and deaths.</p>
 <p>Further work could include more study over time of the effects of looser gun laws, as the NCHS API endpoint used only provided data for the past 3 years.,</p>
 </section>
