@@ -1,0 +1,1186 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Story 7 &#8212; DATA 608 - Knowledge and Visual Analytics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'story7';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Story 6" href="story6.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DATA 608 - Knowledge and Visual Analytics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    DATA 608: Knowledge and Visual Analytics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="one-page-bio.html">One Page Bio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story1.html">Story 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story2.html">Story 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story3.html">Story 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story4.html">Story 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story5.html">Story 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story6.html">Story 6</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Story 7</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/andrewbowen19/storiesDATA608" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/andrewbowen19/storiesDATA608/issues/new?title=Issue%20on%20page%20%2Fstory7.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/story7.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Story 7</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="story-7">
+<h1>Story 7<a class="headerlink" href="#story-7" title="Permalink to this heading">#</a></h1>
+<p>Andrew Bowen<br />
+DATA 608
+CUNY Data Science Master’s</p>
+<section id="data-sources">
+<h2>Data Sources<a class="headerlink" href="#data-sources" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.iea.org/data-and-statistics/data-product/critical-minerals-demand-dataset">IEA Critical Minerals Demand Dataset</a></p></li>
+<li><p><a class="reference external" href="https://www.sciencebase.gov/catalog/item/5e616381e4b01d509255c7b6">Global Geochemical Database for Critical Minerals</a></p>
+<ul>
+<li><p><a class="reference external" href="https://www.sciencebase.gov/catalog/file/get/5e616381e4b01d509255c7b6?f=__disk__9f%2Fe3%2F8b%2F9fe38b3bec1b9bc404b14578a226c080fcecf834&amp;allowOpen=true">Download link for CSV data</a> (USGS)</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Foreign_relations_of_the_United_States">Diplomatic Relations of the UNited States</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>I exported the data contained in the <code class="docutils literal notranslate"><span class="pre">&quot;3.2</span> <span class="pre">Cleantech</span> <span class="pre">demand</span> <span class="pre">by</span> <span class="pre">mineral&quot;</span></code> sheet of the <a class="reference external" href="https://www.iea.org/data-and-statistics/data-product/critical-minerals-demand-dataset">IEA Mineral Projected Demand dataset here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demand</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;data/mineral-projected-demand.xlsx&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> 
+                   <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">skiprows</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">demand</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th>Table 1</th>
+      <th colspan="19" halign="left">Table 1</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>2022</th>
+      <th>2025</th>
+      <th>2030</th>
+      <th>2035</th>
+      <th>2040</th>
+      <th>2045</th>
+      <th>2050</th>
+      <th>2025.1</th>
+      <th>2030.1</th>
+      <th>2035.1</th>
+      <th>2040.1</th>
+      <th>2045.1</th>
+      <th>2050.1</th>
+      <th>2025.2</th>
+      <th>2030.2</th>
+      <th>2035.2</th>
+      <th>2040.2</th>
+      <th>2045.2</th>
+      <th>2050.2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Boron</th>
+      <td>0.158618</td>
+      <td>0.175778</td>
+      <td>0.314919</td>
+      <td>0.287788</td>
+      <td>0.259729</td>
+      <td>0.329544</td>
+      <td>0.408226</td>
+      <td>0.226241</td>
+      <td>0.409879</td>
+      <td>0.475982</td>
+      <td>0.494596</td>
+      <td>0.541735</td>
+      <td>0.643545</td>
+      <td>0.282352</td>
+      <td>0.73109</td>
+      <td>0.72847</td>
+      <td>0.691595</td>
+      <td>0.472797</td>
+      <td>0.746079</td>
+    </tr>
+    <tr>
+      <th>Cadmium</th>
+      <td>0.420843</td>
+      <td>0.420292</td>
+      <td>0.397562</td>
+      <td>0.395331</td>
+      <td>0.411500</td>
+      <td>0.465976</td>
+      <td>0.503529</td>
+      <td>0.497073</td>
+      <td>0.511277</td>
+      <td>0.570518</td>
+      <td>0.560878</td>
+      <td>0.599139</td>
+      <td>0.589951</td>
+      <td>0.770334</td>
+      <td>1.22404</td>
+      <td>1.13261</td>
+      <td>0.954223</td>
+      <td>0.598829</td>
+      <td>0.431189</td>
+    </tr>
+    <tr>
+      <th>Chromium</th>
+      <td>181.109000</td>
+      <td>216.958000</td>
+      <td>365.130000</td>
+      <td>314.491000</td>
+      <td>427.519000</td>
+      <td>331.131000</td>
+      <td>326.113000</td>
+      <td>267.617000</td>
+      <td>527.804000</td>
+      <td>521.743000</td>
+      <td>606.409000</td>
+      <td>483.201000</td>
+      <td>557.908000</td>
+      <td>407.412000</td>
+      <td>851.85400</td>
+      <td>758.03500</td>
+      <td>721.065000</td>
+      <td>464.211000</td>
+      <td>459.105000</td>
+    </tr>
+    <tr>
+      <th>Copper</th>
+      <td>5735.860000</td>
+      <td>6472.900000</td>
+      <td>9298.250000</td>
+      <td>9490.560000</td>
+      <td>9804.580000</td>
+      <td>10680.900000</td>
+      <td>10647.500000</td>
+      <td>7229.460000</td>
+      <td>11363.700000</td>
+      <td>13702.900000</td>
+      <td>15100.300000</td>
+      <td>15896.700000</td>
+      <td>15717.200000</td>
+      <td>8310.130000</td>
+      <td>15731.60000</td>
+      <td>19518.50000</td>
+      <td>20678.100000</td>
+      <td>19091.600000</td>
+      <td>17351.400000</td>
+    </tr>
+    <tr>
+      <th>Cobalt</th>
+      <td>68.176500</td>
+      <td>69.487200</td>
+      <td>79.424500</td>
+      <td>83.869900</td>
+      <td>110.073000</td>
+      <td>136.270000</td>
+      <td>145.648000</td>
+      <td>81.784500</td>
+      <td>121.603000</td>
+      <td>168.717000</td>
+      <td>220.562000</td>
+      <td>261.829000</td>
+      <td>295.779000</td>
+      <td>136.819000</td>
+      <td>205.36100</td>
+      <td>248.80700</td>
+      <td>258.523000</td>
+      <td>285.248000</td>
+      <td>290.666000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demand</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">demand</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+<span class="n">demand</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>2022</th>
+      <th>2025</th>
+      <th>2030</th>
+      <th>2035</th>
+      <th>2040</th>
+      <th>2045</th>
+      <th>2050</th>
+      <th>2025.1</th>
+      <th>2030.1</th>
+      <th>2035.1</th>
+      <th>2040.1</th>
+      <th>2045.1</th>
+      <th>2050.1</th>
+      <th>2025.2</th>
+      <th>2030.2</th>
+      <th>2035.2</th>
+      <th>2040.2</th>
+      <th>2045.2</th>
+      <th>2050.2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Boron</th>
+      <td>0.158618</td>
+      <td>0.175778</td>
+      <td>0.314919</td>
+      <td>0.287788</td>
+      <td>0.259729</td>
+      <td>0.329544</td>
+      <td>0.408226</td>
+      <td>0.226241</td>
+      <td>0.409879</td>
+      <td>0.475982</td>
+      <td>0.494596</td>
+      <td>0.541735</td>
+      <td>0.643545</td>
+      <td>0.282352</td>
+      <td>0.73109</td>
+      <td>0.72847</td>
+      <td>0.691595</td>
+      <td>0.472797</td>
+      <td>0.746079</td>
+    </tr>
+    <tr>
+      <th>Cadmium</th>
+      <td>0.420843</td>
+      <td>0.420292</td>
+      <td>0.397562</td>
+      <td>0.395331</td>
+      <td>0.411500</td>
+      <td>0.465976</td>
+      <td>0.503529</td>
+      <td>0.497073</td>
+      <td>0.511277</td>
+      <td>0.570518</td>
+      <td>0.560878</td>
+      <td>0.599139</td>
+      <td>0.589951</td>
+      <td>0.770334</td>
+      <td>1.22404</td>
+      <td>1.13261</td>
+      <td>0.954223</td>
+      <td>0.598829</td>
+      <td>0.431189</td>
+    </tr>
+    <tr>
+      <th>Chromium</th>
+      <td>181.109000</td>
+      <td>216.958000</td>
+      <td>365.130000</td>
+      <td>314.491000</td>
+      <td>427.519000</td>
+      <td>331.131000</td>
+      <td>326.113000</td>
+      <td>267.617000</td>
+      <td>527.804000</td>
+      <td>521.743000</td>
+      <td>606.409000</td>
+      <td>483.201000</td>
+      <td>557.908000</td>
+      <td>407.412000</td>
+      <td>851.85400</td>
+      <td>758.03500</td>
+      <td>721.065000</td>
+      <td>464.211000</td>
+      <td>459.105000</td>
+    </tr>
+    <tr>
+      <th>Copper</th>
+      <td>5735.860000</td>
+      <td>6472.900000</td>
+      <td>9298.250000</td>
+      <td>9490.560000</td>
+      <td>9804.580000</td>
+      <td>10680.900000</td>
+      <td>10647.500000</td>
+      <td>7229.460000</td>
+      <td>11363.700000</td>
+      <td>13702.900000</td>
+      <td>15100.300000</td>
+      <td>15896.700000</td>
+      <td>15717.200000</td>
+      <td>8310.130000</td>
+      <td>15731.60000</td>
+      <td>19518.50000</td>
+      <td>20678.100000</td>
+      <td>19091.600000</td>
+      <td>17351.400000</td>
+    </tr>
+    <tr>
+      <th>Cobalt</th>
+      <td>68.176500</td>
+      <td>69.487200</td>
+      <td>79.424500</td>
+      <td>83.869900</td>
+      <td>110.073000</td>
+      <td>136.270000</td>
+      <td>145.648000</td>
+      <td>81.784500</td>
+      <td>121.603000</td>
+      <td>168.717000</td>
+      <td>220.562000</td>
+      <td>261.829000</td>
+      <td>295.779000</td>
+      <td>136.819000</td>
+      <td>205.36100</td>
+      <td>248.80700</td>
+      <td>258.523000</td>
+      <td>285.248000</td>
+      <td>290.666000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Breaking out into projecte</span>
+<span class="n">year_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;2025&quot;</span><span class="p">,</span> <span class="s2">&quot;2030&quot;</span><span class="p">,</span> <span class="s2">&quot;2035&quot;</span><span class="p">,</span> <span class="s2">&quot;2040&quot;</span><span class="p">,</span> <span class="s2">&quot;2045&quot;</span><span class="p">,</span> <span class="s2">&quot;2050&quot;</span><span class="p">]</span>
+<span class="n">demand_stated</span> <span class="o">=</span> <span class="n">demand</span><span class="p">[[</span><span class="s1">&#39;2022&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">year_cols</span><span class="p">]</span>
+
+
+<span class="c1"># Get pledged and Net-Zero dataframes: clean up column names</span>
+<span class="n">demand_pledges</span> <span class="o">=</span> <span class="n">demand</span><span class="p">[[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">.1&quot;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">year_cols</span><span class="p">]]</span>
+<span class="n">demand_pledges</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.1&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">demand_pledges</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+
+<span class="n">demand_net_zero</span> <span class="o">=</span> <span class="n">demand</span><span class="p">[[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">.2&quot;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">year_cols</span><span class="p">]]</span>
+<span class="n">demand_net_zero</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.2&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">demand_net_zero</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+<span class="n">demand_stated</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>2022</th>
+      <th>2025</th>
+      <th>2030</th>
+      <th>2035</th>
+      <th>2040</th>
+      <th>2045</th>
+      <th>2050</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Boron</th>
+      <td>0.158618</td>
+      <td>0.175778</td>
+      <td>0.314919</td>
+      <td>0.287788</td>
+      <td>0.259729</td>
+      <td>0.329544</td>
+      <td>0.408226</td>
+    </tr>
+    <tr>
+      <th>Cadmium</th>
+      <td>0.420843</td>
+      <td>0.420292</td>
+      <td>0.397562</td>
+      <td>0.395331</td>
+      <td>0.411500</td>
+      <td>0.465976</td>
+      <td>0.503529</td>
+    </tr>
+    <tr>
+      <th>Chromium</th>
+      <td>181.109000</td>
+      <td>216.958000</td>
+      <td>365.130000</td>
+      <td>314.491000</td>
+      <td>427.519000</td>
+      <td>331.131000</td>
+      <td>326.113000</td>
+    </tr>
+    <tr>
+      <th>Copper</th>
+      <td>5735.860000</td>
+      <td>6472.900000</td>
+      <td>9298.250000</td>
+      <td>9490.560000</td>
+      <td>9804.580000</td>
+      <td>10680.900000</td>
+      <td>10647.500000</td>
+    </tr>
+    <tr>
+      <th>Cobalt</th>
+      <td>68.176500</td>
+      <td>69.487200</td>
+      <td>79.424500</td>
+      <td>83.869900</td>
+      <td>110.073000</td>
+      <td>136.270000</td>
+      <td>145.648000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.sciencebase.gov/catalog/file/get/5e616381e4b01d509255c7b6?f=__disk__9f</span><span class="si">%2F</span><span class="s2">e3</span><span class="si">%2F</span><span class="s2">8b</span><span class="si">%2F</span><span class="s2">9fe38b3bec1b9bc404b14578a226c080fcecf834&amp;allowOpen=true&quot;</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>&lt;head&gt;</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>&lt;meta http-equiv="Content-Type" content="text/...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>&lt;title&gt;Service Unavailable&lt;/title&gt;</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>&lt;link rel="shortcut icon" href="/errors/images...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write USGS data to CSV if desired</span>
+<span class="c1"># df.to_csv(&quot;data/mineral-samples.csv&quot;, index=False)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mapping countries to whether they are allies, neutral, or hostile</span>
+<span class="c1"># https://en.wikipedia.org/wiki/Foreign_relations_of_the_United_States</span>
+
+<span class="n">alliance_mapping</span><span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Chile&#39;</span><span class="p">:</span> <span class="s2">&quot;Neutral&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;South Africa&#39;</span><span class="p">:</span> <span class="s2">&quot;Ally&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;Finland&#39;</span><span class="p">:</span> <span class="s2">&quot;Ally&quot;</span><span class="p">,</span> 
+    <span class="s1">&#39;Mexico&#39;</span><span class="p">:</span> <span class="s2">&quot;Neutral&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;Indonesia&#39;</span><span class="p">:</span> <span class="s2">&quot;Ally&quot;</span><span class="p">,</span> 
+    <span class="s1">&#39;Norway&#39;</span><span class="p">:</span> <span class="s2">&quot;Ally&quot;</span><span class="p">,</span> 
+    <span class="s1">&#39;Canada&#39;</span><span class="p">:</span> <span class="s2">&quot;Ally&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;Russia&#39;</span><span class="p">:</span> <span class="s2">&quot;Strained Relations&quot;</span><span class="p">,</span> 
+    <span class="s1">&#39;Japan&#39;</span><span class="p">:</span> <span class="s2">&quot;Ally&quot;</span><span class="p">,</span> 
+    <span class="s1">&#39;Philippines&#39;</span><span class="p">:</span> <span class="s2">&quot;Neutral&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;Peru&#39;</span><span class="p">:</span> <span class="s2">&quot;Neutral&quot;</span><span class="p">,</span> 
+    <span class="s1">&#39;Cuba&#39;</span><span class="p">:</span> <span class="s2">&quot;Strained Relations&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;Australia&#39;</span><span class="p">:</span> <span class="s2">&quot;Ally&quot;</span><span class="p">,</span> 
+    <span class="s1">&#39;Burma&#39;</span><span class="p">:</span> <span class="s2">&quot;Neutral&quot;</span><span class="p">,</span> 
+    <span class="s1">&#39;Portugal&#39;</span><span class="p">:</span> <span class="s2">&quot;Ally&quot;</span><span class="p">,</span> 
+    <span class="s1">&#39;Sweden&#39;</span><span class="p">:</span> <span class="s2">&quot;Ally&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;China&#39;</span><span class="p">:</span> <span class="s2">&quot;Strained Relations&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;Mauritania&#39;</span><span class="p">:</span> <span class="s2">&quot;Neutral&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;Brazil&#39;</span><span class="p">:</span> <span class="s2">&quot;Neutral&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;Argentina&#39;</span><span class="p">:</span> <span class="s2">&quot;Neutral&quot;</span><span class="p">,</span> 
+    <span class="s1">&#39;Germany&#39;</span><span class="p">:</span> <span class="s2">&quot;Ally&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;Namibia&#39;</span><span class="p">:</span> <span class="s2">&quot;Neutral&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;Zambia&#39;</span><span class="p">:</span> <span class="s2">&quot;Neutral&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;India&#39;</span><span class="p">:</span> <span class="s2">&quot;Neutral&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;Poland&#39;</span><span class="p">:</span> <span class="s2">&quot;Ally&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;Democratic Republic of Congo&#39;</span><span class="p">:</span> <span class="s2">&quot;Neutral&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;Vietnam&#39;</span><span class="p">:</span> <span class="s2">&quot;Neutral&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;Papua New Guinea&#39;</span><span class="p">:</span> <span class="s2">&quot;Neutral&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;Honduras&#39;</span><span class="p">:</span> <span class="s2">&quot;Neutral&quot;</span>
+<span class="p">}</span>
+
+<span class="n">color_mapping</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Ally&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Strained Relations&quot;</span><span class="p">:</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Neutral&quot;</span><span class="p">:</span> <span class="s2">&quot;g&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">COUNTRY</span> <span class="o">!=</span> <span class="s2">&quot;United States&quot;</span><span class="p">]</span>
+
+
+
+<span class="n">dat</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;COUNTRY&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>\
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>\
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;LAB_ID&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">dat</span><span class="p">[</span><span class="s1">&#39;relations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dat</span><span class="p">[</span><span class="s1">&#39;COUNTRY&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">alliance_mapping</span><span class="p">)</span>
+<span class="n">dat</span><span class="p">[</span><span class="s1">&#39;relations_color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dat</span><span class="p">[</span><span class="s1">&#39;relations&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">color_mapping</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="nn">/var/folders/60/nwdftyjj6cg3ysz_pf9stwtc0000gn/T/ipykernel_21228/3537211073.py</span> in <span class="ni">?</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dat</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">COUNTRY</span> <span class="o">!=</span> <span class="s2">&quot;United States&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/pandas/core/generic.py</span> in <span class="ni">?</span><span class="nt">(self, name)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5483</span>             <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accessors</span>
+<span class="g g-Whitespace">   </span><span class="mi">5484</span>             <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_info_axis</span><span class="o">.</span><span class="n">_can_hold_identifiers_and_holds_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5485</span>         <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">5486</span>             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">5487</span>         <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;DataFrame&#39; object has no attribute &#39;COUNTRY&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot number of mineral samples per country</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;LAB_ID&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;COUNTRY&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">dat</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;relations&#39;</span><span class="p">,</span> <span class="n">dodge</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Number of Mineral Samples Produced&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Country&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Allies of the United States have been producing critical minerals faster than enemies. However, changing diplomatic relations can always tip the balance&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Number of Mineral Samples produced internationally&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Number of Mineral Samples produced internationally&#39;)
+</pre></div>
+</div>
+<img alt="_images/7b577947e155ba736563f1240bed37615ffbcdb7309eabfccad4ab6801ba3fdf.png" src="_images/7b577947e155ba736563f1240bed37615ffbcdb7309eabfccad4ab6801ba3fdf.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;LAB_ID&#39;, &#39;PREVIOUS_LAB_ID1&#39;, &#39;PREVIOUS_LAB_ID2&#39;, &#39;PREVIOUS_LAB_ID3&#39;,
+       &#39;FIELD_ID&#39;, &#39;JOB_ID&#39;, &#39;PREVIOUS_JOB_ID1&#39;, &#39;PREVIOUS_JOB_ID2&#39;,
+       &#39;PREVIOUS_JOB_ID3&#39;, &#39;SUBMITTER&#39;,
+       ...
+       &#39;Th_ppm_MS_ST&#39;, &#39;Tl_ppm_MS_ST&#39;, &#39;Tm_ppm_MS_ST&#39;, &#39;U_ppm_MS_ST&#39;,
+       &#39;V_ppm_AES_ST&#39;, &#39;W_ppm_MS_ST&#39;, &#39;Y_ppm_MS_ST&#39;, &#39;Yb_ppm_MS_ST&#39;,
+       &#39;Zn_ppm_AES_ST&#39;, &#39;Zr_ppm_AES_ST&#39;],
+      dtype=&#39;object&#39;, length=103)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Getting total mineral demand by year</span>
+<span class="n">total_demand</span> <span class="o">=</span> <span class="n">demand_stated</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;2022&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">demand_2022</span> <span class="o">=</span> <span class="n">demand_stated</span><span class="p">[</span><span class="s2">&quot;2022&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">total_pledge_demand</span> <span class="o">=</span> <span class="n">demand_pledges</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">total_demand_zero_emissions</span> <span class="o">=</span> <span class="n">demand_net_zero</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">total_demand</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025    20856.888478
+2030    30633.900114
+2035    32544.079321
+2040    35585.129155
+2045    37903.362894
+2050    37540.554727
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>One contirbutor to the rise in demand for critical minerals is the increase of the presence of clean technology. We can use the IEA data to show the projected demand for a few different scenarios</p>
+<ol class="arabic simple">
+<li><p>If current pledges by countries to meet emissions quotas remain</p></li>
+<li><p>If countries meet their emission pledges</p></li>
+<li><p>If countries were to go neyt-zero emissions by 2050</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">total_demand_zero_emissions</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Net-Zero Emissions&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">total_pledge_demand</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Pledges Made&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">total_demand</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Current Policies&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add labels and legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Total Critical Mineral Demand (kilotons)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Clean Energy Critical Mineral Demand Projections through 2050: IEA&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;With increasing demand for critical minerals to fuel clean technology, supply will have to keep up</span><span class="se">\n</span><span class="s2">Required demand to reach a net-zero emissions goal by 2050 is outpacing current projections for critical mineral demand.&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Projected CLean Tech Mineral Demand for...&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fdd935edf70&gt;
+</pre></div>
+</div>
+<img alt="_images/8f12566014b8831aaa72f5c1b2c2b4121c0bd21998df093b4c7caa6447df3a08.png" src="_images/8f12566014b8831aaa72f5c1b2c2b4121c0bd21998df093b4c7caa6447df3a08.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="story6.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Story 6</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Andrew Bowen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

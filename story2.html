@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Story 2 &#8212; DATA 608 - Knowledge and Visual Analytics</title>
   
@@ -44,6 +44,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -61,14 +62,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'story2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Story 3" href="story3.html" />
     <link rel="prev" title="Story 1" href="story1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -155,6 +157,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="one-page-bio.html">One Page Bio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="story1.html">Story 1</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Story 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story3.html">Story 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story4.html">Story 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story5.html">Story 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story6.html">Story 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="story7.html">Story 7</a></li>
 </ul>
 
     </div>
@@ -373,15 +380,15 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="story-2">
-<h1>Story 2<a class="headerlink" href="#story-2" title="Permalink to this headline">#</a></h1>
+<h1>Story 2<a class="headerlink" href="#story-2" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>Inflation and its economic effects have been in the news recently. The Fed’s goal has been to curb inflation (the general rise in the price of goods and services) and maintain a <a class="reference external" href="https://www.investopedia.com/terms/u/unemployment.asp">low unemployment rate</a> – the number of active job-seekers out of work. <a class="reference external" href="https://socialsci.libretexts.org/Bookshelves/Economics/Economics_(Boundless)/23%3A_Inflation_and_Unemployment/23.1%3A_The_Relationship_Between_Inflation_and_Unemployment#:~:text=The%20Phillips%20curve%20shows%20the%20inverse%20trade%2Doff%20between%20rates,low%2C%20inflation%20will%20be%20high.">The Phillips Curve</a> is an economic principle stating the general negative relationship between these two variables. Simply put, economies with higher inflation tend to have lower unemployment, and vice versa.</p>
 <p>The Federal Reserve (Fed) is central bank of the United States, and is tasked with leveraging monetary policy to curb both these factors. This means the Fed can face the difficult choice of <em>either</em> reducing inflation <em>or</em> curbing unemployment. The main way the Fed can do this is via monetary policy, or the control of interest rates, which in theory can impact the amount of spending &amp; investingment in an economy. Jerome Powell, the Federal Reserve chairman, has stated a goal of accomplishing both these goals, something that the Phillips curve states is impossible.</p>
 <p>In this RMarkdown notebook we’ll take a look at interest rate, unemployment, and inflation data to see if the Fed has accomplished these goals.</p>
 </section>
 <section id="data-sources">
-<h2>Data Sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">#</a></h2>
+<h2>Data Sources<a class="headerlink" href="#data-sources" title="Permalink to this heading">#</a></h2>
 <p>We’ll be using the API from the St Louis Federal Reserve forinterest rate data</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://fredhelp.stlouisfed.org/fred/about/about-fred/what-is-fred/">FRED API</a> -</p></li>
@@ -399,9 +406,9 @@ document.write(`
 </div>
 </section>
 <section id="data-collection">
-<h2>Data Collection<a class="headerlink" href="#data-collection" title="Permalink to this headline">#</a></h2>
+<h2>Data Collection<a class="headerlink" href="#data-collection" title="Permalink to this heading">#</a></h2>
 <section id="consumer-price-index">
-<h3>Consumer Price Index<a class="headerlink" href="#consumer-price-index" title="Permalink to this headline">#</a></h3>
+<h3>Consumer Price Index<a class="headerlink" href="#consumer-price-index" title="Permalink to this heading">#</a></h3>
 <p>First we’ll pull data on the Consumer Price Index (CPI) from the BLS API. <a class="reference external" href="https://www.bls.gov/cpi/">CPI is a measure of the general prices for a basket of goods at a given point in time</a>. As such, it can serve as a good proxy measure for inflation (the general increase of price for gods and services) within an economy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -469,7 +476,7 @@ cpi_df &lt;- cpi_df[, c(&quot;date&quot;, &quot;cpi&quot;)]
 </div>
 </section>
 <section id="federal-funds-rate">
-<h3>Federal Funds Rate<a class="headerlink" href="#federal-funds-rate" title="Permalink to this headline">#</a></h3>
+<h3>Federal Funds Rate<a class="headerlink" href="#federal-funds-rate" title="Permalink to this heading">#</a></h3>
 <p>Grbabing interest rate data from the <a class="reference external" href="https://fred.stlouisfed.org/docs/api/fred/">St Louis Fed API (FRED)</a>. The <a class="reference external" href="https://fred.stlouisfed.org/series/FEDFUNDS">endpoint I’m using</a> contains information about the Federal Effective Funds rate, which is the <a class="reference external" href="https://www.investopedia.com/terms/f/federalfundsrate.asp">interest rate charged to banks borrowing overnight to meet their reserve requirements</a>. This is often an economic lever the <a class="reference external" href="https://www.nytimes.com/2023/09/19/business/economy/fed-meeting-interest-rates-inflation.html?searchResultPosition=2">Federal Reserve (Fed) can pull</a> in order to curb inflation or encourage spending in the economy.</p>
 <div class="cell tag_remove_input docutils container">
 </div>
@@ -518,7 +525,7 @@ head(fed, 5)
 </div>
 </section>
 <section id="unemployment-rate">
-<h3>Unemployment Rate<a class="headerlink" href="#unemployment-rate" title="Permalink to this headline">#</a></h3>
+<h3>Unemployment Rate<a class="headerlink" href="#unemployment-rate" title="Permalink to this heading">#</a></h3>
 <p>I found a CSV file containing <a class="reference external" href="https://beta.bls.gov/dataViewer/view/timeseries/LNS14000000">seasonally adjusted unemployment data from BLS here</a>. I’ve uploaded that to <a class="reference external" href="https://github.com/andrewbowen19/storiesDATA608/blob/main/data/unemployment-bls.csv">my GitHub here</a> and will be pulling from that URL</p>
 <div class="cell tag_remove_input docutils container">
 </div>
@@ -551,7 +558,7 @@ head(unemployment, 5)
 </section>
 </section>
 <section id="combining-our-datasets">
-<h2>Combining our Datasets<a class="headerlink" href="#combining-our-datasets" title="Permalink to this headline">#</a></h2>
+<h2>Combining our Datasets<a class="headerlink" href="#combining-our-datasets" title="Permalink to this heading">#</a></h2>
 <p>Now we can join together our datasets to overlay the data points in a single panel plot</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -596,7 +603,7 @@ head(unemployment, 5)
 <p>Looking at the panel plot above, we see the period of “easy money” from 2008 - 2016. This came in the wake of the Great Recession, when the Fed was looking to tackle some of the highest levels of national unemployment since the Great Depression. The CPI stays relatively flat during this period, as near-zero interest rates were in place to maximize employment. In simpler terms, the economy had not “super-heated” as a result of low interest rates <em>yet</em>, so the Fed kept them low to tackle unemployment.</p>
 <p>The <a class="reference external" href="https://sgp.fas.org/crs/misc/IF10443.pdf">natural rate of unemployment in the US is <span class="math notranslate nohighlight">\(~4.5\%\)</span></a>, which started to occur around 2016. By this point, inflationary pressures weren’t occurring yet in the CPI panel above.</p>
 <section id="economic-indicators-during-covid">
-<h3>Economic Indicators During COVID<a class="headerlink" href="#economic-indicators-during-covid" title="Permalink to this headline">#</a></h3>
+<h3>Economic Indicators During COVID<a class="headerlink" href="#economic-indicators-during-covid" title="Permalink to this heading">#</a></h3>
 <p>One time period of interest is 2020-onwards, as the economic effects of COVID-19 are still impacting society today.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -621,7 +628,7 @@ head(unemployment, 5)
 </section>
 </section>
 <section id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
 <p>Overall, the Fed has the (unenviable) task of keeping <em>both</em> low unempoyment rates and low inflation. In recent years, the Fed has been able to maintain low unemployment in the face of COVID-related economic impacts. However, inflation has continued to be the thorn in the side of the federal reserve after the pandemic.</p>
 <p>In short, the Federal reserve was able to keep inflation and unemployment low for stretches, but external economic factors have made that a tougher job recently. It remains to be seen whether the central bank can keep prices down in the next few business cycles.</p>
 </section>
@@ -666,6 +673,15 @@ head(unemployment, 5)
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Story 1</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="story3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Story 3</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
